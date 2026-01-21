@@ -10,13 +10,18 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",
     "motion": "^12.23.26",
-    "next": "15.3.2",
+    "next": "^16.1.1-canary.36",
+    "next-sanity": "^12.0.14",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sanity": "^5.5.0",
+    "styled-components": "^6.3.8",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {

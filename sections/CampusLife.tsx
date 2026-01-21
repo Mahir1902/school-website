@@ -71,7 +71,7 @@ export default function CampusLife() {
   return (
     <section
       ref={sectionRef}
-      className="bg-muted/30 py-16 md:py-24 px-6 md:px-12 lg:px-24"
+      className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

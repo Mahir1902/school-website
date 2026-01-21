@@ -34,7 +34,7 @@ export default function Welcome() {
   return (
     <section
       ref={sectionRef}
-      className="bg-background py-16 md:py-24 px-6 md:px-12 lg:px-24"
+      className="bg-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
         <div

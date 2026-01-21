@@ -79,7 +79,7 @@ export default function WhyChooseSIS() {
   return (
     <section
       ref={sectionRef}
-      className="bg-muted/30 py-16 md:py-24 px-6 md:px-12 lg:px-24"
+      className="bg-muted py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
