@@ -1,16 +1,52 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lora, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import localFont from 'next/font/local'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const montserrat = Montserrat({
+//   variable: "--font-montserrat",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700"],
+// });
+
+// const quadraat = localFont({
+//   src: '../assets/fonts/FFQuadraatPro-Regular.ttf',
+//   variable: "--font-quadraat",
+// })
+
+// const lora = Lora({
+//   variable: "--font-lora",
+//   subsets: ["latin"],
+//   weight: ["400", "500", "600", "700"],
+// })
+
+const orpheus = localFont({
+  src: '../assets/fonts/OrpheusPro-Bold.ttf',
+  variable: "--font-orpheus",
+})
+
+const orpheusNormal = localFont({
+  src: '../assets/fonts/OrpheusW05-Regular.ttf',
+  variable: "--font-orpheusNormal",
+})
+
+const proximaNova = localFont({
+  src: '../assets/fonts/ProximaNovaA-Light.ttf',
+  variable: "--font-proximaNova",
+})
+
+const le_beaune = localFont({
+  src: '../assets/fonts/LeBeauneNew.otf',
+  variable: "--font-le_beaune",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,8 +61,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${orpheus.variable} ${proximaNova.variable} ${orpheusNormal.variable} ${poppins.variable} ${le_beaune.variable} antialiased h-screen`}
       >
+        {/* <Navbar/> */}
         {children}
       </body>
     </html>
