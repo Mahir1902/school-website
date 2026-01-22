@@ -64,6 +64,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
 
   return (
     <section
+      id="news"
       ref={sectionRef}
       className="bg-muted py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >

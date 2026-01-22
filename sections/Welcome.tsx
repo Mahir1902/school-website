@@ -33,6 +33,7 @@ export default function Welcome() {
 
   return (
     <section
+      id="about"
       ref={sectionRef}
       className="bg-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >
@@ -73,7 +74,7 @@ export default function Welcome() {
           </div>
 
           {/* Image */}
-          <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-xl">
+          <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-[0_4px_6px_-1px_rgb(156,163,175,0.5)]">
             <Image
               src={hero1}
               alt="Singapore International School Campus"

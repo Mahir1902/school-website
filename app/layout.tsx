@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lora, Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import ScrollNavbar from "@/components/ScrollNavbar";
 import localFont from 'next/font/local'
 
 
@@ -64,6 +65,7 @@ export default function RootLayout({
         className={` ${orpheus.variable} ${proximaNova.variable} ${orpheusNormal.variable} ${poppins.variable} ${le_beaune.variable} antialiased h-screen`}
       >
         {/* <Navbar/> */}
+        <ScrollNavbar />
         {children}
       </body>
     </html>

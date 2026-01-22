@@ -45,12 +45,12 @@ export default function Footer() {
               />
               <div>
                 <h3 className="font-orpheus text-xl text-white">SIS</h3>
-                <p className="text-white/70 text-xs font-proximaNova">
+                <p className="text-white/70 text-xs font-proximaNova font-semibold">
                   Excellence in Education
                 </p>
               </div>
             </div>
-            <p className="text-white/80 font-proximaNova leading-relaxed text-sm">
+            <p className="text-white/80 font-proximaNova leading-relaxed text-sm font-semibold">
               Empowering students to become global citizens through world-class
               education, innovation, and character development since 2000.
             </p>
@@ -77,7 +77,7 @@ export default function Footer() {
                 <li key={link.title}>
                   <a
                     href={link.href}
-                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block font-semibold"
                   >
                     {link.title}
                   </a>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={link.title}>
                   <a
                     href={link.href}
-                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block"
+                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block font-semibold"
                   >
                     {link.title}
                   </a>
@@ -110,7 +110,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white/80 font-proximaNova text-sm leading-relaxed">
+                  <p className="text-white/80 font-proximaNova text-sm leading-relaxed font-semibold">
                     123 Education Avenue
                     <br />
                     Singapore 123456
@@ -121,7 +121,7 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
                 <a
                   href="tel:+6512345678"
-                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300"
+                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 font-semibold"
                 >
                   +65 1234 5678
                 </a>
@@ -130,7 +130,7 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
                 <a
                   href="mailto:info@sis.edu"
-                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300"
+                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 font-semibold"
                 >
                   info@sis.edu
                 </a>

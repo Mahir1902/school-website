@@ -70,6 +70,7 @@ export default function CampusLife() {
 
   return (
     <section
+      id="campus"
       ref={sectionRef}
       className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
     >

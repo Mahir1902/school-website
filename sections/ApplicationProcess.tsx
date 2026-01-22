@@ -54,6 +54,7 @@ export default function ApplicationProcess() {
 
   return (
     <section
+      id="admissions"
       ref={sectionRef}
       className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-20 md:py-28 px-6 md:px-12 lg:px-24"
     >
@@ -105,7 +106,7 @@ export default function ApplicationProcess() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-foreground/60 font-proximaNova text-sm">
+                  <p className="text-foreground/60 font-proximaNova text-md font-medium">
                     {option.description}
                   </p>
 
@@ -129,7 +130,7 @@ export default function ApplicationProcess() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-foreground/60 font-proximaNova text-sm">
+            <p className="text-foreground/60 font-proximaNova text-md font-medium">
               Questions? Contact our admissions team at{" "}
               <a
                 href="mailto:admissions@sis.edu"

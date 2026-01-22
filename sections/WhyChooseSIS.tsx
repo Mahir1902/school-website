@@ -105,7 +105,7 @@ export default function WhyChooseSIS() {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`bg-card p-8 rounded-lg border border-border shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 hover:border-primary/30 ${
+              className={`bg-card p-8 rounded-lg border border-border  hover:shadow-lg transition-all duration-300 hover:scale-105 hover:border-primary/30 ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"

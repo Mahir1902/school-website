@@ -90,6 +90,7 @@ export default function AcademicPrograms() {
 
   return (
     <section
+      id="programs"
       ref={sectionRef}
       className="bg-background py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
     >
