@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import hero1 from "@/assets/hero-1.jpg";
+// import hero1 from "@/assets/hero-1.jpg";
+import bc_awards from "@/assets/BC_Awards.jpg";
 
 export default function Welcome() {
   const [isVisible, setIsVisible] = useState(false);
@@ -76,7 +77,7 @@ export default function Welcome() {
           {/* Image */}
           <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-[0_4px_6px_-1px_rgb(156,163,175,0.5)]">
             <Image
-              src={hero1}
+              src={bc_awards}
               alt="Singapore International School Campus"
               fill
               className="object-cover"

@@ -1,5 +1,6 @@
 import Hero from "@/sections/Hero";
 import Welcome from "@/sections/Welcome";
+import PrincipalsWelcome from "@/sections/PrincipalsWelcome";
 import WhyChooseSIS from "@/sections/WhyChooseSIS";
 import AcademicPrograms from "@/sections/AcademicPrograms";
 import CampusLife from "@/sections/CampusLife";
@@ -14,6 +15,7 @@ export default function Home() {
     <>
       <div className="h-full">
         <Hero />
+        <PrincipalsWelcome />
         <Welcome />
         <WhyChooseSIS />
         <AcademicPrograms />
