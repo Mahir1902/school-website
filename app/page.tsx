@@ -1,5 +1,5 @@
 import Hero from "@/sections/Hero";
-import Welcome from "@/sections/Welcome";
+// import Welcome from "@/sections/Welcome";
 import PrincipalsWelcome from "@/sections/PrincipalsWelcome";
 import WhyChooseSIS from "@/sections/WhyChooseSIS";
 import AcademicPrograms from "@/sections/AcademicPrograms";
@@ -16,10 +16,10 @@ export default function Home() {
       <div className="h-full">
         <Hero />
         <PrincipalsWelcome />
-        <Welcome />
+        {/* <Welcome /> */}
         <WhyChooseSIS />
-        <AcademicPrograms />
         <CampusLife />
+        <AcademicPrograms />
         <Stats />
         <Testimonials />
         <News />
