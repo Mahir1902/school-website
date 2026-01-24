@@ -2,40 +2,41 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero4 from "@/assets/hero-4.jpg";
-import hero5 from "@/assets/hero-5.jpg";
-import hero6 from "@/assets/hero-6.jpg";
+import awards from "@/assets/BC_Awards.jpg";
+import sports from "@/assets/sports.jpg";
+import arts from "@/assets/arts_and_creativity.jpg"
+import science from "@/assets/science_and_innovation.jpg"
+import extracurricular from "@/assets/extracurricular.jpg"
+import events from "@/assets/events_and_celebrations.jpg"
 
 const campusActivities = [
   {
-    image: hero1,
+    image: awards,
     title: "Academic Excellence",
     category: "Learning",
   },
   {
-    image: hero2,
+    image: sports,
     title: "Sports & Athletics",
     category: "Physical Education",
   },
   {
-    image: hero4,
+    image: arts,
     title: "Arts & Creativity",
     category: "Cultural",
   },
   {
-    image: hero5,
+    image: science,
     title: "Science & Innovation",
     category: "STEM",
   },
   {
-    image: hero6,
-    title: "Student Life",
-    category: "Community",
+    image: extracurricular,
+    title: "Clubs & Societies",
+    category: "Extracurricular",
   },
   {
-    image: hero1,
+    image: events,
     title: "Events & Celebrations",
     category: "Activities",
   },
@@ -106,7 +107,7 @@ export default function CampusLife() {
               src={campusActivities[0].image}
               alt={campusActivities[0].title}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-cover transition-transform duration-500 group-hover:scale-110 bg-black/50"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-300 group-hover:translate-y-0 translate-y-2">
