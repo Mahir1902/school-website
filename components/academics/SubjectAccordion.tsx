@@ -22,7 +22,7 @@ export default function SubjectAccordion({
       height: 0,
       opacity: 0,
       transition: {
-        height: { type: "spring", stiffness: 300, damping: 30 },
+        height: { type: "spring" as const, stiffness: 300, damping: 30 },
         opacity: { duration: 0.2 }
       }
     },
@@ -30,7 +30,7 @@ export default function SubjectAccordion({
       height: "auto",
       opacity: 1,
       transition: {
-        height: { type: "spring", stiffness: 300, damping: 30 },
+        height: { type: "spring" as const, stiffness: 300, damping: 30 },
         opacity: { duration: 0.3, delay: 0.1 }
       }
     }
@@ -39,11 +39,11 @@ export default function SubjectAccordion({
   const chevronVariants = {
     collapsed: {
       rotate: 0,
-      transition: { type: "spring", stiffness: 300, damping: 25 }
+      transition: { type: "spring" as const, stiffness: 300, damping: 25 }
     },
     expanded: {
       rotate: 180,
-      transition: { type: "spring", stiffness: 300, damping: 25 }
+      transition: { type: "spring" as const, stiffness: 300, damping: 25 }
     }
   };
 
@@ -55,7 +55,7 @@ export default function SubjectAccordion({
       transition: {
         delay: index * 0.03, // 30ms stagger
         duration: 0.25,
-        ease: "easeOut"
+        ease: "easeOut" as const
       }
     })
   };
@@ -66,7 +66,7 @@ export default function SubjectAccordion({
       scale: 1,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 20
       }
