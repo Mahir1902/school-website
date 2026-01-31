@@ -165,14 +165,14 @@ export default function AcademicsOverviewPage() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/80" />
+          <div className="absolute inset-0 bg-primary/95" />
 
           <div className="relative h-full flex items-center justify-center text-center px-6">
             <div className="max-w-3xl">
               <h2 className="text-3xl md:text-4xl font-orpheus text-white mb-4">
                 Ready to Begin Your Child's Academic Journey?
               </h2>
-              <p className="text-white/95 font-proximaNova text-lg mb-8">
+              <p className="text-white font-proximaNova text-lg mb-8">
                 Discover how our comprehensive academic programs can prepare your child
                 for success in a global environment.
               </p>
@@ -186,9 +186,8 @@ export default function AcademicsOverviewPage() {
                 </CTAButton>
                 <CTAButton
                   href="/#contact"
-                  variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/10"
+                  className="bg-white/20 hover:bg-white/30 text-white border-2 border-white"
                 >
                   Contact Us
                 </CTAButton>

@@ -3,12 +3,12 @@ import Image from "next/image";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
 import InfoCard from "@/components/academics/InfoCard";
-import PathwayTimeline from "@/components/academics/PathwayTimeline";
+// import PathwayTimeline from "@/components/academics/PathwayTimeline";
 import CTAButton from "@/components/academics/CTAButton";
 import {
   edexcelContent,
   edexcelBenefits,
-  edexcelPathway,
+  // edexcelPathway,
 } from "@/data/academics/edexcel";
 import hero2 from "@/assets/hero-2.jpg";
 import awardsImage from "@/assets/BC_Awards.jpg";
@@ -80,9 +80,9 @@ export default function EdexcelPage() {
       <section>
         <SectionHeading>Your Edexcel Qualification Pathway</SectionHeading>
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <PathwayTimeline steps={edexcelPathway} />
-        </div>
+        </div> */}
       </section>
 
       {/* Success Stories with Image */}
@@ -246,7 +246,7 @@ export default function EdexcelPage() {
       {/* Call to Action with Background */}
       <section className="relative overflow-hidden rounded-lg">
         <div className="relative">
-          <div className="bg-gradient-to-r from-primary via-primary/95 to-secondary/80 p-8 md:p-16 text-center">
+          <div className="bg-primary p-8 md:p-16 text-center">
             <div className="max-w-3xl mx-auto">
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <GraduationCap className="w-10 h-10 text-white" />
@@ -254,7 +254,7 @@ export default function EdexcelPage() {
               <h2 className="text-3xl md:text-4xl font-orpheus text-white mb-4">
                 Join Our Edexcel Programme
               </h2>
-              <p className="text-white/95 font-proximaNova text-lg mb-8">
+              <p className="text-white font-proximaNova text-lg mb-8">
                 Give your child access to internationally recognized qualifications
                 that open doors to universities worldwide.
               </p>
@@ -268,9 +268,8 @@ export default function EdexcelPage() {
                 </CTAButton>
                 <CTAButton
                   href="/#contact"
-                  variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/10"
+                  className="bg-white/20 hover:bg-white/30 text-white border-2 border-white"
                 >
                   Contact Us
                 </CTAButton>
