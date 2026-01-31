@@ -1,0 +1,132 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e167]:
+      - heading "Academic Programs" [level=2] [ref=e168]
+      - button "Open menu" [ref=e169]:
+        - img [ref=e170]
+    - navigation "Breadcrumb" [ref=e20]:
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - link "Home" [ref=e23] [cursor=pointer]:
+            - /url: /
+            - img [ref=e24]
+            - text: Home
+        - listitem [ref=e27]:
+          - img [ref=e28]
+          - generic [ref=e30]: Academics
+    - main [ref=e31]:
+      - generic [ref=e32]:
+        - generic [ref=e33]:
+          - img "Excellence Through Holistic Education" [ref=e35]
+          - generic [ref=e37]:
+            - heading "Excellence Through Holistic Education" [level=1] [ref=e38]
+            - paragraph [ref=e39]: A comprehensive academic journey from early childhood to university preparation
+        - paragraph [ref=e42]: At Singapore International School, we provide a structured academic pathway from Early Childhood Education through to internationally recognised O-Level and A-Level qualifications. As an approved Pearson Edexcel centre, our curriculum combines rigorous academic standards with hands-on, inquiry-based learning. We focus on the individual learner at every grade level, nurturing curiosity, critical thinking, and a lifelong love of learning. Our goal is to provide students with all essential elements in the learning process through a hands-on, inquiry-based, learning through discovery philosophy. Students accept the challenges of open-ended problem-solving activities, effective communication, leadership, understanding and responsibility.
+        - generic [ref=e43]:
+          - heading "Our Academic Excellence" [level=2] [ref=e45]
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - img [ref=e50]
+              - heading "4" [level=3] [ref=e53]
+              - paragraph [ref=e54]: Levels of Education
+            - generic [ref=e55]:
+              - img [ref=e57]
+              - heading "Edexcel" [level=3] [ref=e60]
+              - paragraph [ref=e61]: Approved Centre
+            - generic [ref=e62]:
+              - img [ref=e64]
+              - heading "20 max" [level=3] [ref=e69]
+              - paragraph [ref=e70]: Students Per Class
+            - generic [ref=e71]:
+              - img [ref=e73]
+              - heading "30+" [level=3] [ref=e75]
+              - paragraph [ref=e76]: Years Established
+        - generic [ref=e77]:
+          - heading "Our Academic Programmes" [level=2] [ref=e79]
+          - generic [ref=e81]:
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - heading "Pre-School Program" [level=3] [ref=e84]
+                - paragraph [ref=e85]: Ages 2-6
+              - paragraph [ref=e86]: Our pre-school program provides a nurturing environment where young learners develop foundational skills through play-based learning and creative exploration.
+              - list [ref=e87]:
+                - listitem [ref=e88]:
+                  - generic [ref=e89]: •
+                  - generic [ref=e90]: Maximum 20 students per class
+                - listitem [ref=e91]:
+                  - generic [ref=e92]: •
+                  - generic [ref=e93]: 2 qualified teachers per class
+                - listitem [ref=e94]:
+                  - generic [ref=e95]: •
+                  - generic [ref=e96]: Free textbooks and materials
+                - listitem [ref=e97]:
+                  - generic [ref=e98]: •
+                  - generic [ref=e99]: Air-conditioned classrooms
+                - listitem [ref=e100]:
+                  - generic [ref=e101]: •
+                  - generic [ref=e102]: Dedicated nannies for younger children
+              - link "Learn More" [ref=e103] [cursor=pointer]:
+                - /url: /academics/pre-school
+                - text: Learn More
+                - img
+            - generic [ref=e104]:
+              - generic [ref=e105]:
+                - heading "Primary School" [level=3] [ref=e106]
+                - paragraph [ref=e107]: Ages 6-12
+              - paragraph [ref=e108]: Building knowledge, character, and confidence through a comprehensive curriculum that develops critical thinking and academic excellence.
+              - list [ref=e109]:
+                - listitem [ref=e110]:
+                  - generic [ref=e111]: •
+                  - generic [ref=e112]: Individual subject teachers
+                - listitem [ref=e113]:
+                  - generic [ref=e114]: •
+                  - generic [ref=e115]: Full-time co-teacher assistance
+                - listitem [ref=e116]:
+                  - generic [ref=e117]: •
+                  - generic [ref=e118]: International Primary curriculum
+                - listitem [ref=e119]:
+                  - generic [ref=e120]: •
+                  - generic [ref=e121]: iPrimary examinations at Standard 5
+                - listitem [ref=e122]:
+                  - generic [ref=e123]: •
+                  - generic [ref=e124]: Computer education from Standard 1
+              - link "Learn More" [ref=e125] [cursor=pointer]:
+                - /url: /academics/primary
+                - text: Learn More
+                - img
+            - generic [ref=e126]:
+              - generic [ref=e127]:
+                - heading "Secondary School" [level=3] [ref=e128]
+                - paragraph [ref=e129]: Ages 12-16
+              - paragraph [ref=e130]: Preparing students for global success with internationally recognized IGCSE qualifications and university pathway preparation.
+              - list [ref=e131]:
+                - listitem [ref=e132]:
+                  - generic [ref=e133]: •
+                  - generic [ref=e134]: Specialist subject teachers
+                - listitem [ref=e135]:
+                  - generic [ref=e136]: •
+                  - generic [ref=e137]: IGCSE preparation from Standard 9
+                - listitem [ref=e138]:
+                  - generic [ref=e139]: •
+                  - generic [ref=e140]: Choice of 37 subjects
+                - listitem [ref=e141]:
+                  - generic [ref=e142]: •
+                  - generic [ref=e143]: Science labs and computer facilities
+                - listitem [ref=e144]:
+                  - generic [ref=e145]: •
+                  - generic [ref=e146]: University counseling support
+              - link "Learn More" [ref=e147] [cursor=pointer]:
+                - /url: /academics/secondary
+                - text: Learn More
+                - img
+        - generic [ref=e148]:
+          - heading "Ready to Begin Your Child's Academic Journey?" [level=2] [ref=e149]
+          - paragraph [ref=e150]: Discover how our comprehensive academic programs can prepare your child for success in a global environment.
+          - generic [ref=e151]:
+            - link "Apply Now" [ref=e152] [cursor=pointer]:
+              - /url: /#admissions
+            - link "Contact Us" [ref=e153] [cursor=pointer]:
+              - /url: /#contact
+  - button "Open Next.js Dev Tools" [ref=e160] [cursor=pointer]:
+    - img [ref=e161]
+  - alert [ref=e164]

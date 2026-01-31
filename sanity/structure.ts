@@ -31,4 +31,14 @@ export const structure: StructureResolver = (S) =>
             .title('Statistics')
             .defaultOrdering([{ field: 'order', direction: 'asc' }])
         ),
+
+      S.divider(),
+
+      S.listItem()
+        .title('📅 Calendar Events')
+        .child(
+          S.documentTypeList('calendarEvent')
+            .title('Calendar Events')
+            .defaultOrdering([{ field: 'startDate', direction: 'asc' }])
+        ),
     ])

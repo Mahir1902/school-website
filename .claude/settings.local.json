@@ -14,7 +14,18 @@
       "mcp__playwright__browser_evaluate",
       "mcp__playwright__browser_click",
       "mcp__playwright__browser_wait_for",
-      "mcp__playwright__browser_snapshot"
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_hover",
+      "mcp__Sanity__list_projects",
+      "mcp__Sanity__list_datasets",
+      "mcp__Sanity__list_workspace_schemas",
+      "mcp__Sanity__get_schema",
+      "Bash(npx sanity schema deploy)",
+      "Bash(npx sanity:*)",
+      "Bash(ls:*)",
+      "mcp__Sanity__query_documents",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }

@@ -39,3 +39,16 @@ export const statsQuery = groq`
     label
   }
 `
+
+// Fetch calendar events ordered by start date
+export const calendarEventsQuery = groq`
+  *[_type == "calendarEvent"] | order(startDate asc) {
+    _id,
+    title,
+    eventType,
+    startDate,
+    endDate,
+    description,
+    category
+  }
+`
