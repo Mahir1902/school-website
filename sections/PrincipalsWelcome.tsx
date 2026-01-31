@@ -34,13 +34,13 @@ export default function PrincipalsWelcome() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-white overflow-hidden"
+      className="relative py-20 bg-white overflow-hidden border border-red-500"
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div
-            className={`space-y-6 transition-all duration-1000 ${
+            className={` order-2 lg:order-1 pace-y-6 transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 -translate-x-10"
@@ -56,10 +56,6 @@ export default function PrincipalsWelcome() {
               WELCOME
             </h2>
 
-            {/* Greeting */}
-            {/* <p className="text-xl font-proximaNova text-gray-700">
-              Welcome!
-            </p> */}
 
             {/* Body Text */}
             <p className="text-lg font-proximaNova font-bold text-gray-600 leading-relaxed flex flex-col gap-2">
@@ -75,22 +71,22 @@ export default function PrincipalsWelcome() {
 
           {/* Right Image */}
           <div
-            className={`relative transition-all duration-1000 delay-300 ${
+            className={` order-1 lg:order-2 relative transition-all duration-1000 delay-300 ${
               isVisible
                 ? "opacity-100 translate-x-0"
                 : "opacity-0 translate-x-10"
             }`}
           >
-            <div className="relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden rounded-lg ">
-              {/* Yellow accent bar - behind the image */}
-              <div className="w-40 bg-primary h-[40%] absolute right-0 top-1/2 -translate-y-1/2 bottom-0 z-0 rounded-r-lg" />
+            <div className="relative aspect-[5/3] lg:aspect-[3/4] overflow-hidden lg:rounded-lg ">
+              {/* green accent bar - behind the image */}
+              <div className="w-40 bg-primary h-[40%] absolute   right-0 top-1/2 -translate-y-1/2 bottom-0 z-0 rounded-r-lg" />
 
               {/* Principal Image - in front */}
               <Image
                 src={principalImage}
                 alt="Principal at Singapore International School"
                 
-                className="object-cover absolute right-3 top-46 bottom-0 z-10 "
+                className="object-cover absolute lg:right-3 lg:top-46 lg:bottom-0 z-10 rounded-lg"
                 
               />
             </div>
