@@ -3,7 +3,8 @@ import Image from "next/image";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
 import DataTable from "@/components/academics/DataTable";
-import SubjectGrid, { SubjectCategoryData } from "@/components/academics/SubjectGrid";
+import SubjectAccordion from "@/components/academics/SubjectAccordion";
+import { SubjectCategoryData } from "@/components/academics/SubjectGrid";
 import InfoCard from "@/components/academics/InfoCard";
 import CTAButton from "@/components/academics/CTAButton";
 import { igcseProgram, igcseAwards } from "@/data/academics/programs";
@@ -142,12 +143,12 @@ export default function IGCSEPage() {
         <div className="bg-primary/5 rounded-lg p-6 mb-6">
           <p className="text-foreground/70 font-proximaNova">
             Students typically select 5-10 subjects based on their interests and
-            university goals. Our academic counselors provide guidance on optimal
-            subject combinations for different career paths.
+            university goals. Click on each category below to view available subjects
+            and explore the options that align with your career aspirations.
           </p>
         </div>
 
-        <SubjectGrid categories={igcseSubjects} />
+        <SubjectAccordion categories={igcseSubjects} defaultOpenIndex={0} />
       </section>
 
       {/* IGCSE Preparation at SIS */}

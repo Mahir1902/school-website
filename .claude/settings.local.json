@@ -25,7 +25,10 @@
       "Bash(npx sanity:*)",
       "Bash(ls:*)",
       "mcp__Sanity__query_documents",
-      "mcp__ide__getDiagnostics"
+      "mcp__ide__getDiagnostics",
+      "mcp__playwright__browser_close",
+      "Bash(pkill:*)",
+      "mcp__playwright__browser_console_messages"
     ]
   }
 }

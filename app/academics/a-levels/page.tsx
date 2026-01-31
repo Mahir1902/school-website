@@ -3,7 +3,8 @@ import Image from "next/image";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
 import DataTable from "@/components/academics/DataTable";
-import SubjectGrid, { SubjectCategoryData } from "@/components/academics/SubjectGrid";
+import SubjectAccordion from "@/components/academics/SubjectAccordion";
+import { SubjectCategoryData } from "@/components/academics/SubjectGrid";
 import InfoCard from "@/components/academics/InfoCard";
 import CTAButton from "@/components/academics/CTAButton";
 import {
@@ -198,12 +199,12 @@ export default function ALevelsPage() {
         <div className="bg-primary/5 rounded-lg p-6 mb-6">
           <p className="text-foreground/70 font-proximaNova">
             Students typically select 3-4 subjects for AS Level and continue with
-            3 subjects for full A-Level. Subject selection should align with
-            intended university degree and career path.
+            3 subjects for full A-Level. Click on each category below to explore
+            available subjects and plan your pathway to university success.
           </p>
         </div>
 
-        <SubjectGrid categories={aLevelSubjects} columns={3} />
+        <SubjectAccordion categories={aLevelSubjects} defaultOpenIndex={0} />
       </section>
 
       {/* Achievement Awards - AS Level */}

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
-import SubjectGrid, { SubjectCategoryData } from "@/components/academics/SubjectGrid";
+import SubjectAccordion from "@/components/academics/SubjectAccordion";
+import { SubjectCategoryData } from "@/components/academics/SubjectGrid";
 import { subjectsByCategory, englishLanguagePolicy } from "@/data/academics/subjects";
 import hero4 from "@/assets/hero-4.jpg";
 import scienceImage from "@/assets/science_and_innovation.jpg";
@@ -112,7 +113,14 @@ export default function SubjectsPage() {
       <section>
         <SectionHeading>Subjects Offered Across All Levels</SectionHeading>
 
-        <SubjectGrid categories={subjectCategories} className="mt-8" />
+        <div className="bg-primary/5 rounded-lg p-6 mb-6">
+          <p className="text-foreground/70 font-proximaNova">
+            Explore our comprehensive curriculum by clicking on each category below
+            to view the subjects we offer across all educational levels.
+          </p>
+        </div>
+
+        <SubjectAccordion categories={subjectCategories} defaultOpenIndex={0} />
       </section>
 
       {/* Subject Availability Note */}
