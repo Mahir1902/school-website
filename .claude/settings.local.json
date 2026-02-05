@@ -28,7 +28,8 @@
       "mcp__ide__getDiagnostics",
       "mcp__playwright__browser_close",
       "Bash(pkill:*)",
-      "mcp__playwright__browser_console_messages"
+      "mcp__playwright__browser_console_messages",
+      "Bash(npm run build:*)"
     ]
   }
 }
