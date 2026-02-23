@@ -13,7 +13,7 @@ type NewsItem = {
   };
   publishedDate: string;
   excerpt: string;
-  image?: {
+  featuredImage?: {
     asset?: {
       url: string;
     };
@@ -101,11 +101,11 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
               }}
             >
               {/* Image */}
-              {item.image?.asset?.url && (
+              {item.featuredImage?.asset?.url && (
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={item.image.asset.url}
-                    alt={item.image.alt || item.title}
+                    src={item.featuredImage.asset.url}
+                    alt={item.featuredImage.alt || item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -133,7 +133,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
 
                 {/* Read More Link */}
                 <a
-                  href={`/news/${item.slug.current}`}
+                  href={`/news-events/${item.slug.current}`}
                   className="inline-flex items-center gap-2 text-primary font-poppins text-sm font-semibold hover:gap-3 transition-all duration-300"
                 >
                   Read More
@@ -147,7 +147,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
         {/* View All Button */}
         <div className="text-center mt-12">
           <a
-            href="/news"
+            href="/news-events/news"
             className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-md font-poppins font-medium hover:bg-primary/90 transition-colors duration-300 shadow-md hover:shadow-lg"
           >
             View All News

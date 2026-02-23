@@ -36,9 +36,10 @@ export default function Breadcrumb() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="py-4 px-6 md:px-12 lg:px-24"
+      className="bg-primary/5 border-b border-border"
     >
-      <ol className="flex items-center flex-wrap gap-2 text-sm font-proximaNova">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-4">
+        <ol className="flex items-center flex-wrap gap-2 text-sm font-proximaNova">
         {breadcrumbs.map((breadcrumb, index) => {
           const isLast = index === breadcrumbs.length - 1;
           const isFirst = index === 0;
@@ -70,7 +71,8 @@ export default function Breadcrumb() {
             </li>
           );
         })}
-      </ol>
+        </ol>
+      </div>
     </nav>
   );
 }
