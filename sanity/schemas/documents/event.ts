@@ -19,7 +19,24 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required().custom(async (value: any, context: any) => {
+        if (!value?.current) return true;
+
+        const { getClient } = context;
+        const client = getClient({ apiVersion: '2023-05-03' });
+        const id = context.document?._id?.replace(/^drafts\./, '');
+
+        // Check for slug conflicts in both news and events
+        const query = `*[_type in ["news", "event"] && slug.current == $slug && _id != $id][0]`;
+        const params = { slug: value.current, id };
+        const existing = await client.fetch(query, params);
+
+        if (existing) {
+          return `Slug "${value.current}" is already used by another ${existing._type === 'news' ? 'news article' : 'event'}. Please choose a unique slug.`;
+        }
+
+        return true;
+      }),
     },
     {
       name: 'startDate',

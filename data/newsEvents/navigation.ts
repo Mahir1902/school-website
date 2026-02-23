@@ -34,11 +34,6 @@ export const newsEventsDropdownSections: NavigationSection[] = [
         description: "What's happening soon"
       },
       {
-        title: "Past Events",
-        href: "/news-events/events/past",
-        description: "Event archives and highlights"
-      },
-      {
         title: "Event Calendar",
         href: "/news-events/events/calendar",
         description: "Full calendar view"

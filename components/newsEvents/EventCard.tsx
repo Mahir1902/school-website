@@ -125,7 +125,7 @@ export default function EventCard({ event }: EventCardProps) {
         <div className="flex items-center gap-3">
           {event.slug && (
             <Link
-              href={`/news-events/events/${event.slug.current}`}
+              href={`/news-events/${event.slug.current}`}
               className="flex-1 text-center px-4 py-2 bg-primary/10 text-primary font-proximaNova font-semibold text-sm rounded-md hover:bg-primary hover:text-white transition-colors"
             >
               View Details

@@ -2,13 +2,13 @@ import { groq } from 'next-sanity'
 
 // Fetch latest 3 news articles
 export const newsQuery = groq`
-  *[_type == "newsArticle"] | order(publishedDate desc)[0...3] {
+  *[_type == "news"] | order(publishedDate desc)[0...3] {
     _id,
     title,
     slug,
     publishedDate,
     excerpt,
-    image {
+    featuredImage {
       asset->{
         _id,
         url
@@ -269,6 +269,70 @@ export const eventBySlugQuery = groq`
     status,
     capacity,
     registrationLink,
+    featured,
+    tags
+  }
+`
+
+// Fetch related events by eventType (for event detail pages)
+export const relatedEventsQuery = groq`
+  *[_type == "event" && eventType == $eventType && slug.current != $slug && startDate > now()] | order(startDate asc)[0...3] {
+    _id,
+    title,
+    slug,
+    startDate,
+    endDate,
+    location,
+    excerpt,
+    featuredImage,
+    eventType,
+    status,
+    capacity,
+    registrationLink,
     featured
+  }
+`
+
+// Fetch related news by category (for news detail pages)
+export const relatedNewsQuery = groq`
+  *[_type == "news" && category == $category && slug.current != $slug] | order(publishedDate desc)[0...3] {
+    _id,
+    title,
+    slug,
+    publishedDate,
+    excerpt,
+    featuredImage,
+    category,
+    author,
+    featured,
+    tags
+  }
+`
+
+// Fetch content by slug (unified query for both news and events)
+export const contentBySlugQuery = groq`
+  *[_type in ["news", "event"] && slug.current == $slug][0] {
+    _id,
+    _type,
+    title,
+    slug,
+    // News fields
+    publishedDate,
+    category,
+    author,
+    // Event fields
+    startDate,
+    endDate,
+    location,
+    eventType,
+    status,
+    capacity,
+    registrationLink,
+    // Common fields
+    excerpt,
+    featuredImage,
+    content,
+    featured,
+    tags
   }
 `

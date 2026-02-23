@@ -28,7 +28,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
 
   return (
     <Link
-      href={`/news-events/news/${news.slug.current}`}
+      href={`/news-events/${news.slug.current}`}
       className={`group block bg-card border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
         featured ? "md:col-span-2 md:row-span-2" : ""
       }`}

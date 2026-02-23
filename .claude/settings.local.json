@@ -29,7 +29,9 @@
       "mcp__playwright__browser_close",
       "Bash(pkill:*)",
       "mcp__playwright__browser_console_messages",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)"
     ]
   }
 }

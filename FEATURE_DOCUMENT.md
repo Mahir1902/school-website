@@ -580,6 +580,90 @@
 
 ---
 
+## Phase 14.5: Event & News Detail Pages
+
+### 14.5.1 Dependencies & Utilities
+- [✅] Install @portabletext/react dependency
+- [✅] Create `/lib/dateUtils.ts` with date formatting functions
+  - [✅] formatEventDate() - "Month Day, Year" format
+  - [✅] formatEventTime() - "Hour:Minute AM/PM" format
+  - [✅] formatDateRange() - Single/multi-day event formatting
+  - [✅] getEventStatus() - Determine upcoming/ongoing/past status
+  - [✅] formatNewsDate() - "Month Day, Year" full format
+- [✅] Create `/types/newsEvents.ts` with TypeScript interfaces
+  - [✅] Event interface with all fields
+  - [✅] News interface with all fields
+  - [✅] Notice interface with all fields
+  - [✅] GalleryImage interface with all fields
+- [✅] **TEST:** All utilities export correctly
+
+### 14.5.2 Portable Text Renderer
+- [✅] Create `/components/newsEvents/PortableTextContent.tsx`
+- [✅] Custom block serializers (h2, h3, h4, paragraph, blockquote)
+- [✅] Custom mark serializers (links, strong, em)
+- [✅] Custom list serializers (bullet, numbered)
+- [✅] Custom image serializer with Next.js Image optimization
+- [✅] Apply project design tokens (font-orpheus, font-proximaNova, OKLCH colors)
+- [✅] **TEST:** Renders all Portable Text block types correctly
+
+### 14.5.3 GROQ Queries
+- [✅] Add `tags` field to `eventBySlugQuery` in `/sanity/lib/queries.ts`
+- [✅] Verify `relatedEventsQuery` exists (filters by eventType, excludes current, shows upcoming only)
+- [✅] Verify `relatedNewsQuery` exists (filters by category, excludes current)
+- [✅] **TEST:** Related content queries return correct results
+
+### 14.5.4 Event Detail Page
+- [✅] Create `/app/news-events/events/[slug]/page.tsx`
+- [✅] Implement async server component with ISR (revalidate: 60)
+- [✅] Generate dynamic metadata (OpenGraph, Twitter Cards)
+- [✅] Hero section with featured image overlay and metadata badges
+- [✅] Two-column responsive layout (2/3 content + 1/3 sticky sidebar)
+- [✅] Portable Text content rendering with PortableTextContent component
+- [✅] Event metadata sidebar (date, time, location, capacity)
+- [✅] Registration CTA (hidden for past events)
+- [✅] Related events section (3 events, filtered by eventType)
+- [✅] Tags display with styled pills
+- [✅] 404 handling with notFound() for invalid slugs
+- [✅] **TEST:** Event detail page loads without errors
+- [✅] **TEST:** All event fields render correctly
+- [✅] **TEST:** Registration button hidden for past events
+- [✅] **TEST:** Related events show correct filtering
+- [✅] **TEST:** Invalid slug returns 404 page
+
+### 14.5.5 News Detail Page
+- [✅] Create `/app/news-events/news/[slug]/page.tsx`
+- [✅] Implement async server component with ISR (revalidate: 60)
+- [✅] Generate dynamic metadata (OpenGraph, Twitter Cards)
+- [✅] Hero section with featured image overlay and category badge
+- [✅] Two-column responsive layout (2/3 content + 1/3 sticky sidebar)
+- [✅] Portable Text content rendering with PortableTextContent component
+- [✅] Article metadata sidebar (published date, category, author)
+- [✅] Related articles section (3 articles, filtered by category)
+- [✅] Tags display with styled pills
+- [✅] 404 handling with notFound() for invalid slugs
+- [✅] **TEST:** News detail page loads without errors
+- [✅] **TEST:** All article fields render correctly
+- [✅] **TEST:** Related articles show correct filtering
+- [✅] **TEST:** Invalid slug returns 404 page
+
+### 14.5.6 Integration Testing
+- [✅] **TEST:** Clicking "View Details" on EventCard navigates to detail page
+- [✅] **TEST:** Clicking "Read More" on NewsCard navigates to detail page
+- [✅] **TEST:** Responsive behavior (mobile: 375px, tablet: 768px, desktop: 1440px)
+- [✅] **TEST:** SEO metadata populates correctly (view page source)
+- [✅] **TEST:** Images optimize correctly (WebP format, proper sizing)
+- [✅] **TEST:** External registration links open in new tab with security attributes
+
+### 14.5.7 Documentation
+- [✅] Update CLAUDE.md - Detail page features section
+- [✅] Update CLAUDE.md - Add PortableTextContent to component list
+- [✅] Update CLAUDE.md - Add @portabletext/react to dependencies
+- [✅] Update FEATURE_DOCUMENT.md - Add Phase 14.5 section
+- [✅] Update agent memory - Record patterns and learnings
+- [✅] **TEST:** Documentation is accurate and complete
+
+---
+
 ## Phase 15: Final Polish & Deployment
 
 ### 15.1 Code Review

@@ -93,6 +93,19 @@ The application includes a dedicated `/news-events` route with the following str
 
 **Content Managed via Sanity CMS** - All content is fetched from Sanity using GROQ queries with ISR (60-second revalidation on overview page).
 
+**Detail Page Features** (Event & News detail pages):
+- Hero section with featured image overlay and metadata
+- Two-column responsive layout: content (2/3) + sticky sidebar (1/3)
+- Portable Text content rendering with custom styling using `@portabletext/react`
+- Event metadata sidebar: date, time, location, capacity, registration CTA
+- News metadata sidebar: published date, category, author
+- Related content section (3 items, filtered by category/eventType)
+- Dynamic SEO metadata: OpenGraph and Twitter Cards
+- ISR with 60-second revalidation for fresh content
+- 404 handling via `notFound()` for invalid slugs
+- Past event detection (hides registration button, shows "concluded" message)
+- Security: External links use `rel="noopener noreferrer"` with `target="_blank"`
+
 ### Font System
 
 The project uses a custom font configuration with both Google Fonts and local fonts:
@@ -139,6 +152,7 @@ All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `te
 - `Breadcrumb.tsx` - Dynamic breadcrumb navigation with `bg-primary/5` green-tinted background
 - `CategoryBadge.tsx` - Category pill badges with color mapping
 - `PageHero.tsx` - Section hero header
+- `PortableTextContent.tsx` - Portable Text renderer with custom block/mark serializers for styled content rendering
 
 **Academics Components** (`/components/academics/`):
 - `Breadcrumb.tsx` - Dynamic breadcrumb navigation with matching `bg-primary/5` green-tinted background (standardized design)
@@ -379,6 +393,7 @@ import { cn } from "@/lib/utils";
 - @sanity/client - Sanity API client
 - @sanity/image-url - Image URL builder
 - next-sanity - Next.js integration
+- @portabletext/react - Official Sanity library for rendering Portable Text content
 
 **Calendar & Media:**
 - @fullcalendar/react, @fullcalendar/daygrid, @fullcalendar/interaction - Event calendar
