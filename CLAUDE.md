@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 15 website for Singapore International School (SIS), built with React 19, TypeScript, and Tailwind CSS 4. The site features a homepage with multiple sections showcasing the school's programs, facilities, and admissions process, plus a comprehensive News & Events section with dynamic content managed through Sanity CMS.
+This is a Next.js 16 website for Singapore International School (SIS), built with React 19, TypeScript, and Tailwind CSS 4. The site features a homepage with multiple sections showcasing the school's programs, facilities, and admissions process, plus a comprehensive News & Events section with dynamic content managed through Sanity CMS.
 
 ## Development Commands
 
