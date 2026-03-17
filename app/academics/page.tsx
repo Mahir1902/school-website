@@ -66,7 +66,7 @@ export default function AcademicsOverviewPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
               <div>
-                <h3 className="text-white font-orpheus text-2xl mb-1">Science & Innovation</h3>
+                <h3 className="text-white font-inglobal text-2xl mb-1">Science & Innovation</h3>
                 <p className="text-white/90 font-proximaNova text-sm">Hands-on learning in modern laboratories</p>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function AcademicsOverviewPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
               <div>
-                <h3 className="text-white font-orpheus text-2xl mb-1">Arts & Creativity</h3>
+                <h3 className="text-white font-inglobal text-2xl mb-1">Arts & Creativity</h3>
                 <p className="text-white/90 font-proximaNova text-sm">Nurturing creative expression and talent</p>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function AcademicsOverviewPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-6">
               <div>
-                <h3 className="text-white font-orpheus text-2xl mb-1">Sports & Wellness</h3>
+                <h3 className="text-white font-inglobal text-2xl mb-1">Sports & Wellness</h3>
                 <p className="text-white/90 font-proximaNova text-sm">Building healthy minds and bodies</p>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function AcademicsOverviewPage() {
               className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-300 flex flex-col"
             >
               <div className="mb-4">
-                <h3 className="text-2xl font-orpheus text-primary mb-1">
+                <h3 className="text-2xl font-inglobal text-primary mb-1">
                   {programme.title}
                 </h3>
                 <p className="text-sm text-secondary font-poppins font-semibold">
@@ -169,7 +169,7 @@ export default function AcademicsOverviewPage() {
 
           <div className="relative h-full flex items-center justify-center text-center px-6">
             <div className="max-w-3xl">
-              <h2 className="text-3xl md:text-4xl font-orpheus text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-inglobal text-white mb-4">
                 Ready to Begin Your Child's Academic Journey?
               </h2>
               <p className="text-white font-proximaNova text-lg mb-8">

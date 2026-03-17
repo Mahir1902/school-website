@@ -140,7 +140,7 @@ export default function PrimaryPage() {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                     <GraduationCap className="w-8 h-8 text-primary" />
                   </div>
-                  <h2 className="text-3xl font-orpheus text-primary">
+                  <h2 className="text-3xl font-inglobal text-primary">
                     International Examinations
                   </h2>
                 </div>
@@ -176,7 +176,7 @@ export default function PrimaryPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-card border border-border rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Enroll in Our Primary Program
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

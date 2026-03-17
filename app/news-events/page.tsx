@@ -47,7 +47,7 @@ export default async function NewsEventsOverview() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-orpheus font-bold text-primary mb-2">
+              <h2 className="text-3xl md:text-4xl font-inglobal font-bold text-primary mb-2">
                 Latest News
               </h2>
               <p className="font-proximaNova text-foreground/70">
@@ -84,7 +84,7 @@ export default async function NewsEventsOverview() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-orpheus font-bold text-primary mb-2">
+              <h2 className="text-3xl md:text-4xl font-inglobal font-bold text-primary mb-2">
                 Upcoming Events
               </h2>
               <p className="font-proximaNova text-foreground/70">
@@ -121,7 +121,7 @@ export default async function NewsEventsOverview() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-orpheus font-bold text-primary mb-2">
+              <h2 className="text-3xl md:text-4xl font-inglobal font-bold text-primary mb-2">
                 Important Notices
               </h2>
               <p className="font-proximaNova text-foreground/70">
@@ -155,7 +155,7 @@ export default async function NewsEventsOverview() {
 
       {/* Quick Links Grid */}
       <section className="border-t border-border pt-16">
-        <h2 className="text-3xl md:text-4xl font-orpheus font-bold text-primary text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-inglobal font-bold text-primary text-center mb-12">
           Explore More
         </h2>
 
@@ -186,7 +186,7 @@ export default async function NewsEventsOverview() {
               className="group p-6 bg-card border border-border rounded-lg hover:shadow-lg hover:border-primary/30 transition-all duration-300"
             >
               <div className="text-4xl mb-4">{link.icon}</div>
-              <h3 className="font-orpheus font-bold text-xl text-primary mb-2 group-hover:text-secondary transition-colors">
+              <h3 className="font-inglobal font-bold text-xl text-primary mb-2 group-hover:text-secondary transition-colors">
                 {link.title}
               </h3>
               <p className="font-proximaNova text-sm text-foreground/70">

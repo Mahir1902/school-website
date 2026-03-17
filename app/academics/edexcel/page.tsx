@@ -47,7 +47,7 @@ export default function EdexcelPage() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
             <GraduationCap className="w-12 h-12 text-secondary" />
-            <h2 className="text-3xl font-orpheus text-primary">
+            <h2 className="text-3xl font-inglobal text-primary">
               Pearson Edexcel UK
             </h2>
           </div>
@@ -101,7 +101,7 @@ export default function EdexcelPage() {
           {/* Content Side */}
           <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-8 md:p-12 flex items-center">
             <div>
-              <h3 className="text-3xl font-orpheus text-primary mb-4">
+              <h3 className="text-3xl font-inglobal text-primary mb-4">
                 Celebrating Excellence
               </h3>
               <p className="text-foreground/70 font-proximaNova mb-6 leading-relaxed">
@@ -138,7 +138,7 @@ export default function EdexcelPage() {
       {/* Examination Details */}
       <section>
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             External Examination Process
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -146,7 +146,7 @@ export default function EdexcelPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">📝</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">
+              <h4 className="font-inglobal text-primary mb-2">
                 Standardized Exams
               </h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
@@ -158,7 +158,7 @@ export default function EdexcelPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">✅</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">External Marking</h4>
+              <h4 className="font-inglobal text-primary mb-2">External Marking</h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
                 All examination papers are sent to UK for marking by qualified
                 Pearson Edexcel examiners
@@ -168,7 +168,7 @@ export default function EdexcelPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">🎓</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">
+              <h4 className="font-inglobal text-primary mb-2">
                 Official Certificates
               </h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
@@ -186,7 +186,7 @@ export default function EdexcelPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-orpheus text-primary mb-2">
+            <h3 className="text-xl font-inglobal text-primary mb-2">
               iPrimary & iLower Secondary
             </h3>
             <p className="text-foreground/70 font-proximaNova mb-4">
@@ -199,7 +199,7 @@ export default function EdexcelPage() {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-orpheus text-primary mb-2">
+            <h3 className="text-xl font-inglobal text-primary mb-2">
               IGCSE (International GCSE)
             </h3>
             <p className="text-foreground/70 font-proximaNova mb-4">
@@ -212,7 +212,7 @@ export default function EdexcelPage() {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-orpheus text-primary mb-2">
+            <h3 className="text-xl font-inglobal text-primary mb-2">
               International A-Level
             </h3>
             <p className="text-foreground/70 font-proximaNova mb-4">
@@ -225,7 +225,7 @@ export default function EdexcelPage() {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-orpheus text-primary mb-2">
+            <h3 className="text-xl font-inglobal text-primary mb-2">
               External Candidates
             </h3>
             <p className="text-foreground/70 font-proximaNova mb-4">
@@ -251,7 +251,7 @@ export default function EdexcelPage() {
               <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <GraduationCap className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-orpheus text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-inglobal text-white mb-4">
                 Join Our Edexcel Programme
               </h2>
               <p className="text-white font-proximaNova text-lg mb-8">

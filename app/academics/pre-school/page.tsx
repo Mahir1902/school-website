@@ -75,7 +75,7 @@ export default function PreSchoolPage() {
         />
 
         <div className="mt-8 bg-card border border-border rounded-lg p-6">
-          <h3 className="text-xl font-orpheus text-primary mb-4">
+          <h3 className="text-xl font-inglobal text-primary mb-4">
             Learning Focus
           </h3>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -104,7 +104,7 @@ export default function PreSchoolPage() {
         />
 
         <div className="mt-8 bg-card border border-border rounded-lg p-6">
-          <h3 className="text-xl font-orpheus text-primary mb-4">
+          <h3 className="text-xl font-inglobal text-primary mb-4">
             Learning Focus
           </h3>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -124,7 +124,7 @@ export default function PreSchoolPage() {
       {/* Facilities Highlight */}
       <section className="bg-primary/5 rounded-lg p-8 md:p-12">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
             Safe, Nurturing Learning Environment
           </h2>
           <p className="text-foreground/70 font-proximaNova mb-6">
@@ -138,7 +138,7 @@ export default function PreSchoolPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-card border border-border rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Ready to Enroll Your Child?
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

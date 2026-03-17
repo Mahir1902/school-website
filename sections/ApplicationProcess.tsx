@@ -68,7 +68,7 @@ export default function ApplicationProcess() {
                 : "opacity-0 translate-y-10"
             }`}
           >
-            <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl leading-tight font-orpheus text-center">
+            <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl leading-tight font-inglobal text-center">
               Ready to Begin Your Journey?
             </h2>
             <div className="w-20 h-1 bg-secondary"></div>
@@ -101,7 +101,7 @@ export default function ApplicationProcess() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-orpheus text-primary">
+                  <h3 className="text-2xl font-inglobal text-primary">
                     {option.title}
                   </h3>
 

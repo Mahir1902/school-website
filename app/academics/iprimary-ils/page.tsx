@@ -101,7 +101,7 @@ export default function IPrimaryILSPage() {
             {/* Content Side */}
             <div className="p-8 md:p-12 flex items-center">
               <div>
-                <h3 className="text-3xl font-orpheus text-primary mb-4">
+                <h3 className="text-3xl font-inglobal text-primary mb-4">
                   iPrimary Achievement Awards
                 </h3>
                 <p className="text-foreground/70 font-proximaNova mb-6">
@@ -114,7 +114,7 @@ export default function IPrimaryILSPage() {
                       <Award className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Award Crest</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Award Crest</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Recognition of academic excellence
                       </p>
@@ -126,7 +126,7 @@ export default function IPrimaryILSPage() {
                       <FileCheck className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Certificate</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Certificate</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Certificate of Achievement
                       </p>
@@ -138,7 +138,7 @@ export default function IPrimaryILSPage() {
                       <DollarSign className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Cash Voucher</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Cash Voucher</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         BDT 5,000 reward
                       </p>
@@ -175,7 +175,7 @@ export default function IPrimaryILSPage() {
             {/* Content Side */}
             <div className="p-8 md:p-12 flex items-center order-2 lg:order-1">
               <div>
-                <h3 className="text-3xl font-orpheus text-primary mb-4">
+                <h3 className="text-3xl font-inglobal text-primary mb-4">
                   iLower Secondary Achievement Awards
                 </h3>
                 <p className="text-foreground/70 font-proximaNova mb-6">
@@ -188,7 +188,7 @@ export default function IPrimaryILSPage() {
                       <Award className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Award Crest</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Award Crest</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Recognition of academic excellence
                       </p>
@@ -200,7 +200,7 @@ export default function IPrimaryILSPage() {
                       <FileCheck className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Certificate</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Certificate</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Certificate of Achievement
                       </p>
@@ -212,7 +212,7 @@ export default function IPrimaryILSPage() {
                       <DollarSign className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Cash Voucher</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Cash Voucher</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         BDT 5,000 for Year 1-8 students
                       </p>
@@ -238,7 +238,7 @@ export default function IPrimaryILSPage() {
       {/* Progression to IGCSE */}
       <section className="bg-card border border-border rounded-lg p-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl font-orpheus text-primary mb-4">
+          <h3 className="text-2xl font-inglobal text-primary mb-4">
             Your Pathway to IGCSE
           </h3>
           <p className="text-foreground/70 font-proximaNova mb-6">
@@ -256,7 +256,7 @@ export default function IPrimaryILSPage() {
       {/* External Examination Process */}
       <section>
         <div className="bg-primary/5 rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             External Examination Process
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -264,7 +264,7 @@ export default function IPrimaryILSPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">📚</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">
+              <h4 className="font-inglobal text-primary mb-2">
                 Curriculum Delivery
               </h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
@@ -276,7 +276,7 @@ export default function IPrimaryILSPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">✍️</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">
+              <h4 className="font-inglobal text-primary mb-2">
                 Achievement Tests
               </h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
@@ -288,7 +288,7 @@ export default function IPrimaryILSPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-3xl">🏆</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">
+              <h4 className="font-inglobal text-primary mb-2">
                 Results & Recognition
               </h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
@@ -302,7 +302,7 @@ export default function IPrimaryILSPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-card border border-border rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Join Our International Curriculum
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

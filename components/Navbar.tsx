@@ -82,7 +82,7 @@ export default function Navbar() {
                 <Link
                   href={link.link}
                   key={link.title}
-                  className="hover:text-secondary text-primary font-proximaNova font-bold"
+                  className="hover:text-secondary text-primary font-proximaNova font-normal"
                 >
                   {link.title}
                 </Link>

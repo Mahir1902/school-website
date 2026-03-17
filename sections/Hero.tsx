@@ -100,13 +100,13 @@ export default function Hero() {
         <div className="text-white flex flex-col items-center mt-8 md:mt-12 gap-4 px-4">
           <div className="h-8 md:h-12 w-[1px] bg-white" />
           <h1 className="text-center font-bold flex flex-col">
-            <span className="font-le_beaune text-sm md:text-base lg:text-[1.2rem] font-light mb-2">
+            <span className="font-inglobal text-sm md:text-base lg:text-[1.2rem] font-light mb-2">
               Welcome To
             </span>
-            <span className="font-le_beaune text-3xl md:text-5xl lg:text-6xl font-light">
+            <span className="font-inglobal text-3xl md:text-5xl lg:text-6xl font-light">
               SINGAPORE
             </span>
-            <span className="font-le_beaune text-3xl md:text-5xl lg:text-6xl font-light">
+            <span className="font-inglobal text-3xl md:text-5xl lg:text-6xl font-light">
               INTERNATIONAL SCHOOL
             </span>
           </h1>
@@ -170,7 +170,7 @@ export default function Hero() {
                         <a
                           href={item.href}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block text-2xl font-orpheus text-primary hover:text-secondary transition-colors duration-300 py-2"
+                          className="block text-2xl font-inglobal text-primary hover:text-secondary transition-colors duration-300 py-2"
                         >
                           {item.title}
                         </a>

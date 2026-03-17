@@ -47,7 +47,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
             {event.status && <CategoryBadge category={event.status} />}
             {event.eventType && <CategoryBadge category={event.eventType} />}
           </div>
-          <h1 className="font-orpheus font-bold text-3xl md:text-5xl text-white mb-4 max-w-4xl">
+          <h1 className="font-inglobal font-bold text-3xl md:text-5xl text-white mb-4 max-w-4xl">
             {event.title}
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-4 text-white/90">
@@ -79,7 +79,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
 
           {event.tags && event.tags.length > 0 && (
             <div className="pt-6 border-t border-border">
-              <h3 className="font-orpheus font-bold text-lg text-foreground mb-3">Tags</h3>
+              <h3 className="font-inglobal font-bold text-lg text-foreground mb-3">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {event.tags.map((tag) => (
                   <span
@@ -97,7 +97,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
         {/* Right Column - Event Info Sidebar */}
         <div className="lg:sticky lg:top-24 h-fit space-y-4">
           <div className="bg-card border border-border rounded-lg p-6 space-y-4">
-            <h3 className="font-orpheus font-bold text-xl text-primary">Event Details</h3>
+            <h3 className="font-inglobal font-bold text-xl text-primary">Event Details</h3>
 
             {/* Date */}
             <div className="flex items-start gap-3">
@@ -175,7 +175,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
       {relatedEvents.length > 0 && (
         <div className="pt-12 border-t border-border">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-orpheus font-bold text-3xl text-primary">
+            <h2 className="font-inglobal font-bold text-3xl text-primary">
               More {event.eventType} Events
             </h2>
             <Link

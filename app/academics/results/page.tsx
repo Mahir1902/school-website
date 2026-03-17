@@ -27,7 +27,7 @@ export default function ResultsPage() {
             <FileText className="w-12 h-12 text-primary/50" />
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
             Results Will Be Posted Here
           </h2>
 
@@ -38,7 +38,7 @@ export default function ResultsPage() {
           </p>
 
           <div className="bg-primary/5 border border-border rounded-lg p-6 max-w-xl w-full">
-            <h3 className="font-orpheus text-primary mb-3">Result Publications</h3>
+            <h3 className="font-inglobal text-primary mb-3">Result Publications</h3>
             <ul className="space-y-2 text-left text-foreground/70 font-proximaNova text-sm">
               <li className="flex items-start gap-2">
                 <span className="text-secondary mt-1">•</span>
@@ -75,7 +75,7 @@ export default function ResultsPage() {
 
       {/* Additional Information */}
       <section className="bg-card border border-border rounded-lg p-8 max-w-3xl mx-auto">
-        <h3 className="text-xl font-orpheus text-primary mb-4 text-center">
+        <h3 className="text-xl font-inglobal text-primary mb-4 text-center">
           Accessing Your Results
         </h3>
         <div className="space-y-4 text-foreground/70 font-proximaNova">

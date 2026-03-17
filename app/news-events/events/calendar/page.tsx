@@ -57,7 +57,7 @@ export default async function EventCalendarPage() {
           {sortedMonths.map((monthYear) => (
             <div key={monthYear}>
               {/* Month Header */}
-              <h2 className="text-2xl md:text-3xl font-orpheus font-bold text-primary mb-6 flex items-center gap-3">
+              <h2 className="text-2xl md:text-3xl font-inglobal font-bold text-primary mb-6 flex items-center gap-3">
                 <Calendar className="w-6 h-6" />
                 {monthYear}
               </h2>
@@ -75,7 +75,7 @@ export default async function EventCalendarPage() {
                     >
                       {/* Date Badge */}
                       <div className="flex-shrink-0 w-16 h-16 flex flex-col items-center justify-center bg-primary/10 rounded-lg">
-                        <span className="text-2xl font-orpheus font-bold text-primary">
+                        <span className="text-2xl font-inglobal font-bold text-primary">
                           {startDate.getDate()}
                         </span>
                         <span className="text-xs font-proximaNova text-foreground/60 uppercase">
@@ -86,7 +86,7 @@ export default async function EventCalendarPage() {
                       {/* Event Details */}
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-4 mb-2">
-                          <h3 className="font-orpheus font-bold text-lg text-primary">
+                          <h3 className="font-inglobal font-bold text-lg text-primary">
                             {event.title}
                           </h3>
                           <div className="flex gap-2">
@@ -144,7 +144,7 @@ export default async function EventCalendarPage() {
       ) : (
         <div className="text-center py-12 bg-card border border-border rounded-lg">
           <Calendar className="w-16 h-16 text-foreground/30 mx-auto mb-4" />
-          <h3 className="font-orpheus font-bold text-xl text-foreground/70 mb-2">
+          <h3 className="font-inglobal font-bold text-xl text-foreground/70 mb-2">
             No Events Scheduled
           </h3>
           <p className="font-proximaNova text-foreground/60">

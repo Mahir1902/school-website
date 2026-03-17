@@ -28,7 +28,7 @@ export default function PageHero({
       )}
     >
       <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-orpheus font-bold text-primary mb-2">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-inglobal font-bold text-primary mb-2">
           {title}
         </h1>
         {subtitle && (

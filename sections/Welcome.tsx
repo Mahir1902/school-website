@@ -49,7 +49,7 @@ export default function Welcome() {
           {/* Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus leading-tight">
+              <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal leading-tight">
                 Nurturing Excellence Since 2005
               </h2>
               <div className="w-20 h-1 bg-secondary"></div>

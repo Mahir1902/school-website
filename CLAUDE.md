@@ -474,6 +474,6 @@ import { cn } from "@/lib/utils";
 - Future sections should follow this pattern for dropdown menus
 
 **Feature Implementation:**
-- Track progress in `FEATURE_CHECKLIST.md` (living session-persistent checklist) and `FEATURE_DOCUMENT.md` (detailed task breakdown)
-- Phase 14.5 (Event & News Detail Pages) is complete — all other phases are not started
+- Track progress in `FEATURE_DOCUMENT.md`
+- Currently in Phase 1-3 (Schema, Routes, Components creation)
 - ISR configured on overview page (60-second revalidation)

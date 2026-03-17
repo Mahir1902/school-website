@@ -69,7 +69,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
 
         {/* Title */}
         <h3
-          className={`font-orpheus font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2 ${
+          className={`font-inglobal font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2 ${
             featured ? "text-2xl md:text-3xl" : "text-xl"
           }`}
         >

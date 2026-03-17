@@ -98,7 +98,7 @@ export default function SubjectAccordion({
               id={`accordion-header-${index}`}
             >
               <div className="flex items-center gap-4">
-                <h3 className="text-xl font-orpheus text-primary">
+                <h3 className="text-xl font-inglobal text-primary">
                   {category.category}
                 </h3>
                 <motion.span

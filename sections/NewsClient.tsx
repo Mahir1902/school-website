@@ -77,7 +77,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             Latest News & Events
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -122,7 +122,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-orpheus text-primary mb-3 group-hover:text-primary/80 transition-colors">
+                <h3 className="text-xl font-inglobal text-primary mb-3 group-hover:text-primary/80 transition-colors">
                   {item.title}
                 </h3>
 

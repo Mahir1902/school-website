@@ -69,7 +69,7 @@ export default function SubjectGrid({
         >
           {/* Category Header */}
           <div className="bg-primary text-white p-4">
-            <h3 className="font-orpheus text-lg font-semibold">
+            <h3 className="font-inglobal text-lg font-semibold">
               {categoryData.category}
             </h3>
           </div>

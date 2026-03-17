@@ -33,7 +33,7 @@ export default function MethodologyPage() {
             "
           </div>
           <blockquote className="pt-12 pb-4 px-8 text-center">
-            <p className="text-2xl md:text-3xl font-orpheus text-primary italic mb-6">
+            <p className="text-2xl md:text-3xl font-inglobal text-primary italic mb-6">
               {teachingPhilosophy.quote}
             </p>
           </blockquote>
@@ -71,7 +71,7 @@ export default function MethodologyPage() {
           {/* Content Side */}
           <div className="lg:col-span-2 bg-gradient-to-br from-primary to-primary/90 p-8 md:p-12 flex items-center">
             <div className="text-white">
-              <h3 className="text-3xl font-orpheus mb-4">
+              <h3 className="text-3xl font-inglobal mb-4">
                 Student-Centered Learning
               </h3>
               <p className="font-proximaNova leading-relaxed mb-4">
@@ -114,7 +114,7 @@ export default function MethodologyPage() {
                   <method.icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-orpheus text-primary mb-2">
+                  <h3 className="text-xl font-inglobal text-primary mb-2">
                     {method.name}
                   </h3>
                   <p className="text-sm text-foreground/70 font-proximaNova">
@@ -147,7 +147,7 @@ export default function MethodologyPage() {
       {/* Assessment Highlight */}
       <section className="bg-primary/5 rounded-lg p-8 md:p-12">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+          <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
             Comprehensive Assessment System
           </h2>
           <p className="text-foreground/70 font-proximaNova mb-6">
@@ -168,7 +168,7 @@ export default function MethodologyPage() {
       {/* Facilities Section */}
       <section>
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             Learning Facilities
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -176,7 +176,7 @@ export default function MethodologyPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">🔬</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">Science Labs</h4>
+              <h4 className="font-inglobal text-primary mb-2">Science Labs</h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
                 Fully equipped laboratories for hands-on experiments and
                 scientific exploration
@@ -186,7 +186,7 @@ export default function MethodologyPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">💻</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">Computer Labs</h4>
+              <h4 className="font-inglobal text-primary mb-2">Computer Labs</h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
                 Modern computing facilities from Standard 1 for digital literacy
                 and technology education
@@ -196,7 +196,7 @@ export default function MethodologyPage() {
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
                 <span className="text-2xl">🎨</span>
               </div>
-              <h4 className="font-orpheus text-primary mb-2">Creative Spaces</h4>
+              <h4 className="font-inglobal text-primary mb-2">Creative Spaces</h4>
               <p className="text-sm text-foreground/70 font-proximaNova">
                 Art studios, music rooms, and project areas for creative
                 expression and collaborative learning

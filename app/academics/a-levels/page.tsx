@@ -137,7 +137,7 @@ export default function ALevelsPage() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <span className="text-primary font-poppins font-bold text-xl">1</span>
               </div>
-              <h3 className="text-2xl font-orpheus text-primary">
+              <h3 className="text-2xl font-inglobal text-primary">
                 AS Level (Year 1)
               </h3>
             </div>
@@ -166,7 +166,7 @@ export default function ALevelsPage() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                 <span className="text-primary font-poppins font-bold text-xl">2</span>
               </div>
-              <h3 className="text-2xl font-orpheus text-primary">
+              <h3 className="text-2xl font-inglobal text-primary">
                 A2 Level (Year 2)
               </h3>
             </div>
@@ -224,7 +224,7 @@ export default function ALevelsPage() {
             {/* Content Side */}
             <div className="p-8 md:p-12 flex items-center">
               <div>
-                <h3 className="text-3xl font-orpheus text-primary mb-4">
+                <h3 className="text-3xl font-inglobal text-primary mb-4">
                   AS Level Achievement Awards
                 </h3>
                 <p className="text-foreground/70 font-proximaNova mb-6">
@@ -237,7 +237,7 @@ export default function ALevelsPage() {
                       <Award className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Award Crest</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Award Crest</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Recognition of AS Level excellence
                       </p>
@@ -249,7 +249,7 @@ export default function ALevelsPage() {
                       <FileCheck className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Cash Voucher</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Cash Voucher</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         BDT 5,000 reward
                       </p>
@@ -269,7 +269,7 @@ export default function ALevelsPage() {
             {/* Content Side */}
             <div className="p-8 md:p-12 flex items-center order-2 lg:order-1">
               <div>
-                <h3 className="text-3xl font-orpheus text-primary mb-4">
+                <h3 className="text-3xl font-inglobal text-primary mb-4">
                   A2 Level Achievement Awards
                 </h3>
                 <p className="text-foreground/70 font-proximaNova mb-6">
@@ -282,7 +282,7 @@ export default function ALevelsPage() {
                       <Award className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Award Crest</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Award Crest</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         Recognition of A-Level excellence
                       </p>
@@ -294,7 +294,7 @@ export default function ALevelsPage() {
                       <GraduationCap className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h4 className="font-orpheus text-primary mb-1">Graduation Certificate</h4>
+                      <h4 className="font-inglobal text-primary mb-1">Graduation Certificate</h4>
                       <p className="text-sm text-foreground/70 font-proximaNova">
                         School graduation recognition
                       </p>
@@ -320,7 +320,7 @@ export default function ALevelsPage() {
       {/* University Pathways */}
       <section>
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             University Pathways with A-Levels
           </h3>
           <div className="max-w-3xl mx-auto">
@@ -330,27 +330,27 @@ export default function ALevelsPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="font-orpheus text-primary mb-2">United Kingdom</h4>
+                <h4 className="font-inglobal text-primary mb-2">United Kingdom</h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
                   Oxford, Cambridge, Imperial College, LSE, and all UK
                   universities
                 </p>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-2">United States</h4>
+                <h4 className="font-inglobal text-primary mb-2">United States</h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
                   Ivy League and top US universities with advanced standing credit
                 </p>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-2">Canada</h4>
+                <h4 className="font-inglobal text-primary mb-2">Canada</h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
                   University of Toronto, UBC, McGill, and all Canadian
                   universities
                 </p>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-2">Australia</h4>
+                <h4 className="font-inglobal text-primary mb-2">Australia</h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
                   Australian National University, University of Melbourne, and all
                   Australian universities
@@ -370,7 +370,7 @@ export default function ALevelsPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-primary/5 rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Begin Your Journey to Top Universities
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

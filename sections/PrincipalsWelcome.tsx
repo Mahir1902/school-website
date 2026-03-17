@@ -50,7 +50,8 @@ export default function PrincipalsWelcome() {
             <div className="w-16 h-1 bg-orange-500" />
 
             {/* Heading */}
-            <h2 className="text-5xl md:text-6xl font-orpheus font-bold text-primary leading-tight">
+            <h2 className="text-5xl md:text-6xl font-inglobal font-normal
+           text-primary leading-tight">
               PRINCIPAL&apos;S
               <br />
               WELCOME

@@ -74,7 +74,7 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
     return (
       <section className="bg-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             What Our Community Says
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -100,7 +100,7 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             What Our Community Says
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -143,11 +143,11 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
                     {/* Author */}
                     <div className="flex flex-col items-center">
                       <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-3">
-                        <span className="text-primary font-orpheus font-bold text-lg">
+                        <span className="text-primary font-inglobal font-bold text-lg">
                           {testimonial.initials}
                         </span>
                       </div>
-                      <p className="text-primary font-orpheus text-xl font-semibold">
+                      <p className="text-primary font-inglobal text-xl font-semibold">
                         {testimonial.name}
                       </p>
                       <p className="text-foreground/60 font-proximaNova text-sm">

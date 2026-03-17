@@ -95,7 +95,7 @@ export default async function VideoGalleryPage() {
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="font-orpheus font-bold text-lg text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+                  <h3 className="font-inglobal font-bold text-lg text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
                     {video.title}
                   </h3>
 
@@ -118,7 +118,7 @@ export default async function VideoGalleryPage() {
       ) : (
         <div className="text-center py-12 bg-card border border-border rounded-lg">
           <Video className="w-16 h-16 text-foreground/30 mx-auto mb-4" />
-          <h3 className="font-orpheus font-bold text-xl text-foreground/70 mb-2">
+          <h3 className="font-inglobal font-bold text-xl text-foreground/70 mb-2">
             No Videos Available
           </h3>
           <p className="font-proximaNova text-foreground/60">

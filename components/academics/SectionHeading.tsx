@@ -33,7 +33,7 @@ export default function SectionHeading({
     <div className={cn("flex flex-col", alignmentClasses[align], className)}>
       <Tag
         className={cn(
-          "font-orpheus text-primary mb-4",
+          "font-inglobal text-primary mb-4",
           sizeClasses[level]
         )}
       >

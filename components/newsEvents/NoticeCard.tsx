@@ -61,7 +61,7 @@ export default function NoticeCard({ notice }: NoticeCardProps) {
             {notice.pinned && (
               <Pin className="w-4 h-4 text-primary fill-primary" />
             )}
-            <h3 className="font-orpheus font-bold text-lg text-primary line-clamp-2">
+            <h3 className="font-inglobal font-bold text-lg text-primary line-clamp-2">
               {notice.title}
             </h3>
           </div>

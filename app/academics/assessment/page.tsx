@@ -61,7 +61,7 @@ export default function AssessmentPage() {
         </div>
 
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-xl font-orpheus text-primary mb-4">
+          <h3 className="text-xl font-inglobal text-primary mb-4">
             CPA Components (20% each)
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -70,7 +70,7 @@ export default function AssessmentPage() {
                 key={index}
                 className="bg-primary/5 rounded-lg p-4 text-center hover:bg-primary/10 transition-colors duration-300"
               >
-                <div className="text-2xl font-orpheus text-primary mb-1">
+                <div className="text-2xl font-inglobal text-primary mb-1">
                   {component.weight}%
                 </div>
                 <div className="text-sm font-proximaNova text-foreground/70">
@@ -96,7 +96,7 @@ export default function AssessmentPage() {
         </div>
 
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-xl font-orpheus text-primary mb-4">
+          <h3 className="text-xl font-inglobal text-primary mb-4">
             CA Components
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -151,7 +151,7 @@ export default function AssessmentPage() {
                     <AlertCircle className="w-7 h-7 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-orpheus text-primary mb-2">
+                    <h3 className="text-2xl font-inglobal text-primary mb-2">
                       Please Note
                     </h3>
                     <p className="text-foreground/70 font-proximaNova">
@@ -164,7 +164,7 @@ export default function AssessmentPage() {
                 <div className="space-y-4">
                   {assessmentPolicies.map((policy, index) => (
                     <div key={index} className="bg-primary/5 rounded-lg p-4">
-                      <h4 className="font-orpheus text-primary mb-2">
+                      <h4 className="font-inglobal text-primary mb-2">
                         {policy.title}
                       </h4>
                       <p className="text-foreground/70 font-proximaNova text-sm">
@@ -182,7 +182,7 @@ export default function AssessmentPage() {
       {/* Assessment Benefits */}
       <section>
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             Benefits of Our Assessment System
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -191,7 +191,7 @@ export default function AssessmentPage() {
                 <span className="text-primary font-poppins font-bold">1</span>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-1">
+                <h4 className="font-inglobal text-primary mb-1">
                   Reduced Exam Pressure
                 </h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
@@ -206,7 +206,7 @@ export default function AssessmentPage() {
                 <span className="text-primary font-poppins font-bold">2</span>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-1">
+                <h4 className="font-inglobal text-primary mb-1">
                   Regular Feedback
                 </h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
@@ -221,7 +221,7 @@ export default function AssessmentPage() {
                 <span className="text-primary font-poppins font-bold">3</span>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-1">
+                <h4 className="font-inglobal text-primary mb-1">
                   Comprehensive Evaluation
                 </h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
@@ -236,7 +236,7 @@ export default function AssessmentPage() {
                 <span className="text-primary font-poppins font-bold">4</span>
               </div>
               <div>
-                <h4 className="font-orpheus text-primary mb-1">
+                <h4 className="font-inglobal text-primary mb-1">
                   Early Intervention
                 </h4>
                 <p className="text-sm text-foreground/70 font-proximaNova">
@@ -251,7 +251,7 @@ export default function AssessmentPage() {
 
       {/* Parent Reporting */}
       <section className="bg-primary/5 rounded-lg p-8 text-center">
-        <h3 className="text-2xl font-orpheus text-primary mb-4">
+        <h3 className="text-2xl font-inglobal text-primary mb-4">
           Regular Progress Reports
         </h3>
         <p className="text-foreground/70 font-proximaNova max-w-3xl mx-auto">

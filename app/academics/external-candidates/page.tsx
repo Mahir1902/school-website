@@ -69,7 +69,7 @@ export default function ExternalCandidatesPage() {
 
       {/* Eligibility */}
       <section className="bg-primary/5 rounded-lg p-8">
-        <h3 className="text-2xl font-orpheus text-primary mb-4">
+        <h3 className="text-2xl font-inglobal text-primary mb-4">
           Eligibility Requirements
         </h3>
         <ul className="space-y-3 text-foreground/70 font-proximaNova">
@@ -191,7 +191,7 @@ export default function ExternalCandidatesPage() {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
                     <Clock className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-3xl font-orpheus text-primary">
+                  <h3 className="text-3xl font-inglobal text-primary">
                     Registration Hours
                   </h3>
                 </div>
@@ -234,7 +234,7 @@ export default function ExternalCandidatesPage() {
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <span className="text-primary font-poppins font-bold text-2xl">1</span>
             </div>
-            <h4 className="font-orpheus text-primary mb-2">Prepare Documents</h4>
+            <h4 className="font-inglobal text-primary mb-2">Prepare Documents</h4>
             <p className="text-sm text-foreground/70 font-proximaNova">
               Gather all required documents and photocopies
             </p>
@@ -244,7 +244,7 @@ export default function ExternalCandidatesPage() {
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <span className="text-primary font-poppins font-bold text-2xl">2</span>
             </div>
-            <h4 className="font-orpheus text-primary mb-2">Visit School Office</h4>
+            <h4 className="font-inglobal text-primary mb-2">Visit School Office</h4>
             <p className="text-sm text-foreground/70 font-proximaNova">
               Come during registration hours to submit forms and payment
             </p>
@@ -254,7 +254,7 @@ export default function ExternalCandidatesPage() {
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <span className="text-primary font-poppins font-bold text-2xl">3</span>
             </div>
-            <h4 className="font-orpheus text-primary mb-2">
+            <h4 className="font-inglobal text-primary mb-2">
               Receive Confirmation
             </h4>
             <p className="text-sm text-foreground/70 font-proximaNova">
@@ -266,7 +266,7 @@ export default function ExternalCandidatesPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-card border border-border rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Ready to Register?
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

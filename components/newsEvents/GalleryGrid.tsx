@@ -92,7 +92,7 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
 
                 {/* Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <h4 className="font-orpheus font-bold text-white text-sm md:text-base mb-1 line-clamp-2">
+                  <h4 className="font-inglobal font-bold text-white text-sm md:text-base mb-1 line-clamp-2">
                     {image.title}
                   </h4>
 

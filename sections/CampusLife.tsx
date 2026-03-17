@@ -84,7 +84,7 @@ export default function CampusLife() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             Experience Campus Life
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -114,7 +114,7 @@ export default function CampusLife() {
               <p className="text-sm font-poppins text-secondary font-semibold mb-1">
                 {campusActivities[0].category}
               </p>
-              <h3 className="text-2xl md:text-3xl font-orpheus">
+              <h3 className="text-2xl md:text-3xl font-inglobal">
                 {campusActivities[0].title}
               </h3>
             </div>
@@ -144,7 +144,7 @@ export default function CampusLife() {
                 <p className="text-xs font-poppins text-secondary font-semibold mb-1">
                   {activity.category}
                 </p>
-                <h3 className="text-lg md:text-xl font-orpheus">
+                <h3 className="text-lg md:text-xl font-inglobal">
                   {activity.title}
                 </h3>
               </div>

@@ -88,7 +88,7 @@ export default function PageHero({
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         )}
       >
-        <h1 className="text-white font-orpheus text-3xl md:text-4xl lg:text-5xl mb-4">
+        <h1 className="text-white font-inglobal text-3xl md:text-4xl lg:text-5xl mb-4">
           {title}
         </h1>
         {subtitle && (

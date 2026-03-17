@@ -31,7 +31,8 @@
       "mcp__playwright__browser_console_messages",
       "Bash(npm run build:*)",
       "Bash(find:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(grep:*)"
     ]
   }
 }

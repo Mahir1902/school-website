@@ -47,7 +47,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
               <CategoryBadge category={article.category} />
             </div>
           )}
-          <h1 className="font-orpheus font-bold text-3xl md:text-5xl text-white mb-4 max-w-4xl">
+          <h1 className="font-inglobal font-bold text-3xl md:text-5xl text-white mb-4 max-w-4xl">
             {article.title}
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-4 text-white/90">
@@ -81,7 +81,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
 
           {article.tags && article.tags.length > 0 && (
             <div className="pt-6 border-t border-border">
-              <h3 className="font-orpheus font-bold text-lg text-foreground mb-3">Tags</h3>
+              <h3 className="font-inglobal font-bold text-lg text-foreground mb-3">Tags</h3>
               <div className="flex flex-wrap gap-2">
                 {article.tags.map((tag) => (
                   <span
@@ -99,7 +99,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
         {/* Right Column - Sidebar */}
         <div className="lg:sticky lg:top-24 h-fit space-y-4">
           <div className="bg-card border border-border rounded-lg p-6 space-y-4">
-            <h3 className="font-orpheus font-bold text-xl text-primary">Article Info</h3>
+            <h3 className="font-inglobal font-bold text-xl text-primary">Article Info</h3>
 
             <div className="space-y-3 font-proximaNova text-sm">
               <div>
@@ -137,7 +137,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
       {relatedArticles.length > 0 && (
         <div className="pt-12 border-t border-border">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="font-orpheus font-bold text-3xl text-primary">
+            <h2 className="font-inglobal font-bold text-3xl text-primary">
               Related Articles
             </h2>
             <Link

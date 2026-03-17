@@ -28,7 +28,7 @@ export default function DataTable({
     <div className={cn("w-full overflow-x-auto rounded-lg border border-border", className)}>
       <table className="w-full border-collapse">
         {caption && (
-          <caption className="px-6 py-4 text-left text-lg font-orpheus text-primary bg-muted/30">
+          <caption className="px-6 py-4 text-left text-lg font-inglobal text-primary bg-muted/30">
             {caption}
           </caption>
         )}

@@ -71,7 +71,7 @@ export default function EventCard({ event }: EventCardProps) {
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="font-orpheus font-bold text-xl text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
+        <h3 className="font-inglobal font-bold text-xl text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
           {event.title}
         </h3>
 

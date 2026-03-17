@@ -42,7 +42,7 @@ export default async function NoticesPage() {
       ) : (
         <div className="text-center py-12 bg-card border border-border rounded-lg">
           <Bell className="w-16 h-16 text-foreground/30 mx-auto mb-4" />
-          <h3 className="font-orpheus font-bold text-xl text-foreground/70 mb-2">
+          <h3 className="font-inglobal font-bold text-xl text-foreground/70 mb-2">
             No Active Notices
           </h3>
           <p className="font-proximaNova text-foreground/60">

@@ -124,7 +124,7 @@ export default function ScrollNavbar() {
                         <>
                           <Link
                             href={link.href}
-                            className="text-sm lg:text-base font-proximaNova font-semibold text-primary hover:text-secondary transition-colors duration-300 cursor-pointer relative group flex items-center gap-1"
+                            className="text-sm lg:text-base font-inglobal font-medium text-primary hover:text-secondary transition-colors duration-300 cursor-pointer relative group flex items-center gap-1"
                           >
                             {link.title}
                             <ChevronDown className="w-4 h-4" />
@@ -146,7 +146,7 @@ export default function ScrollNavbar() {
                                 <div className="grid grid-cols-3 gap-6">
                                   {dropdownSections.map((section) => (
                                     <div key={section.title}>
-                                      <h3 className="text-xs font-poppins font-semibold text-primary uppercase mb-3">
+                                      <h3 className="text-xs font-inglobal font-semibold text-primary uppercase mb-3">
                                         {section.title}
                                       </h3>
                                       <ul className="space-y-2">
@@ -175,7 +175,7 @@ export default function ScrollNavbar() {
                         <a
                           href={link.href}
                           onClick={(e) => handleNavClick(e, link.href)}
-                          className="text-sm lg:text-base font-proximaNova font-semibold text-primary hover:text-secondary transition-colors duration-300 cursor-pointer relative group"
+                          className="text-sm lg:text-base font-inglobal font-medium text-primary hover:text-secondary transition-colors duration-300 cursor-pointer relative group"
                         >
                           {link.title}
                           <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />

@@ -56,7 +56,7 @@ export default function SubjectsPage() {
         <div className="bg-primary/5 border-l-4 border-primary rounded-lg p-8 md:p-12">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-8 h-8 text-primary" />
-            <h2 className="text-2xl font-orpheus text-primary">
+            <h2 className="text-2xl font-inglobal text-primary">
               English Medium Instruction
             </h2>
           </div>
@@ -78,7 +78,7 @@ export default function SubjectsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent flex items-end p-8">
             <div>
-              <h3 className="text-white font-orpheus text-3xl mb-3">Sciences</h3>
+              <h3 className="text-white font-inglobal text-3xl mb-3">Sciences</h3>
               <p className="text-white/95 font-proximaNova leading-relaxed">
                 From Biology and Chemistry to Physics and Computer Science, our
                 science programs foster curiosity and innovation through
@@ -98,7 +98,7 @@ export default function SubjectsPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/50 to-transparent flex items-end p-8">
             <div>
-              <h3 className="text-white font-orpheus text-3xl mb-3">Creative Arts</h3>
+              <h3 className="text-white font-inglobal text-3xl mb-3">Creative Arts</h3>
               <p className="text-white/95 font-proximaNova leading-relaxed">
                 Explore music, visual arts, drama, and design. Our arts curriculum
                 nurtures creative expression and develops aesthetic appreciation
@@ -125,7 +125,7 @@ export default function SubjectsPage() {
 
       {/* Subject Availability Note */}
       <section className="bg-card border border-border rounded-lg p-8">
-        <h3 className="text-xl font-orpheus text-primary mb-4 text-center">
+        <h3 className="text-xl font-inglobal text-primary mb-4 text-center">
           Subject Availability
         </h3>
         <div className="max-w-3xl mx-auto">
@@ -170,7 +170,7 @@ export default function SubjectsPage() {
 
       {/* Links to Programme Pages */}
       <section className="bg-primary/5 rounded-lg p-8 text-center">
-        <h3 className="text-2xl font-orpheus text-primary mb-4">
+        <h3 className="text-2xl font-inglobal text-primary mb-4">
           Explore Our Academic Programmes
         </h3>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

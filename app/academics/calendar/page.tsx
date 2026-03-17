@@ -60,7 +60,7 @@ export default async function CalendarPage() {
 
       {/* Legend */}
       <section className="bg-primary/5 rounded-lg p-8">
-        <h3 className="text-xl font-orpheus text-primary mb-6 text-center">
+        <h3 className="text-xl font-inglobal text-primary mb-6 text-center">
           Event Type Legend
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
@@ -93,7 +93,7 @@ export default async function CalendarPage() {
 
       {/* How to Manage Events */}
       <section className="bg-card border border-border rounded-lg p-8">
-        <h3 className="text-xl font-orpheus text-primary mb-4 text-center">
+        <h3 className="text-xl font-inglobal text-primary mb-4 text-center">
           Managing Calendar Events
         </h3>
         <div className="max-w-3xl mx-auto space-y-4 text-foreground/70 font-proximaNova">

@@ -86,7 +86,7 @@ export default function PathwayTimeline({ steps, className }: PathwayTimelinePro
                 <div className="text-xs font-poppins text-secondary font-semibold mb-1">
                   {step.age}
                 </div>
-                <h3 className="text-base font-orpheus text-primary mb-2">
+                <h3 className="text-base font-inglobal text-primary mb-2">
                   {step.stage}
                 </h3>
                 <p className="text-sm font-proximaNova text-foreground/70">
@@ -132,7 +132,7 @@ export default function PathwayTimeline({ steps, className }: PathwayTimelinePro
                 <div className="text-xs font-poppins text-secondary font-semibold mb-1">
                   {step.age}
                 </div>
-                <h3 className="text-lg font-orpheus text-primary mb-2">
+                <h3 className="text-lg font-inglobal text-primary mb-2">
                   {step.stage}
                 </h3>
                 <p className="text-sm font-proximaNova text-foreground/70">

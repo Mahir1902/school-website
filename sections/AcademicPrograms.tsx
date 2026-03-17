@@ -103,7 +103,7 @@ export default function AcademicPrograms() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             Our Academic Journey
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -139,7 +139,7 @@ export default function AcademicPrograms() {
                         <program.icon className="w-7 h-7 text-primary" />
                       </div>
 
-                      <h3 className="text-xl font-orpheus text-primary mb-2">
+                      <h3 className="text-xl font-inglobal text-primary mb-2">
                         {program.title}
                       </h3>
 
@@ -180,7 +180,7 @@ export default function AcademicPrograms() {
                         <program.icon className="w-7 h-7 text-primary" />
                       </div>
 
-                      <h3 className="text-xl font-orpheus text-primary mb-2">
+                      <h3 className="text-xl font-inglobal text-primary mb-2">
                         {program.title}
                       </h3>
 

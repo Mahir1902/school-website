@@ -44,7 +44,7 @@ export default function Footer() {
                 className="rounded-full"
               />
               <div>
-                <h3 className="font-orpheus text-xl text-white">SIS</h3>
+                <h3 className="font-inglobal text-xl text-white">SIS</h3>
                 <p className="text-white/70 text-xs font-proximaNova font-semibold">
                   Excellence in Education
                 </p>
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-orpheus text-lg mb-6 text-white">Quick Links</h4>
+            <h4 className="font-inglobal text-lg mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.title}>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-orpheus text-lg mb-6 text-white">Resources</h4>
+            <h4 className="font-inglobal text-lg mb-6 text-white">Resources</h4>
             <ul className="space-y-3">
               {resources.map((link) => (
                 <li key={link.title}>
@@ -105,7 +105,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-orpheus text-lg mb-6 text-white">Contact Us</h4>
+            <h4 className="font-inglobal text-lg mb-6 text-white">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />

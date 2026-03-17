@@ -29,14 +29,19 @@ const poppins = Poppins({
 //   weight: ["400", "500", "600", "700"],
 // })
 
-const orpheus = localFont({
-  src: '../assets/fonts/OrpheusPro-Bold.ttf',
-  variable: "--font-orpheus",
+const inglobal = localFont({
+  src: [
+    { path: "../assets/fonts/inglobal/inglobal.ttf", weight: "400", style: "normal" },
+    { path: "../assets/fonts/inglobal/inglobali.ttf", weight: "400", style: "italic" },
+    { path: "../assets/fonts/inglobal/inglobalb.ttf", weight: "700", style: "normal" },
+    { path: "../assets/fonts/inglobal/inglobalbi.ttf", weight: "700", style: "italic" },
+  ],
+  variable: "--font-inglobal",
 })
 
-const orpheusNormal = localFont({
-  src: '../assets/fonts/OrpheusW05-Regular.ttf',
-  variable: "--font-orpheusNormal",
+const inglobalNormal = localFont({
+  src: "../assets/fonts/inglobal/inglobal.ttf",
+  variable: "--font-inglobalNormal",
 })
 
 const proximaNova = localFont({
@@ -62,7 +67,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${orpheus.variable} ${proximaNova.variable} ${orpheusNormal.variable} ${poppins.variable} ${le_beaune.variable} antialiased h-screen`}
+        className={` ${inglobal.variable} ${proximaNova.variable} ${inglobalNormal.variable} ${poppins.variable} ${le_beaune.variable} antialiased h-screen`}
       >
         {/* <Navbar/> */}
         <ScrollNavbar />

@@ -135,7 +135,7 @@ export default function Lightbox({
             transition={{ delay: 0.2 }}
             className="mt-6 text-center max-w-2xl px-4"
           >
-            <h3 className="font-orpheus font-bold text-xl md:text-2xl text-white mb-2">
+            <h3 className="font-inglobal font-bold text-xl md:text-2xl text-white mb-2">
               {currentImage.title}
             </h3>
 

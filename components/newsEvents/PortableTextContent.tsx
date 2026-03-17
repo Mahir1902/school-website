@@ -20,19 +20,19 @@ const components = {
     ),
     // Heading 2
     h2: ({ children }: any) => (
-      <h2 className="font-orpheus font-bold text-3xl text-primary mt-8 mb-4">
+      <h2 className="font-inglobal font-bold text-3xl text-primary mt-8 mb-4">
         {children}
       </h2>
     ),
     // Heading 3
     h3: ({ children }: any) => (
-      <h3 className="font-orpheus font-bold text-2xl text-primary mt-6 mb-3">
+      <h3 className="font-inglobal font-bold text-2xl text-primary mt-6 mb-3">
         {children}
       </h3>
     ),
     // Heading 4
     h4: ({ children }: any) => (
-      <h4 className="font-orpheus font-bold text-xl text-primary mt-4 mb-2">
+      <h4 className="font-inglobal font-bold text-xl text-primary mt-4 mb-2">
         {children}
       </h4>
     ),

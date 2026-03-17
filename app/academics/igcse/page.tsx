@@ -157,7 +157,7 @@ export default function IGCSEPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
           <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-orpheus text-primary mb-3">
+            <h3 className="text-xl font-inglobal text-primary mb-3">
               Standard 9
             </h3>
             <ul className="space-y-2 text-foreground/70 font-proximaNova">
@@ -181,7 +181,7 @@ export default function IGCSEPage() {
           </div>
 
           <div className="bg-card border border-border rounded-lg p-6">
-            <h3 className="text-xl font-orpheus text-primary mb-3">
+            <h3 className="text-xl font-inglobal text-primary mb-3">
               Standard 10
             </h3>
             <ul className="space-y-2 text-foreground/70 font-proximaNova">
@@ -212,7 +212,7 @@ export default function IGCSEPage() {
           {/* Content Side */}
           <div className="bg-gradient-to-br from-secondary/20 via-secondary/10 to-primary/5 p-8 md:p-12 flex items-center order-2 lg:order-1">
             <div>
-              <h3 className="text-3xl font-orpheus text-primary mb-4">
+              <h3 className="text-3xl font-inglobal text-primary mb-4">
                 IGCSE Achievement Awards
               </h3>
               <p className="text-foreground/70 font-proximaNova mb-6">
@@ -225,7 +225,7 @@ export default function IGCSEPage() {
                     <Award className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h4 className="font-orpheus text-primary mb-1">Award Crest</h4>
+                    <h4 className="font-inglobal text-primary mb-1">Award Crest</h4>
                     <p className="text-sm text-foreground/70 font-proximaNova">
                       Recognition of academic excellence
                     </p>
@@ -237,7 +237,7 @@ export default function IGCSEPage() {
                     <FileCheck className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h4 className="font-orpheus text-primary mb-1">Certificate</h4>
+                    <h4 className="font-inglobal text-primary mb-1">Certificate</h4>
                     <p className="text-sm text-foreground/70 font-proximaNova">
                       Certificate of Achievement
                     </p>
@@ -249,7 +249,7 @@ export default function IGCSEPage() {
                     <DollarSign className="w-6 h-6 text-secondary" />
                   </div>
                   <div>
-                    <h4 className="font-orpheus text-primary mb-1">A-Level Voucher</h4>
+                    <h4 className="font-inglobal text-primary mb-1">A-Level Voucher</h4>
                     <p className="text-sm text-foreground/70 font-proximaNova">
                       BDT 5,000 towards A-Level registration
                     </p>
@@ -275,7 +275,7 @@ export default function IGCSEPage() {
       {/* University Pathways */}
       <section>
         <div className="bg-card border border-border rounded-lg p-8">
-          <h3 className="text-2xl font-orpheus text-primary mb-6 text-center">
+          <h3 className="text-2xl font-inglobal text-primary mb-6 text-center">
             After IGCSE: Your University Pathway
           </h3>
           <div className="max-w-3xl mx-auto">
@@ -317,7 +317,7 @@ export default function IGCSEPage() {
 
       {/* Call to Action */}
       <section className="text-center bg-primary/5 rounded-lg p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-orpheus text-primary mb-4">
+        <h2 className="text-2xl md:text-3xl font-inglobal text-primary mb-4">
           Ready to Begin Your IGCSE Journey?
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">

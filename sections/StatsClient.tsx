@@ -86,7 +86,7 @@ export default function StatsClient({ stats }: StatsClientProps) {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             Our Impact in Numbers
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -141,7 +141,7 @@ function StatItem({
       }}
     >
       <div className="mb-4">
-        <span className="text-5xl md:text-6xl lg:text-7xl font-bold font-orpheus text-secondary">
+        <span className="text-5xl md:text-6xl lg:text-7xl font-bold font-inglobal text-secondary">
           {count}
           {stat.suffix}
         </span>

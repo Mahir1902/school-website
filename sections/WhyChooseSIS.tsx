@@ -105,7 +105,7 @@ export default function WhyChooseSIS() {
               : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-orpheus mb-4">
+          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
             Why Choose SIS?
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
@@ -133,7 +133,7 @@ export default function WhyChooseSIS() {
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                   <feature.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-orpheus text-primary">
+                <h3 className="text-xl font-inglobal text-primary">
                   {feature.title}
                 </h3>
                 <p className="text-foreground/70 font-proximaNova leading-relaxed">
