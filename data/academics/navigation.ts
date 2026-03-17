@@ -1,4 +1,5 @@
 import { NavItem } from "@/types/academics";
+import { NavigationSection } from "@/types/navigation";
 import {
   GraduationCap,
   Baby,
@@ -16,7 +17,7 @@ import {
 // Navigation structure for academics section
 export const academicsNavItems: NavItem[] = [
   {
-    title: "Overview",
+    title: "Curriculum",
     href: "/academics",
     description: "Explore our comprehensive academic programs",
     icon: GraduationCap,
@@ -102,12 +103,12 @@ export const academicsNavItems: NavItem[] = [
 ];
 
 // Dropdown navigation items for ScrollNavbar (desktop only)
-export const academicsDropdownSections = [
+export const academicsDropdownSections: NavigationSection[] = [
   {
     title: "Academic Programmes",
     items: [
       {
-        title: "Overview",
+        title: "Curriculum",
         href: "/academics",
         description: "Our academic philosophy",
       },
@@ -175,6 +176,11 @@ export const academicsDropdownSections = [
         title: "Academic Calendar",
         href: "/academics/calendar",
         description: "Important dates",
+      },
+      {
+        title: "Scholarships",
+        href: "/academics/scholarships",
+        description: "Scholarship opportunities",
       },
     ],
   },

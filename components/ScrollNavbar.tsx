@@ -9,14 +9,17 @@ import { Menu, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { academicsDropdownSections } from "@/data/academics";
 import { newsEventsDropdownSections } from "@/data/newsEvents/navigation";
+import { beyondAcademicsDropdownSections } from "@/data/beyondAcademics/navigation";
+import { admissionsDropdownSections } from "@/data/admissions/navigation";
+import { aboutDropdownSections } from "@/data/about/navigation";
 
 const navLinks = [
   { title: "Home", href: "/" },
-  { title: "About Us", href: "#about" },
+  { title: "About Us", href: "/about", hasDropdown: true },
   { title: "Academics", href: "/academics", hasDropdown: true },
-  { title: "Campus Life", href: "#campus" },
-  { title: "Admissions", href: "#admissions" },
-  { title: "News & Events", href: "/news-events", hasDropdown: true },
+  { title: "Beyond Academics", href: "/beyond-academics", hasDropdown: true },
+  { title: "Admissions", href: "/admissions", hasDropdown: true, dropdownAlign: "right" as const },
+  { title: "News & Events", href: "/news-events", hasDropdown: true, dropdownAlign: "right" as const },
   { title: "Contact", href: "#contact" },
 ];
 
@@ -51,7 +54,7 @@ export default function ScrollNavbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isHomePage]);
+  }, [isHomePage]);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -107,11 +110,18 @@ export default function ScrollNavbar() {
               <div className="hidden md:flex items-center gap-6 lg:gap-8">
                 {navLinks.map((link) => {
                   // Get the appropriate dropdown data based on the link
-                  const dropdownSections = link.title === "Academics"
-                    ? academicsDropdownSections
-                    : link.title === "News & Events"
-                    ? newsEventsDropdownSections
-                    : [];
+                  const dropdownSections =
+                    link.title === "Academics"
+                      ? academicsDropdownSections
+                      : link.title === "News & Events"
+                      ? newsEventsDropdownSections
+                      : link.title === "Beyond Academics"
+                      ? beyondAcademicsDropdownSections
+                      : link.title === "Admissions"
+                      ? admissionsDropdownSections
+                      : link.title === "About Us"
+                      ? aboutDropdownSections
+                      : [];
 
                   return (
                     <div
@@ -140,7 +150,7 @@ export default function ScrollNavbar() {
                                 exit={{ opacity: 0, y: 10 }}
                                 transition={{ duration: 0.2 }}
                                 className={`absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-border p-6 w-[600px] z-50 ${
-                                  link.title === "News & Events" ? "right-0" : "left-0"
+                                  link.dropdownAlign === "right" ? "right-0" : "left-0"
                                 }`}
                               >
                                 <div className="grid grid-cols-3 gap-6">
@@ -171,6 +181,14 @@ export default function ScrollNavbar() {
                             )}
                           </AnimatePresence>
                         </>
+                      ) : link.href.startsWith("/") ? (
+                        <Link
+                          href={link.href}
+                          className="text-sm lg:text-base font-inglobal font-medium text-primary hover:text-secondary transition-colors duration-300 cursor-pointer relative group"
+                        >
+                          {link.title}
+                          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
+                        </Link>
                       ) : (
                         <a
                           href={link.href}

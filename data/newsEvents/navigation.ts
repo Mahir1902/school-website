@@ -1,13 +1,4 @@
-export interface NavigationItem {
-  title: string;
-  href: string;
-  description: string;
-}
-
-export interface NavigationSection {
-  title: string;
-  items: NavigationItem[];
-}
+import { NavigationItem, NavigationSection } from "@/types/navigation";
 
 export const newsEventsDropdownSections: NavigationSection[] = [
   {
