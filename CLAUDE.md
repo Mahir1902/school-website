@@ -134,6 +134,19 @@ The project uses a comprehensive design token system defined in `app/globals.css
 
 All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `text-secondary`, `shadow-lg`).
 
+### UI Consistency Rules
+
+**The design token system (`app/globals.css`) is the single source of truth. These rules are mandatory:**
+
+- **Never hardcode colors, fonts, or spacing.** Always use OKLCH design tokens and Tailwind utilities. No inline `style` attributes with color values or raw hex/rgb colors in JSX/TSX.
+- **Every UI change requires a visual diff check** by `ui-design-validator` against existing components before the change is considered complete.
+- **Cross-viewport testing is mandatory** for every UI change:
+  - Mobile: 375px
+  - Tablet: 768px
+  - Desktop: 1440px
+- **Animations must follow the IntersectionObserver pattern** — do not introduce alternate animation libraries without explicit approval.
+- **New components must use existing design tokens** — introduce new CSS variables to `globals.css` only if genuinely needed and they follow the established naming convention.
+
 ### Component Architecture
 
 - **UI Components**: Located in `/components/ui/` - shadcn/ui components configured via `components.json`
@@ -244,6 +257,30 @@ Each agent maintains persistent memory in `.claude/agents/{agent-name}/memory/`:
 - Important patterns, decisions, and learnings are preserved
 - Main agent should leverage agent memory when delegating repeat tasks
 
+## Mandatory Change Workflow
+
+**Every code change — no matter how small — must follow this workflow. No step can be skipped.**
+
+| Step | Role | Agent / Action |
+|------|------|----------------|
+| 1 | **Planner** | `feature-planner` — breaks task into steps, checks `FEATURE_CHECKLIST.md` for context, updates checklist when done |
+| 2 | **Devil's Advocate** | Built into every agent: challenge assumptions, flag risks, surface edge cases before coding starts |
+| 3 | **Coder** | `coder-agent` — implements only after the plan is approved |
+| 4 | **UI Validator** | `ui-design-validator` — runs Playwright browser tests on every change, not just UI-focused tasks |
+| 5 | **Code Reviewer** | `code-reviewer` — final security and quality gate before anything is considered done |
+
+### Non-Negotiable Rules
+
+- **No step can be skipped** — even for one-line fixes, all 5 roles must be engaged.
+- **Skills first** — every agent must search `/skills` before writing any new code. If no skill is found, invoke the `find-skills` skill before proceeding. Only after exhausting both should code be written from scratch.
+- **Tests must pass** — code is not "done" until it is confirmed passing. No marking tasks complete without evidence.
+- **UI consistency** — design tokens (OKLCH colors, fonts, spacing) must not drift between changes. `ui-design-validator` must confirm visual consistency before any change is marked complete.
+- **Checklist updates** — after completing any feature, update `FEATURE_CHECKLIST.md` immediately.
+
+### Running Agents in Parallel
+
+When steps 1 and 2 are complete (plan approved), agents 3, 4, and 5 can run in parallel where their inputs don't depend on each other. Maximize parallelism but never skip the sequence of: Plan → Implement → Validate → Review.
+
 ## Skills & Patterns
 
 **Location:** `/skills` directory (to be created)
@@ -259,6 +296,12 @@ All agents should check the `/skills` folder for reusable patterns and project-s
 - Deployment scripts
 
 **When implementing new features:** Always search the skills folder first. If a suitable pattern exists, adapt it. If you create a novel pattern that could be reused, document it as a new skill.
+
+**Mandatory skills search order (all agents must follow):**
+1. Search `/skills` folder for matching pattern.
+2. If not found, invoke the `find-skills` skill (`Skill tool: find-skills`).
+3. Only after both steps return no match should new code be written from scratch.
+4. If new reusable patterns are created during implementation, document them in `/skills` immediately.
 
 **Note:** Skills folder is referenced in agent configurations (coder-agent, ui-design-validator) but not yet populated. As the project grows, document reusable patterns here.
 
@@ -405,6 +448,10 @@ import { cn } from "@/lib/utils";
 
 ## Development Notes
 
+### Resuming Work
+
+**When starting a new session, always read `FEATURE_CHECKLIST.md` first** to orient on current progress before making any changes. This is the source of truth for what is done, in-progress, and planned. Update it after completing any feature or phase.
+
 **Current Branch:** `feature/news-events-section`
 - Major feature in progress: News & Events section with Sanity CMS integration
 - Implementation tracked in `FEATURE_DOCUMENT.md` (15 phases, 200+ tasks)
@@ -427,6 +474,6 @@ import { cn } from "@/lib/utils";
 - Future sections should follow this pattern for dropdown menus
 
 **Feature Implementation:**
-- Track progress in `FEATURE_DOCUMENT.md`
-- Currently in Phase 1-3 (Schema, Routes, Components creation)
+- Track progress in `FEATURE_CHECKLIST.md` (living session-persistent checklist) and `FEATURE_DOCUMENT.md` (detailed task breakdown)
+- Phase 14.5 (Event & News Detail Pages) is complete — all other phases are not started
 - ISR configured on overview page (60-second revalidation)
