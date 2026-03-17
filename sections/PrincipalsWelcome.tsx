@@ -34,7 +34,7 @@ export default function PrincipalsWelcome() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 bg-white overflow-hidden border border-red-500"
+      className="relative py-20 bg-white overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
