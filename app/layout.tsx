@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Lora, Montserrat, Poppins } from "next/font/google";
+import {  Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+
 import ScrollNavbar from "@/components/ScrollNavbar";
 import localFont from 'next/font/local'
 

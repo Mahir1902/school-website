@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
 
@@ -132,13 +133,13 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
                 </p>
 
                 {/* Read More Link */}
-                <a
+                <Link
                   href={`/news-events/${item.slug.current}`}
                   className="inline-flex items-center gap-2 text-primary font-poppins text-sm font-semibold hover:gap-3 transition-all duration-300"
                 >
                   Read More
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
@@ -146,13 +147,13 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <a
+          <Link
             href="/news-events/news"
             className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-md font-poppins font-medium hover:bg-primary/90 transition-colors duration-300 shadow-md hover:shadow-lg"
           >
             View All News
             <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

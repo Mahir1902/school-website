@@ -47,7 +47,7 @@ export default async function NewsEventsOverview() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-inglobal font-bold text-primary mb-2">
+              <h2 className="text-3xl md:text-4xl font-inglobal font-medium text-primary mb-2">
                 Latest News
               </h2>
               <p className="font-proximaNova text-foreground/70">

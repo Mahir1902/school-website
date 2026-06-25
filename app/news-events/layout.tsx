@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Breadcrumb from "@/components/newsEvents/Breadcrumb";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
   title: {

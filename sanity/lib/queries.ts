@@ -170,21 +170,6 @@ export const activeNoticesQuery = groq`
   }
 `
 
-// Fetch archived notices
-export const archivedNoticesQuery = groq`
-  *[_type == "notice" && expiryDate < now()] | order(publishedDate desc) {
-    _id,
-    title,
-    publishedDate,
-    expiryDate,
-    content,
-    priority,
-    category,
-    attachments,
-    targetAudience
-  }
-`
-
 // Fetch gallery images (all)
 export const allGalleryImagesQuery = groq`
   *[_type == "galleryImage"] | order(order asc, dateTaken desc) {
@@ -231,44 +216,6 @@ export const videoGalleryQuery = groq`
     duration,
     uploadDate,
     category,
-    featured,
-    tags
-  }
-`
-
-// Fetch single news article by slug
-export const newsArticleBySlugQuery = groq`
-  *[_type == "news" && slug.current == $slug][0] {
-    _id,
-    title,
-    slug,
-    publishedDate,
-    excerpt,
-    featuredImage,
-    content,
-    category,
-    author,
-    featured,
-    tags
-  }
-`
-
-// Fetch single event by slug
-export const eventBySlugQuery = groq`
-  *[_type == "event" && slug.current == $slug][0] {
-    _id,
-    title,
-    slug,
-    startDate,
-    endDate,
-    location,
-    excerpt,
-    featuredImage,
-    content,
-    eventType,
-    status,
-    capacity,
-    registrationLink,
     featured,
     tags
   }
