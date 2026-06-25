@@ -1,4 +1,4 @@
-import { defineType } from 'sanity'
+import { defineType, type SlugValue, type ValidationContext } from 'sanity'
 
 export default defineType({
   name: 'event',
@@ -19,7 +19,7 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
-      validation: (rule) => rule.required().custom(async (value: any, context: any) => {
+      validation: (rule) => rule.required().custom(async (value: SlugValue | undefined, context: ValidationContext) => {
         if (!value?.current) return true;
 
         const { getClient } = context;

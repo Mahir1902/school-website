@@ -14,7 +14,10 @@ interface PathwayTimelineProps {
 // Icon resolver function
 const getIcon = (icon: LucideIcon | string): LucideIcon => {
   if (typeof icon === "string") {
-    return (Icons as any)[icon] || Icons.Circle;
+    // ponytail: dynamic name->icon lookup into lucide's module; casting is the
+    // idiomatic way to index it by string. Upgrade path: an explicit name->icon
+    // map if the icon set ever needs constraining.
+    return (Icons as unknown as Record<string, LucideIcon>)[icon] || Icons.Circle;
   }
   return icon;
 };

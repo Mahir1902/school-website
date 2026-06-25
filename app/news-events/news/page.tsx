@@ -9,13 +9,14 @@ import PageHero from "@/components/newsEvents/PageHero";
 import NewsCard from "@/components/newsEvents/NewsCard";
 import FilterBar from "@/components/newsEvents/FilterBar";
 import Pagination from "@/components/newsEvents/Pagination";
+import type { News } from "@/types/newsEvents";
 
 const ITEMS_PER_PAGE = 12;
 const CATEGORIES = ["All", "Latest", "Achievements"];
 
 function NewsContent() {
   const searchParams = useSearchParams();
-  const [news, setNews] = useState<any[]>([]);
+  const [news, setNews] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
 

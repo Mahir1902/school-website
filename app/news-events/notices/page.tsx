@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { activeNoticesQuery } from "@/sanity/lib/queries";
 import PageHero from "@/components/newsEvents/PageHero";
 import NoticeCard from "@/components/newsEvents/NoticeCard";
+import type { Notice } from "@/types/newsEvents";
 import { Bell } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default async function NoticesPage() {
       {/* Notices List */}
       {notices.length > 0 ? (
         <div className="space-y-4">
-          {notices.map((notice: any) => (
+          {notices.map((notice: Notice) => (
             <NoticeCard key={notice._id} notice={notice} />
           ))}
         </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Calendar, User, ArrowRight } from "lucide-react";
+import type { SanityImageSource } from "@sanity/image-url";
 import CategoryBadge from "./CategoryBadge";
 
 interface NewsCardProps {
@@ -11,7 +12,7 @@ interface NewsCardProps {
     slug: { current: string };
     publishedDate: string;
     excerpt?: string;
-    featuredImage?: any;
+    featuredImage?: SanityImageSource;
     category?: string;
     author?: string;
     featured?: boolean;

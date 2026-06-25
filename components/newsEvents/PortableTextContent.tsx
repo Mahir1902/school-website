@@ -1,6 +1,7 @@
 'use client';
 
-import { PortableText } from '@portabletext/react';
+import { PortableText, type PortableTextComponents } from '@portabletext/react';
+import type { PortableTextBlock } from '@portabletext/types';
 import Image from 'next/image';
 import { urlFor } from '@/sanity/lib/image';
 
@@ -10,34 +11,36 @@ import { urlFor } from '@/sanity/lib/image';
  * with project-specific design tokens and typography
  */
 
-const components = {
+// Typing the object as PortableTextComponents lets each serializer's
+// params (children/value) be inferred — no per-serializer annotations needed.
+const components: PortableTextComponents = {
   block: {
     // Normal paragraph
-    normal: ({ children }: any) => (
+    normal: ({ children }) => (
       <p className="font-proximaNova text-foreground/80 mb-4 leading-relaxed">
         {children}
       </p>
     ),
     // Heading 2
-    h2: ({ children }: any) => (
+    h2: ({ children }) => (
       <h2 className="font-inglobal font-bold text-3xl text-primary mt-8 mb-4">
         {children}
       </h2>
     ),
     // Heading 3
-    h3: ({ children }: any) => (
+    h3: ({ children }) => (
       <h3 className="font-inglobal font-bold text-2xl text-primary mt-6 mb-3">
         {children}
       </h3>
     ),
     // Heading 4
-    h4: ({ children }: any) => (
+    h4: ({ children }) => (
       <h4 className="font-inglobal font-bold text-xl text-primary mt-4 mb-2">
         {children}
       </h4>
     ),
     // Blockquote
-    blockquote: ({ children }: any) => (
+    blockquote: ({ children }) => (
       <blockquote className="border-l-4 border-primary/30 pl-4 italic text-foreground/70 my-4">
         {children}
       </blockquote>
@@ -45,9 +48,9 @@ const components = {
   },
   marks: {
     // Links
-    link: ({ children, value }: any) => (
+    link: ({ children, value }) => (
       <a
-        href={value.href}
+        href={value?.href}
         target="_blank"
         rel="noopener noreferrer"
         className="text-primary hover:text-secondary underline transition-colors"
@@ -56,21 +59,21 @@ const components = {
       </a>
     ),
     // Strong (bold)
-    strong: ({ children }: any) => (
+    strong: ({ children }) => (
       <strong className="font-semibold">{children}</strong>
     ),
     // Emphasis (italic)
-    em: ({ children }: any) => <em className="italic">{children}</em>,
+    em: ({ children }) => <em className="italic">{children}</em>,
   },
   list: {
     // Bullet list
-    bullet: ({ children }: any) => (
+    bullet: ({ children }) => (
       <ul className="list-disc list-inside space-y-2 mb-4 font-proximaNova">
         {children}
       </ul>
     ),
     // Numbered list
-    number: ({ children }: any) => (
+    number: ({ children }) => (
       <ol className="list-decimal list-inside space-y-2 mb-4 font-proximaNova">
         {children}
       </ol>
@@ -78,7 +81,7 @@ const components = {
   },
   types: {
     // Images embedded in content
-    image: ({ value }: any) => {
+    image: ({ value }) => {
       if (!value?.asset) return null;
       return (
         <div className="my-6">
@@ -103,7 +106,7 @@ const components = {
 };
 
 interface PortableTextContentProps {
-  content: any[];
+  content: PortableTextBlock[];
 }
 
 export default function PortableTextContent({ content }: PortableTextContentProps) {

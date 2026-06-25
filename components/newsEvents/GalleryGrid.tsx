@@ -4,18 +4,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { motion } from "framer-motion";
-
-interface GalleryImage {
-  _id: string;
-  title: string;
-  image: any;
-  alt?: string;
-  caption?: string;
-  photographer?: string;
-  dateTaken?: string;
-  category?: string;
-  aspectRatio?: string;
-}
+import type { GalleryImage } from "@/types/newsEvents";
 
 interface GalleryGridProps {
   images: GalleryImage[];

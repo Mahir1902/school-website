@@ -4,6 +4,7 @@ import { upcomingEventsQuery } from "@/sanity/lib/queries";
 import PageHero from "@/components/newsEvents/PageHero";
 import EventCard from "@/components/newsEvents/EventCard";
 import Link from "next/link";
+import type { Event } from "@/types/newsEvents";
 import { Calendar } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ export default async function UpcomingEventsPage() {
       {/* Events Grid */}
       {events.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {events.map((event: any) => (
+          {events.map((event: Event) => (
             <EventCard key={event._id} event={event} />
           ))}
         </div>

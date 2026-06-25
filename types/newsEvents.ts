@@ -3,6 +3,9 @@
  * Used across detail pages, cards, and query responses
  */
 
+import type { SanityImageSource } from '@sanity/image-url';
+import type { PortableTextBlock } from '@portabletext/types';
+
 export interface Event {
   _id: string;
   title: string;
@@ -11,8 +14,8 @@ export interface Event {
   endDate?: string;
   location?: string;
   excerpt?: string;
-  featuredImage?: any;
-  content?: any[];
+  featuredImage?: SanityImageSource;
+  content?: PortableTextBlock[];
   eventType: string;
   status?: string;
   capacity?: number;
@@ -27,12 +30,21 @@ export interface News {
   slug: { current: string };
   publishedDate: string;
   excerpt?: string;
-  featuredImage?: any;
-  content?: any[];
+  featuredImage?: SanityImageSource;
+  content?: PortableTextBlock[];
   category: string;
   author?: string;
   featured?: boolean;
   tags?: string[];
+}
+
+/** A file attachment on a notice, as returned by the GROQ query (asset dereferenced). */
+export interface NoticeAttachment {
+  asset: {
+    url: string;
+    originalFilename?: string;
+  };
+  description?: string;
 }
 
 export interface Notice {
@@ -40,10 +52,10 @@ export interface Notice {
   title: string;
   publishedDate: string;
   expiryDate?: string;
-  content: any[];
+  content: string; // schema field is a plain `text`, not Portable Text
   priority: string;
   category: string;
-  attachments?: any[];
+  attachments?: NoticeAttachment[];
   targetAudience?: string[];
   pinned?: boolean;
 }
@@ -51,7 +63,7 @@ export interface Notice {
 export interface GalleryImage {
   _id: string;
   title: string;
-  image: any;
+  image: SanityImageSource;
   alt?: string;
   caption?: string;
   photographer?: string;
@@ -60,6 +72,20 @@ export interface GalleryImage {
   aspectRatio?: string;
   featured?: boolean;
   order?: number;
+}
+
+export interface VideoGallery {
+  _id: string;
+  title: string;
+  slug?: { current: string };
+  description?: string;
+  videoUrl: string;
+  thumbnail?: SanityImageSource;
+  duration?: string;
+  uploadDate: string;
+  category?: string;
+  featured?: boolean;
+  tags?: string[];
 }
 
 /**

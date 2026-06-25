@@ -1,0 +1,522 @@
+- generic [ref=e1]:
+  - navigation [ref=e690]:
+    - generic [ref=e692]:
+      - link "Singapore International School" [ref=e693] [cursor=pointer]:
+        - /url: "#"
+        - img "Singapore International School" [ref=e694]
+      - button "Open menu" [active] [ref=e695]:
+        - img [ref=e696]
+    - generic [ref=e699]:
+      - button "Close menu" [ref=e700]:
+        - img [ref=e701]
+      - img "SIS Logo" [ref=e705]
+      - navigation [ref=e706]:
+        - list [ref=e707]:
+          - listitem [ref=e708]:
+            - link "Home" [ref=e710] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e711]:
+            - generic [ref=e712]:
+              - link "About Us" [ref=e713] [cursor=pointer]:
+                - /url: /about
+              - button "Expand About Us" [ref=e714]:
+                - img [ref=e715]
+          - listitem [ref=e717]:
+            - generic [ref=e718]:
+              - link "Academics" [ref=e719] [cursor=pointer]:
+                - /url: /academics
+              - button "Expand Academics" [ref=e720]:
+                - img [ref=e721]
+          - listitem [ref=e723]:
+            - generic [ref=e724]:
+              - link "Beyond Academics" [ref=e725] [cursor=pointer]:
+                - /url: /beyond-academics
+              - button "Expand Beyond Academics" [ref=e726]:
+                - img [ref=e727]
+          - listitem [ref=e729]:
+            - generic [ref=e730]:
+              - link "Admissions" [ref=e731] [cursor=pointer]:
+                - /url: /admissions
+              - button "Expand Admissions" [ref=e732]:
+                - img [ref=e733]
+          - listitem [ref=e735]:
+            - generic [ref=e736]:
+              - link "News & Events" [ref=e737] [cursor=pointer]:
+                - /url: /news-events
+              - button "Expand News & Events" [ref=e738]:
+                - img [ref=e739]
+          - listitem [ref=e741]:
+            - link "Contact" [ref=e743] [cursor=pointer]:
+              - /url: /#contact
+      - generic [ref=e744]:
+        - paragraph [ref=e745]: Contact Us
+        - paragraph [ref=e746]: +65 1234 5678
+        - paragraph [ref=e747]: info@sis.edu
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - img "hero" [ref=e7]
+        - img "hero" [ref=e10]
+        - img "hero" [ref=e13]
+        - img "hero" [ref=e16]
+        - img "hero" [ref=e19]
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - img "Singapore International School" [ref=e23]
+          - button "Open menu" [ref=e25] [cursor=pointer]:
+            - img [ref=e26]
+        - heading "Welcome To SINGAPORE INTERNATIONAL SCHOOL" [level=1] [ref=e29]:
+          - generic [ref=e30]: Welcome To
+          - generic [ref=e31]: SINGAPORE
+          - generic [ref=e32]: INTERNATIONAL SCHOOL
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - heading "PRINCIPAL'S WELCOME" [level=2] [ref=e39]:
+          - text: PRINCIPAL'S
+          - text: WELCOME
+        - paragraph [ref=e40]:
+          - generic [ref=e41]: Hello and welcome! On behalf of our entire team, I'm delighted you've found your way to Singapore International School Dhaka.
+          - generic [ref=e42]: At SIS, we're passionate about creating a place where students feel excited to learn, confident to ask questions, and supported to be themselves. We combine strong academics with a genuine focus on character because we believe education is about preparing young people for life, not just exams.
+          - generic [ref=e43]: Our community is warm, our classrooms are engaging, and our doors are always open. Whether you're exploring schools for your child or already part of the SISD family, we're so glad you're here.
+          - generic [ref=e44]: I look forward to meeting you.
+      - img "Principal at Singapore International School" [ref=e48]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "Why Choose SIS?" [level=2] [ref=e52]
+        - paragraph [ref=e54]: Discover what makes Singapore International School the ideal choice for your child's educational journey
+      - generic [ref=e55]:
+        - generic [ref=e57]:
+          - img [ref=e59]
+          - heading "Internationally Recognised Curriculum" [level=3] [ref=e62]
+          - paragraph [ref=e63]: Pearson Edexcel approved centre offering Cambridge & Edexcel O' Levels and A' Levels, plus International PLSC examinations — opening doors to universities worldwide.
+        - generic [ref=e65]:
+          - img [ref=e67]
+          - heading "Personalised Attention" [level=3] [ref=e72]
+          - paragraph [ref=e73]: Small class sizes ensure meaningful teacher-student interaction. Pre-school classrooms have two dedicated teachers, plus student attendants on every floor for extra care.
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - heading "Future-Ready Learning" [level=3] [ref=e79]
+          - paragraph [ref=e80]: Compulsory computer education from Class 1, a dedicated Robotics Club, STEM Expo participation, and audio-visual learning integrated into everyday lessons.
+        - generic [ref=e82]:
+          - img [ref=e84]
+          - heading "Sports & Activities" [level=3] [ref=e90]
+          - paragraph [ref=e91]: Football turf, basketball court, table tennis, badminton, chess, karate, music, drama, debate, and art — we nurture talents beyond the classroom.
+        - generic [ref=e93]:
+          - img [ref=e95]
+          - heading "Value for Families" [level=3] [ref=e97]
+          - paragraph [ref=e98]: Free textbooks for pre-school students and over 50% of books provided at no cost for primary level. School-owned transport available for added convenience.
+        - generic [ref=e100]:
+          - img [ref=e102]
+          - heading "Character & Values" [level=3] [ref=e104]
+          - paragraph [ref=e105]: Arabic and Quranic studies woven into the curriculum, regular cultural celebrations, and a philosophy rooted in "Everyone Counts" — building well-rounded individuals.
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - heading "Experience Campus Life" [level=2] [ref=e109]
+        - paragraph [ref=e111]: A vibrant community where learning extends beyond the classroom
+      - generic [ref=e112]:
+        - generic [ref=e113] [cursor=pointer]:
+          - img "Academic Excellence" [ref=e114]
+          - generic [ref=e116]:
+            - paragraph [ref=e117]: Learning
+            - heading "Academic Excellence" [level=3] [ref=e118]
+        - generic [ref=e119] [cursor=pointer]:
+          - img "Sports & Athletics" [ref=e120]
+          - generic [ref=e122]:
+            - paragraph [ref=e123]: Physical Education
+            - heading "Sports & Athletics" [level=3] [ref=e124]
+        - generic [ref=e125] [cursor=pointer]:
+          - img "Arts & Creativity" [ref=e126]
+          - generic [ref=e128]:
+            - paragraph [ref=e129]: Cultural
+            - heading "Arts & Creativity" [level=3] [ref=e130]
+        - generic [ref=e131] [cursor=pointer]:
+          - img "Science & Innovation" [ref=e132]
+          - generic [ref=e134]:
+            - paragraph [ref=e135]: STEM
+            - heading "Science & Innovation" [level=3] [ref=e136]
+        - generic [ref=e137] [cursor=pointer]:
+          - img "Clubs & Societies" [ref=e138]
+          - generic [ref=e140]:
+            - paragraph [ref=e141]: Extracurricular
+            - heading "Clubs & Societies" [level=3] [ref=e142]
+        - generic [ref=e143] [cursor=pointer]:
+          - img "Events & Celebrations" [ref=e144]
+          - generic [ref=e146]:
+            - paragraph [ref=e147]: Activities
+            - heading "Events & Celebrations" [level=3] [ref=e148]
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - heading "Our Academic Journey" [level=2] [ref=e152]
+        - paragraph [ref=e154]: A comprehensive educational pathway from early years to university preparation
+      - generic [ref=e157]:
+        - generic [ref=e160]:
+          - img [ref=e162]
+          - heading "Playgroup & Pre-Primary" [level=3] [ref=e164]
+          - paragraph [ref=e165]: Ages 2-5
+          - list [ref=e166]:
+            - listitem [ref=e167]:
+              - generic [ref=e168]: •
+              - text: Play-based learning
+            - listitem [ref=e169]:
+              - generic [ref=e170]: •
+              - text: Social development
+            - listitem [ref=e171]:
+              - generic [ref=e172]: •
+              - text: Creative exploration
+        - generic [ref=e175]:
+          - img [ref=e177]
+          - heading "Primary School" [level=3] [ref=e179]
+          - paragraph [ref=e180]: Ages 6-11
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - generic [ref=e183]: •
+              - text: Strong foundation
+            - listitem [ref=e184]:
+              - generic [ref=e185]: •
+              - text: Core subjects mastery
+            - listitem [ref=e186]:
+              - generic [ref=e187]: •
+              - text: Interactive learning
+        - generic [ref=e190]:
+          - img [ref=e192]
+          - heading "Middle School" [level=3] [ref=e196]
+          - paragraph [ref=e197]: Ages 11-14
+          - list [ref=e198]:
+            - listitem [ref=e199]:
+              - generic [ref=e200]: •
+              - text: Subject specialization
+            - listitem [ref=e201]:
+              - generic [ref=e202]: •
+              - text: Critical thinking
+            - listitem [ref=e203]:
+              - generic [ref=e204]: •
+              - text: STEM focus
+        - generic [ref=e207]:
+          - img [ref=e209]
+          - heading "Secondary School" [level=3] [ref=e214]
+          - paragraph [ref=e215]: Ages 14-16
+          - list [ref=e216]:
+            - listitem [ref=e217]:
+              - generic [ref=e218]: •
+              - text: IGCSE preparation
+            - listitem [ref=e219]:
+              - generic [ref=e220]: •
+              - text: Independent research
+            - listitem [ref=e221]:
+              - generic [ref=e222]: •
+              - text: University guidance
+        - generic [ref=e225]:
+          - img [ref=e227]
+          - heading "A-Levels" [level=3] [ref=e230]
+          - paragraph [ref=e231]: Ages 16-18
+          - list [ref=e232]:
+            - listitem [ref=e233]:
+              - generic [ref=e234]: •
+              - text: Advanced subjects
+            - listitem [ref=e235]:
+              - generic [ref=e236]: •
+              - text: University prep
+            - listitem [ref=e237]:
+              - generic [ref=e238]: •
+              - text: Global recognition
+        - generic [ref=e241]:
+          - img [ref=e243]
+          - heading "Playgroup & Pre-Primary" [level=3] [ref=e245]
+          - paragraph [ref=e246]: Ages 2-5
+          - list [ref=e247]:
+            - listitem [ref=e248]:
+              - generic [ref=e249]: •
+              - text: Play-based learning
+            - listitem [ref=e250]:
+              - generic [ref=e251]: •
+              - text: Social development
+            - listitem [ref=e252]:
+              - generic [ref=e253]: •
+              - text: Creative exploration
+        - generic [ref=e256]:
+          - img [ref=e258]
+          - heading "Primary School" [level=3] [ref=e260]
+          - paragraph [ref=e261]: Ages 6-11
+          - list [ref=e262]:
+            - listitem [ref=e263]:
+              - generic [ref=e264]: •
+              - text: Strong foundation
+            - listitem [ref=e265]:
+              - generic [ref=e266]: •
+              - text: Core subjects mastery
+            - listitem [ref=e267]:
+              - generic [ref=e268]: •
+              - text: Interactive learning
+        - generic [ref=e271]:
+          - img [ref=e273]
+          - heading "Middle School" [level=3] [ref=e277]
+          - paragraph [ref=e278]: Ages 11-14
+          - list [ref=e279]:
+            - listitem [ref=e280]:
+              - generic [ref=e281]: •
+              - text: Subject specialization
+            - listitem [ref=e282]:
+              - generic [ref=e283]: •
+              - text: Critical thinking
+            - listitem [ref=e284]:
+              - generic [ref=e285]: •
+              - text: STEM focus
+        - generic [ref=e288]:
+          - img [ref=e290]
+          - heading "Secondary School" [level=3] [ref=e295]
+          - paragraph [ref=e296]: Ages 14-16
+          - list [ref=e297]:
+            - listitem [ref=e298]:
+              - generic [ref=e299]: •
+              - text: IGCSE preparation
+            - listitem [ref=e300]:
+              - generic [ref=e301]: •
+              - text: Independent research
+            - listitem [ref=e302]:
+              - generic [ref=e303]: •
+              - text: University guidance
+        - generic [ref=e306]:
+          - img [ref=e308]
+          - heading "A-Levels" [level=3] [ref=e311]
+          - paragraph [ref=e312]: Ages 16-18
+          - list [ref=e313]:
+            - listitem [ref=e314]:
+              - generic [ref=e315]: •
+              - text: Advanced subjects
+            - listitem [ref=e316]:
+              - generic [ref=e317]: •
+              - text: University prep
+            - listitem [ref=e318]:
+              - generic [ref=e319]: •
+              - text: Global recognition
+    - generic [ref=e321]:
+      - generic [ref=e322]:
+        - heading "Our Impact in Numbers" [level=2] [ref=e323]
+        - paragraph [ref=e325]: Building a legacy of excellence through dedication and achievement
+      - generic [ref=e326]:
+        - generic [ref=e327]:
+          - generic [ref=e329]: 0+
+          - paragraph [ref=e330]: Students Enrolled
+        - generic [ref=e331]:
+          - generic [ref=e333]: 0+
+          - paragraph [ref=e334]: Years of Excellence
+        - generic [ref=e335]:
+          - generic [ref=e337]: 0%
+          - paragraph [ref=e338]: University Placement
+        - generic [ref=e339]:
+          - generic [ref=e341]: 0+
+          - paragraph [ref=e342]: Nationalities
+    - generic [ref=e344]:
+      - generic [ref=e345]:
+        - heading "What Our Community Says" [level=2] [ref=e346]
+        - paragraph [ref=e348]: Hear from our students and parents about their SIS experience
+      - generic [ref=e349]:
+        - generic [ref=e351]:
+          - generic [ref=e353]:
+            - img [ref=e356]
+            - blockquote [ref=e359]:
+              - paragraph [ref=e360]: “SIS has provided an exceptional learning environment for my daughter. The teachers are dedicated, and the international curriculum has prepared her wonderfully for her future.”
+            - generic [ref=e361]:
+              - generic [ref=e363]: ST
+              - paragraph [ref=e364]: Sarah Thompson
+              - paragraph [ref=e365]: Parent of Year 10 Student
+          - generic [ref=e367]:
+            - img [ref=e370]
+            - blockquote [ref=e373]:
+              - paragraph [ref=e374]: “The variety of extracurricular activities and the emphasis on holistic development has helped me discover my passions beyond academics. I feel truly prepared for university.”
+            - generic [ref=e375]:
+              - generic [ref=e377]: AH
+              - paragraph [ref=e378]: Ahmed Hassan
+              - paragraph [ref=e379]: A-Level Student
+          - generic [ref=e381]:
+            - img [ref=e384]
+            - blockquote [ref=e387]:
+              - paragraph [ref=e388]: “As an expatriate family, we were looking for a school that celebrates diversity. SIS exceeded our expectations with its inclusive community and global perspective.”
+            - generic [ref=e389]:
+              - generic [ref=e391]: MR
+              - paragraph [ref=e392]: Maria Rodriguez
+              - paragraph [ref=e393]: Parent of Primary Student
+          - generic [ref=e395]:
+            - img [ref=e398]
+            - blockquote [ref=e401]:
+              - paragraph [ref=e402]: “The facilities are world-class, and the teaching methodology encourages critical thinking and creativity. My son has grown tremendously both academically and personally.”
+            - generic [ref=e403]:
+              - generic [ref=e405]: DC
+              - paragraph [ref=e406]: David Chen
+              - paragraph [ref=e407]: Parent of Middle School Student
+        - button "Previous testimonial" [ref=e408]:
+          - img [ref=e409]
+        - button "Next testimonial" [ref=e411]:
+          - img [ref=e412]
+        - generic [ref=e414]:
+          - button "Go to testimonial 1" [ref=e415]
+          - button "Go to testimonial 2" [ref=e416]
+          - button "Go to testimonial 3" [ref=e417]
+          - button "Go to testimonial 4" [ref=e418]
+    - generic [ref=e420]:
+      - generic [ref=e421]:
+        - heading "Latest News & Events" [level=2] [ref=e422]
+        - paragraph [ref=e424]: Stay updated with the latest happenings at SIS
+      - generic [ref=e425]:
+        - generic [ref=e426]:
+          - img "Victory Day Program 2025" [ref=e428]
+          - generic [ref=e430]:
+            - generic [ref=e431]:
+              - img [ref=e432]
+              - generic [ref=e434]: October 18, 2025
+            - heading "Victory Day Program 2025" [level=3] [ref=e435]
+            - paragraph [ref=e436]: Children Participated in the victory day program
+            - link "Read More" [ref=e437] [cursor=pointer]:
+              - /url: /news-events/victory-day-2025
+              - text: Read More
+              - img [ref=e438]
+        - generic [ref=e440]:
+          - img "Annual Sports Day 2024" [ref=e442]
+          - generic [ref=e444]:
+            - generic [ref=e445]:
+              - img [ref=e446]
+              - generic [ref=e448]: December 5, 2024
+            - heading "Annual Sports Day 2024" [level=3] [ref=e449]
+            - paragraph [ref=e450]: Students showcased exceptional talent and sportsmanship at our annual sports day, featuring athletics, team sports, and cultural performances.
+            - link "Read More" [ref=e451] [cursor=pointer]:
+              - /url: /news-events/annual-sports-day-2024
+              - text: Read More
+              - img [ref=e452]
+        - generic [ref=e454]:
+          - img "Science Fair Excellence" [ref=e456]
+          - generic [ref=e458]:
+            - generic [ref=e459]:
+              - img [ref=e460]
+              - generic [ref=e462]: November 28, 2024
+            - heading "Science Fair Excellence" [level=3] [ref=e463]
+            - paragraph [ref=e464]: Our students won multiple awards at the National Science Fair, demonstrating innovation in STEM projects and research.
+            - link "Read More" [ref=e465] [cursor=pointer]:
+              - /url: /news-events/science-fair-excellence
+              - text: Read More
+              - img [ref=e466]
+      - link "View All News" [ref=e469] [cursor=pointer]:
+        - /url: /news-events/news
+        - text: View All News
+        - img [ref=e470]
+    - generic [ref=e474]:
+      - generic [ref=e475]:
+        - heading "Ready to Begin Your Journey?" [level=2] [ref=e476]
+        - paragraph [ref=e478]: Singapore International School provides a well-rounded education from Playgroup to A-Levels, inspiring students to excel intellectually, socially, and creatively. Take the first step towards an exceptional education.
+      - generic [ref=e479]:
+        - generic [ref=e481]:
+          - img [ref=e483]
+          - heading "Schedule a Tour" [level=3] [ref=e485]
+          - paragraph [ref=e486]: Visit our campus and experience SIS firsthand
+          - link "Schedule a Tour" [ref=e487] [cursor=pointer]:
+            - /url: /
+        - generic [ref=e489]:
+          - img [ref=e491]
+          - heading "Apply Now" [level=3] [ref=e494]
+          - paragraph [ref=e495]: Start your journey with us today
+          - link "Apply Now" [ref=e496] [cursor=pointer]:
+            - /url: /
+        - generic [ref=e498]:
+          - img [ref=e500]
+          - heading "Learn More" [level=3] [ref=e502]
+          - paragraph [ref=e503]: Discover our programs and facilities
+          - link "Learn More" [ref=e504] [cursor=pointer]:
+            - /url: /
+      - paragraph [ref=e506]:
+        - text: Questions? Contact our admissions team at
+        - link "admissions@sis.edu" [ref=e507] [cursor=pointer]:
+          - /url: mailto:admissions@sis.edu
+        - text: or call
+        - link "+123 456 7890" [ref=e508] [cursor=pointer]:
+          - /url: tel:+1234567890
+    - contentinfo [ref=e509]:
+      - generic [ref=e511]:
+        - generic [ref=e512]:
+          - generic [ref=e513]:
+            - img "Singapore International School" [ref=e514]
+            - generic [ref=e515]:
+              - heading "SIS" [level=3] [ref=e516]
+              - paragraph [ref=e517]: Excellence in Education
+          - paragraph [ref=e518]: Empowering students to become global citizens through world-class education, innovation, and character development since 2000.
+          - generic [ref=e519]:
+            - link "Facebook" [ref=e520] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e521]
+            - link "Instagram" [ref=e523] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e524]
+            - link "Twitter" [ref=e527] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e528]
+            - link "LinkedIn" [ref=e530] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e531]
+        - generic [ref=e535]:
+          - heading "Quick Links" [level=4] [ref=e536]
+          - list [ref=e537]:
+            - listitem [ref=e538]:
+              - link "About Us" [ref=e539] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e540]:
+              - link "Academic Programs" [ref=e541] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e542]:
+              - link "Admissions" [ref=e543] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e544]:
+              - link "Campus Life" [ref=e545] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e546]:
+              - link "News & Events" [ref=e547] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e548]:
+              - link "Contact" [ref=e549] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e550]:
+          - heading "Resources" [level=4] [ref=e551]
+          - list [ref=e552]:
+            - listitem [ref=e553]:
+              - link "Student Portal" [ref=e554] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e555]:
+              - link "Parent Portal" [ref=e556] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e557]:
+              - link "Staff Portal" [ref=e558] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e559]:
+              - link "Virtual Tour" [ref=e560] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e561]:
+              - link "Careers" [ref=e562] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=e563]:
+              - link "Alumni" [ref=e564] [cursor=pointer]:
+                - /url: "#"
+        - generic [ref=e565]:
+          - heading "Contact Us" [level=4] [ref=e566]
+          - list [ref=e567]:
+            - listitem [ref=e568]:
+              - img [ref=e569]
+              - paragraph [ref=e573]:
+                - text: 123 Education Avenue
+                - text: Singapore 123456
+            - listitem [ref=e574]:
+              - img [ref=e575]
+              - link "+65 1234 5678" [ref=e577] [cursor=pointer]:
+                - /url: tel:+6512345678
+            - listitem [ref=e578]:
+              - img [ref=e579]
+              - link "info@sis.edu" [ref=e582] [cursor=pointer]:
+                - /url: mailto:info@sis.edu
+      - generic [ref=e585]:
+        - paragraph [ref=e586]: © 2026 Singapore International School. All rights reserved.
+        - generic [ref=e587]:
+          - link "Privacy Policy" [ref=e588] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Service" [ref=e589] [cursor=pointer]:
+            - /url: "#"
+          - link "Accessibility" [ref=e590] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e596] [cursor=pointer]:
+    - img [ref=e597]
+  - alert [ref=e600]

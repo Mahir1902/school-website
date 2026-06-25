@@ -6,6 +6,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Play, Calendar, Video } from "lucide-react";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
+import type { VideoGallery } from "@/types/newsEvents";
 
 export const metadata: Metadata = {
   title: "Video Gallery",
@@ -37,7 +38,7 @@ export default async function VideoGalleryPage() {
       {/* Videos Grid */}
       {videos.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {videos.map((video: any) => {
+          {videos.map((video: VideoGallery) => {
             const uploadDate = new Date(video.uploadDate).toLocaleDateString(
               "en-US",
               {

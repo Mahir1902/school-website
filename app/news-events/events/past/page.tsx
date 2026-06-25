@@ -8,13 +8,14 @@ import { pastEventsQuery } from "@/sanity/lib/queries";
 import PageHero from "@/components/newsEvents/PageHero";
 import EventCard from "@/components/newsEvents/EventCard";
 import Pagination from "@/components/newsEvents/Pagination";
+import type { Event } from "@/types/newsEvents";
 import { Calendar } from "lucide-react";
 
 const ITEMS_PER_PAGE = 12;
 
 function PastEventsContent() {
   const searchParams = useSearchParams();
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalPages, setTotalPages] = useState(1);
 

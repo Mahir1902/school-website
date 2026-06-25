@@ -5,16 +5,7 @@ import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface GalleryImage {
-  _id: string;
-  title: string;
-  image: any;
-  alt?: string;
-  caption?: string;
-  photographer?: string;
-  dateTaken?: string;
-}
+import type { GalleryImage } from "@/types/newsEvents";
 
 interface LightboxProps {
   images: GalleryImage[];

@@ -7,29 +7,16 @@ import { usePathname } from "next/navigation";
 import logo from "@/assets/sis-logo-removebg-preview.png";
 import { Menu, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { academicsDropdownSections } from "@/data/academics";
-import { newsEventsDropdownSections } from "@/data/newsEvents/navigation";
-import { beyondAcademicsDropdownSections } from "@/data/beyondAcademics/navigation";
-import { admissionsDropdownSections } from "@/data/admissions/navigation";
-import { aboutDropdownSections } from "@/data/about/navigation";
-
-const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "About Us", href: "/about", hasDropdown: true },
-  { title: "Academics", href: "/academics", hasDropdown: true },
-  { title: "Beyond Academics", href: "/beyond-academics", hasDropdown: true },
-  { title: "Admissions", href: "/admissions", hasDropdown: true, dropdownAlign: "right" as const },
-  { title: "News & Events", href: "/news-events", hasDropdown: true, dropdownAlign: "right" as const },
-  { title: "Contact", href: "#contact" },
-];
+import { navItems } from "@/data/navigation";
+import MobileNavDrawer from "@/components/MobileNavDrawer";
 
 export default function ScrollNavbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
   const [isVisible, setIsVisible] = useState(!isHomePage); // Always visible on non-home pages
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     // On non-home pages, always show navbar
@@ -48,8 +35,6 @@ export default function ScrollNavbar() {
       } else {
         setIsVisible(false);
       }
-
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -72,6 +57,7 @@ export default function ScrollNavbar() {
   };
 
   return (
+    <>
     <AnimatePresence>
       {isVisible && (
         <motion.nav
@@ -108,29 +94,18 @@ export default function ScrollNavbar() {
 
               {/* Desktop Navigation Links */}
               <div className="hidden md:flex items-center gap-6 lg:gap-8">
-                {navLinks.map((link) => {
-                  // Get the appropriate dropdown data based on the link
-                  const dropdownSections =
-                    link.title === "Academics"
-                      ? academicsDropdownSections
-                      : link.title === "News & Events"
-                      ? newsEventsDropdownSections
-                      : link.title === "Beyond Academics"
-                      ? beyondAcademicsDropdownSections
-                      : link.title === "Admissions"
-                      ? admissionsDropdownSections
-                      : link.title === "About Us"
-                      ? aboutDropdownSections
-                      : [];
+                {navItems.map((link) => {
+                  const dropdownSections = link.sections ?? [];
+                  const hasDropdown = dropdownSections.length > 0;
 
                   return (
                     <div
                       key={link.title}
                       className="relative"
-                      onMouseEnter={() => link.hasDropdown && setOpenDropdown(link.title)}
-                      onMouseLeave={() => link.hasDropdown && setOpenDropdown(null)}
+                      onMouseEnter={() => hasDropdown && setOpenDropdown(link.title)}
+                      onMouseLeave={() => hasDropdown && setOpenDropdown(null)}
                     >
-                      {link.hasDropdown ? (
+                      {hasDropdown ? (
                         <>
                           <Link
                             href={link.href}
@@ -204,14 +179,23 @@ export default function ScrollNavbar() {
                 })}
               </div>
 
-              {/* Mobile Menu Icon (placeholder - connects to existing Hero menu) */}
-              <div className="md:hidden">
-                <Menu className="w-6 h-6 text-primary" />
-              </div>
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileOpen(true)}
+                className="md:hidden text-primary hover:text-secondary transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
             </div>
           </div>
         </motion.nav>
       )}
     </AnimatePresence>
+
+    {/* Shared mobile drawer — rendered outside motion.nav so its fixed
+        positioning resolves against the viewport, not the transformed nav. */}
+    <MobileNavDrawer isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+    </>
   );
 }

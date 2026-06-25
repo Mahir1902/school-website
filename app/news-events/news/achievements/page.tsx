@@ -3,6 +3,7 @@ import { client } from "@/sanity/lib/client";
 import { newsByCategoryQuery } from "@/sanity/lib/queries";
 import PageHero from "@/components/newsEvents/PageHero";
 import NewsCard from "@/components/newsEvents/NewsCard";
+import type { News } from "@/types/newsEvents";
 import { Newspaper } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default async function AchievementsPage() {
 
       {achievements.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {achievements.map((news: any) => (
+          {achievements.map((news: News) => (
             <NewsCard key={news._id} news={news} />
           ))}
         </div>

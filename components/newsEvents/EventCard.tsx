@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react";
+import type { SanityImageSource } from "@sanity/image-url";
 import CategoryBadge from "./CategoryBadge";
 
 interface EventCardProps {
@@ -13,7 +14,7 @@ interface EventCardProps {
     endDate?: string;
     location?: string;
     excerpt?: string;
-    featuredImage?: any;
+    featuredImage?: SanityImageSource;
     eventType?: string;
     status?: string;
     capacity?: number;

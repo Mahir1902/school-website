@@ -11,6 +11,7 @@ import PageHero from "@/components/newsEvents/PageHero";
 import NewsCard from "@/components/newsEvents/NewsCard";
 import EventCard from "@/components/newsEvents/EventCard";
 import NoticeCard from "@/components/newsEvents/NoticeCard";
+import type { News, Event, Notice } from "@/types/newsEvents";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -64,7 +65,7 @@ export default async function NewsEventsOverview() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {latestNews.map((news: any) => (
+            {latestNews.map((news: News) => (
               <NewsCard key={news._id} news={news} />
             ))}
           </div>
@@ -101,7 +102,7 @@ export default async function NewsEventsOverview() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredEvents.map((event: any) => (
+            {featuredEvents.map((event: Event) => (
               <EventCard key={event._id} event={event} />
             ))}
           </div>
@@ -138,7 +139,7 @@ export default async function NewsEventsOverview() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {featuredNotices.map((notice: any) => (
+            {featuredNotices.map((notice: Notice) => (
               <NoticeCard key={notice._id} notice={notice} />
             ))}
           </div>

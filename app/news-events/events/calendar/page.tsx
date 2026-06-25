@@ -4,6 +4,7 @@ import { allEventsQuery } from "@/sanity/lib/queries";
 import PageHero from "@/components/newsEvents/PageHero";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
+import type { Event } from "@/types/newsEvents";
 
 export const metadata: Metadata = {
   title: "Event Calendar",
@@ -17,7 +18,7 @@ export default async function EventCalendarPage() {
   const events = await client.fetch(allEventsQuery);
 
   // Group events by month
-  const groupedEvents = events.reduce((acc: any, event: any) => {
+  const groupedEvents = events.reduce((acc: Record<string, Event[]>, event: Event) => {
     const date = new Date(event.startDate);
     const monthYear = date.toLocaleDateString("en-US", {
       year: "numeric",
@@ -64,7 +65,7 @@ export default async function EventCalendarPage() {
 
               {/* Events for this month */}
               <div className="space-y-4">
-                {groupedEvents[monthYear].map((event: any) => {
+                {groupedEvents[monthYear].map((event: Event) => {
                   const startDate = new Date(event.startDate);
                   const endDate = event.endDate ? new Date(event.endDate) : null;
 

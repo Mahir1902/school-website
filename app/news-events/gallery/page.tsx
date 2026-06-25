@@ -10,6 +10,7 @@ import PageHero from "@/components/newsEvents/PageHero";
 import GalleryGrid from "@/components/newsEvents/GalleryGrid";
 import Lightbox from "@/components/newsEvents/Lightbox";
 import FilterBar from "@/components/newsEvents/FilterBar";
+import type { GalleryImage } from "@/types/newsEvents";
 import { Images } from "lucide-react";
 
 const CATEGORIES = [
@@ -24,7 +25,7 @@ const CATEGORIES = [
 ];
 
 export default function PhotoGalleryPage() {
-  const [images, setImages] = useState<any[]>([]);
+  const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [category, setCategory] = useState("all");
