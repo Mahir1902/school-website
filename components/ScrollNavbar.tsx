@@ -25,16 +25,10 @@ export default function ScrollNavbar() {
       return;
     }
 
-    // On home page, show navbar only after scrolling
+    // On home page, show navbar only after scrolling past the full-screen hero.
+    // -80 so it slides in right as the next section reaches the top.
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Show navbar when scrolled past 100px
-      if (currentScrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > window.innerHeight - 80);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
