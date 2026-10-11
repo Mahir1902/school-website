@@ -20,6 +20,8 @@ export default function TestimonialsClient({ items }: { items: Testimonial[] }) 
   };
   const prev = () => !leaving && setOrder((o) => [o[o.length - 1], ...o.slice(0, -1)]);
 
+  if (items.length === 0) return null;
+
   return (
     <div className="mx-auto w-full max-w-2xl">
       <div className="relative grid" aria-live="polite">

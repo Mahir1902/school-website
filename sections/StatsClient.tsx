@@ -13,6 +13,7 @@ export default function StatsClient({ stats }: { stats: Stat[] }) {
   useEffect(() => {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top <= window.innerHeight) return;
     let frame = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -29,10 +30,8 @@ export default function StatsClient({ stats }: { stats: Stat[] }) {
       },
       { threshold: 0.4 }
     );
-    if (el.getBoundingClientRect().top > window.innerHeight) {
-      setProgress(0);
-      setArmed(true);
-    }
+    setProgress(0);
+    setArmed(true);
     observer.observe(el);
     return () => {
       observer.disconnect();
