@@ -1,18 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { Calendar, User, ArrowRight } from "lucide-react";
-import type { SanityImageSource } from "@sanity/image-url";
 import CategoryBadge from "./CategoryBadge";
 
 interface NewsCardProps {
   news: {
-    _id: string;
+    id: string;
     title: string;
-    slug: { current: string };
+    slug: string;
     publishedDate: string;
     excerpt?: string;
-    featuredImage?: SanityImageSource;
+    featuredImage?: string;
     category?: string;
     author?: string;
     featured?: boolean;
@@ -29,7 +27,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
 
   return (
     <Link
-      href={`/news-events/${news.slug.current}`}
+      href={`/news-events/${news.slug}`}
       className={`group block bg-card border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
         featured ? "md:col-span-2 md:row-span-2" : ""
       }`}
@@ -38,7 +36,7 @@ export default function NewsCard({ news, featured = false }: NewsCardProps) {
       {news.featuredImage && (
         <div className={`relative overflow-hidden bg-muted ${featured ? "h-64 md:h-96" : "h-48"}`}>
           <Image
-            src={urlFor(news.featuredImage).url()}
+            src={news.featuredImage}
             alt={news.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"

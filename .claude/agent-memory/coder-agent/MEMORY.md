@@ -9,15 +9,9 @@ When building content management systems with multiple similar content types (ne
 Created a single dynamic route at `/app/news-events/[slug]/page.tsx` that handles both news articles and events:
 
 **Key Implementation Points:**
-1. **Single Query**: Use a GROQ query that fetches from multiple document types:
-   ```groq
-   *[_type in ["news", "event"] && slug.current == $slug][0]
-   ```
+1. **Single Lookup**: Look the slug up in news first, then events (`/lib/content.ts`)
 
-2. **Type Discrimination**: Add `_type` field to response and use TypeScript union types:
-   ```typescript
-   type ContentItem = (News | Event) & { _type: 'news' | 'event' };
-   ```
+2. **Type Discrimination**: Whichever loader matched decides the template
 
 3. **Template Components**: Extract view logic into separate template components:
    - `NewsDetailTemplate.tsx` - Renders news articles
@@ -41,7 +35,7 @@ Created a single dynamic route at `/app/news-events/[slug]/page.tsx` that handle
 ### Related Files
 - Route: `/app/news-events/[slug]/page.tsx`
 - Templates: `/components/newsEvents/templates/`
-- Queries: `/sanity/lib/queries.ts` - `contentBySlugQuery`
+- Loaders: `/lib/content.ts` - `getNewsBySlug`, `getEventBySlug`
 - Types: `/types/newsEvents.ts` - `ContentItem`
 
 ## Next.js Build Patterns
@@ -64,21 +58,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 ```
 
-## Sanity CMS Best Practices
+## Content (Pages CMS)
 
-### Image Field Migration
-When migrating from `image` to `featuredImage` field:
-1. Update schema first
-2. Update queries to use new field name
-3. Update all components that reference the field
-4. Update types/interfaces
-5. Search codebase for old field name to catch edge cases
-
-### GROQ Query Optimization
-Use `coalesce()` for fields that might exist on one type but not another:
-```groq
-"publishedDate": coalesce(publishedDate, startDate)
-```
+When adding or renaming a content field:
+1. Update the field in `/.pages.yml`
+2. Update the JSON files under `/content`
+3. Update `/types/newsEvents.ts` and any loader in `/lib/content.ts`
+4. Search the codebase for the old field name to catch edge cases
 
 ## Project-Specific Patterns
 

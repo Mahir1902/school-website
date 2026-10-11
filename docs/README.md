@@ -48,7 +48,7 @@ Tracks implementation progress and technical decisions:
 ## Conventions
 
 ### File Naming
-- Use kebab-case: `sanity-integration.md`, `implementation-log.md`
+- Use kebab-case: `editing-content.md`, `implementation-log.md`
 - Be descriptive: Feature files should match feature names
 - Date format in changelog: `YYYY-MM-DD`
 
@@ -65,9 +65,8 @@ Tracks implementation progress and technical decisions:
 
 ## Current Features
 
-1. **Sanity CMS Integration** (In Progress)
-   - See: `/features/sanity-integration.md`
-   - Status: Phase 0 - Documentation setup complete
+1. **Content editing (Pages CMS)**
+   - See: `/editing-content.md` (editor guide) and `/.pages.yml` (schema)
 
 ## Quick Reference
 

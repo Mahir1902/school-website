@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { videoGalleryQuery } from "@/sanity/lib/queries";
+import { getVideos } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { Play, Calendar, Video } from "lucide-react";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
 import type { VideoGallery } from "@/types/newsEvents";
@@ -13,11 +11,8 @@ export const metadata: Metadata = {
   description: "Watch highlights, virtual tours, and video content from Singapore International School"
 };
 
-// Revalidate every 60 seconds
-export const revalidate = 60;
-
-export default async function VideoGalleryPage() {
-  const videos = await client.fetch(videoGalleryQuery);
+export default function VideoGalleryPage() {
+  const videos = getVideos();
 
   return (
     <div className="space-y-8">
@@ -50,7 +45,7 @@ export default async function VideoGalleryPage() {
 
             return (
               <a
-                key={video._id}
+                key={video.id}
                 href={video.videoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,7 +55,7 @@ export default async function VideoGalleryPage() {
                 <div className="relative h-48 bg-muted overflow-hidden">
                   {video.thumbnail ? (
                     <Image
-                      src={urlFor(video.thumbnail).url()}
+                      src={video.thumbnail}
                       alt={video.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"

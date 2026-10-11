@@ -5,7 +5,6 @@ import SectionHeading from "@/components/academics/SectionHeading";
 import DataTable from "@/components/academics/DataTable";
 import SubjectAccordion from "@/components/academics/SubjectAccordion";
 import { SubjectCategoryData } from "@/components/academics/SubjectGrid";
-import InfoCard from "@/components/academics/InfoCard";
 import CTAButton from "@/components/academics/CTAButton";
 import { igcseProgram, igcseAwards } from "@/data/academics/programs";
 import hero6 from "@/assets/hero-6.jpg";

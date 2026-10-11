@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
 import { formatNewsDate } from "@/lib/dateUtils";
-import PortableTextContent from "@/components/newsEvents/PortableTextContent";
+import MarkdownContent from "@/components/newsEvents/MarkdownContent";
 import NewsCard from "@/components/newsEvents/NewsCard";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
 import { Calendar, User } from "lucide-react";
@@ -27,7 +26,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
         {article.featuredImage ? (
           <>
             <Image
-              src={urlFor(article.featuredImage).url()}
+              src={article.featuredImage}
               alt={article.title}
               fill
               className="object-cover"
@@ -75,8 +74,8 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
             </p>
           )}
 
-          {article.content && article.content.length > 0 && (
-            <PortableTextContent content={article.content} />
+          {article.body && (
+            <MarkdownContent content={article.body} />
           )}
 
           {article.tags && article.tags.length > 0 && (
@@ -149,7 +148,7 @@ export default function NewsDetailTemplate({ article, relatedArticles }: NewsDet
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedArticles.map((relatedArticle: News) => (
-              <NewsCard key={relatedArticle._id} news={relatedArticle} />
+              <NewsCard key={relatedArticle.id} news={relatedArticle} />
             ))}
           </div>
         </div>

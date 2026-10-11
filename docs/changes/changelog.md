@@ -6,8 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-### Added
-- N/A
+### Changed
+- **CMS migrated from Sanity to Pages CMS.** Content is now JSON in `/content` (media in `public/media`), edited at app.pagescms.org and read at build time by `lib/content.ts`. Rich text is Markdown rendered with `react-markdown`. All published Sanity documents and images were exported into the repo (legacy `newsArticle` duplicates of `news` were not carried over).
+- `npm run lint` now runs `eslint .` (`next lint` was removed in Next.js 16).
+
+### Removed
+- Sanity schemas/client/queries, `/studio` route, `sanity`, `next-sanity`, `@sanity/*`, `@portabletext/react`, `styled-components`, and the Sanity agent skills.
 
 ## [2026-01-21] - Sanity CMS Integration COMPLETE (Phases 0-7)
 

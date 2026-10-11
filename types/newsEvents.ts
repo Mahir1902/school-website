@@ -1,21 +1,19 @@
 /**
- * TypeScript type definitions for News & Events section
- * Used across detail pages, cards, and query responses
+ * TypeScript type definitions for News & Events section.
+ * Shapes mirror the JSON files under /content (edited via Pages CMS, see .pages.yml).
+ * `id` is the file name without extension; image/file fields are public URL paths (e.g. /media/x.jpg).
  */
 
-import type { SanityImageSource } from '@sanity/image-url';
-import type { PortableTextBlock } from '@portabletext/types';
-
 export interface Event {
-  _id: string;
+  id: string;
   title: string;
-  slug: { current: string };
+  slug: string;
   startDate: string;
   endDate?: string;
   location?: string;
   excerpt?: string;
-  featuredImage?: SanityImageSource;
-  content?: PortableTextBlock[];
+  featuredImage?: string;
+  body?: string; // Markdown
   eventType: string;
   status?: string;
   capacity?: number;
@@ -25,34 +23,31 @@ export interface Event {
 }
 
 export interface News {
-  _id: string;
+  id: string;
   title: string;
-  slug: { current: string };
+  slug: string;
   publishedDate: string;
   excerpt?: string;
-  featuredImage?: SanityImageSource;
-  content?: PortableTextBlock[];
+  featuredImage?: string;
+  featuredImageAlt?: string;
+  body?: string; // Markdown
   category: string;
   author?: string;
   featured?: boolean;
   tags?: string[];
 }
 
-/** A file attachment on a notice, as returned by the GROQ query (asset dereferenced). */
 export interface NoticeAttachment {
-  asset: {
-    url: string;
-    originalFilename?: string;
-  };
+  file: string;
   description?: string;
 }
 
 export interface Notice {
-  _id: string;
+  id: string;
   title: string;
   publishedDate: string;
   expiryDate?: string;
-  content: string; // schema field is a plain `text`, not Portable Text
+  content: string;
   priority: string;
   category: string;
   attachments?: NoticeAttachment[];
@@ -61,9 +56,9 @@ export interface Notice {
 }
 
 export interface GalleryImage {
-  _id: string;
+  id: string;
   title: string;
-  image: SanityImageSource;
+  image: string;
   alt?: string;
   caption?: string;
   photographer?: string;
@@ -75,23 +70,14 @@ export interface GalleryImage {
 }
 
 export interface VideoGallery {
-  _id: string;
+  id: string;
   title: string;
-  slug?: { current: string };
   description?: string;
   videoUrl: string;
-  thumbnail?: SanityImageSource;
+  thumbnail?: string;
   duration?: string;
   uploadDate: string;
   category?: string;
   featured?: boolean;
   tags?: string[];
 }
-
-/**
- * Union type for content that can be either News or Event
- * Used in unified dynamic routes
- */
-export type ContentItem = (News | Event) & {
-  _type: 'news' | 'event';
-};

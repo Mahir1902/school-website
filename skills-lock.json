@@ -6,16 +6,6 @@
       "sourceType": "github",
       "computedHash": "409117e97ea4689e138a2080bfa94893e31ea216fbd0220d834dbdb791ecbe0e"
     },
-    "content-experimentation-best-practices": {
-      "source": "sanity-io/agent-toolkit",
-      "sourceType": "github",
-      "computedHash": "5b70e63ed5ebd5588ef7b3130516315b62ef94195fb902d7f7876dc898cb023d"
-    },
-    "content-modeling-best-practices": {
-      "source": "sanity-io/agent-toolkit",
-      "sourceType": "github",
-      "computedHash": "43b7d7db0bb36a858827616204c0060ae29fcf7cf278efdf6c496e6494411bd7"
-    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
@@ -48,11 +38,6 @@
       "source": "microsoft/playwright-cli",
       "sourceType": "github",
       "computedHash": "7075ab30f588019197a2f1518bb4c9d33d69d33352af079b5f9c60303ad3886e"
-    },
-    "sanity-best-practices": {
-      "source": "sanity-io/agent-toolkit",
-      "sourceType": "github",
-      "computedHash": "462e01667b4f0a10d4f8cceb8c328131bce5413b004db7685e8a065b538c8112"
     },
     "seo-aeo-best-practices": {
       "source": "sanity-io/agent-toolkit",

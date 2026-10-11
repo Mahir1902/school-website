@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { upcomingEventsQuery } from "@/sanity/lib/queries";
+import { getUpcomingEvents } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import EventCard from "@/components/newsEvents/EventCard";
 import Link from "next/link";
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
 // Revalidate every 60 seconds
 export const revalidate = 60;
 
-export default async function UpcomingEventsPage() {
-  const events = await client.fetch(upcomingEventsQuery);
+export default function UpcomingEventsPage() {
+  const events = getUpcomingEvents();
 
   return (
     <div className="space-y-8">
@@ -45,7 +44,7 @@ export default async function UpcomingEventsPage() {
       {events.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event: Event) => (
-            <EventCard key={event._id} event={event} />
+            <EventCard key={event.id} event={event} />
           ))}
         </div>
       ) : (

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { allEventsQuery } from "@/sanity/lib/queries";
+import { getAllEvents } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import { Calendar, MapPin, Clock } from "lucide-react";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
@@ -11,11 +10,8 @@ export const metadata: Metadata = {
   description: "View all school events in calendar format at Singapore International School"
 };
 
-// Revalidate every 60 seconds
-export const revalidate = 60;
-
-export default async function EventCalendarPage() {
-  const events = await client.fetch(allEventsQuery);
+export default function EventCalendarPage() {
+  const events = getAllEvents();
 
   // Group events by month
   const groupedEvents = events.reduce((acc: Record<string, Event[]>, event: Event) => {
@@ -71,7 +67,7 @@ export default async function EventCalendarPage() {
 
                   return (
                     <div
-                      key={event._id}
+                      key={event.id}
                       className="flex gap-4 p-4 bg-card border border-border rounded-lg hover:shadow-md transition-shadow"
                     >
                       {/* Date Badge */}

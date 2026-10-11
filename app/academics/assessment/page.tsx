@@ -257,7 +257,7 @@ export default function AssessmentPage() {
         <p className="text-foreground/70 font-proximaNova max-w-3xl mx-auto">
           Parents receive detailed reports throughout the academic year showing CA
           and CPA results, along with teacher comments and recommendations. This
-          ensures families stay informed about their child's progress and can
+          ensures families stay informed about their child&apos;s progress and can
           provide appropriate support at home.
         </p>
       </section>

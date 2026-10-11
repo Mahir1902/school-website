@@ -7,7 +7,8 @@
 
 ## Completed Features ✅
 
-- [x] **Phase 14.5 — Event & News Detail Pages** — Full implementation including: `@portabletext/react` dependency, `dateUtils.ts`, `types/newsEvents.ts`, `PortableTextContent.tsx`, event detail page (`/news-events/events/[slug]`), news detail page (`/news-events/news/[slug]`), GROQ queries for related content, OpenGraph/Twitter metadata, ISR (60s revalidation), 404 handling, responsive two-column layout, sticky sidebar, tags, registration CTA logic, integration tests, and CLAUDE.md documentation updates.
+- [x] **CMS migration: Sanity → Pages CMS** — All content (news, events, notices, gallery, videos, academic calendar, stats, testimonials) now lives as JSON in `/content` with media in `public/media`, edited via Pages CMS (`.pages.yml`). Loaders in `lib/content.ts`; rich text is Markdown (`MarkdownContent.tsx`). Sanity code, Studio route, deps and agent skills removed. Editor guide: `docs/editing-content.md`.
+- [x] **Phase 14.5 — Event & News Detail Pages** — Full implementation including: `dateUtils.ts`, `types/newsEvents.ts`, rich-text renderer, event detail page (`/news-events/events/[slug]`), news detail page (`/news-events/news/[slug]`), related-content lookups, OpenGraph/Twitter metadata, ISR (60s revalidation), 404 handling, responsive two-column layout, sticky sidebar, tags, registration CTA logic, integration tests, and CLAUDE.md documentation updates.
 
 ---
 
@@ -21,7 +22,7 @@
 
 ### High Priority
 
-- [ ] **Phase 1 — Sanity Schema & Foundation** — Create news, event, notice, galleryImage, videoGallery schemas; deploy to Studio; write and test GROQ queries; populate initial content (10 news, 8 events, 5 notices, 30 gallery images, 5 videos).
+- [ ] **Phase 1 — Content Schema & Foundation** — Content model is done (`.pages.yml`); remaining: populate initial content (10 news, 8 events, 5 notices, 30 gallery images, 5 videos).
 - [ ] **Phase 2 — Navigation Integration** — Create `/data/newsEvents/navigation.ts`; update ScrollNavbar to support News & Events dropdown with 3 sections (News, Events, More).
 - [ ] **Phase 3 — Shared Layout & Structure** — Create `/app/news-events/layout.tsx`; Breadcrumb component; directory structure for all sub-routes.
 
@@ -49,7 +50,7 @@
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Sanity Schema & Foundation | Not started |
+| 1 | Content Schema & Foundation | Schema done (Pages CMS); content pending |
 | 2 | Navigation Integration | Not started |
 | 3 | Shared Layout & Structure | Not started |
 | 4 | Core UI Components | Not started |

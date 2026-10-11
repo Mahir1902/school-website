@@ -76,9 +76,9 @@ className="lg:sticky lg:top-24 h-fit"
 
 ---
 
-### Portable Text Styling
+### Rich Text (Markdown) Styling
 
-**Heading Hierarchy** (from `/components/newsEvents/PortableTextContent.tsx`):
+**Heading Hierarchy** (from `/components/newsEvents/MarkdownContent.tsx`):
 - h2: `font-orpheus font-bold text-3xl text-primary mt-8 mb-4`
 - h3: `font-orpheus font-bold text-2xl text-primary mt-6 mb-3`
 - h4: `font-orpheus font-bold text-xl text-primary mt-4 mb-2`
@@ -151,17 +151,8 @@ className="... focus:outline-none focus:ring-2 focus:ring-primary focus:ring-off
 - Full-width: `sizes="100vw"`
 - Content images: `sizes="(max-width: 768px) 100vw, 800px"`
 
-### Sanity Image URLs
-**Pattern**: Use `urlFor()` helper from `@/sanity/lib/image`:
-```typescript
-import { urlFor } from "@/sanity/lib/image";
-
-const imageUrl = event.featuredImage
-  ? urlFor(event.featuredImage).width(1200).height(630).url()
-  : undefined;
-```
-
-**Optimization**: Always specify width/height for Sanity images to enable CDN optimization.
+### Content Image URLs
+Content images are plain `/media/...` paths (files in `public/media`, uploaded via Pages CMS). Pass them straight to `next/image` with `fill` or explicit width/height.
 
 ---
 
@@ -174,12 +165,7 @@ When validating new pages:
    - Clean: `rm -rf .next/dev`
    - Start fresh: `npm run dev`
 
-2. **Query Sanity for real slugs** before testing dynamic routes:
-   ```typescript
-   mcp__Sanity__query_documents({
-     query: '*[_type == "event"][0...3]{slug}'
-   })
-   ```
+2. **Get real slugs** before testing dynamic routes: `ls content/news content/events`
 
 3. **Test breakpoints** in order:
    - 375px (mobile small)
@@ -204,7 +190,7 @@ When validating new pages:
 
 **Validated**: 2026-02-05
 
-**Architecture**: Single dynamic route handles both news and events based on `_type` field from Sanity. Type detection happens server-side, then routes to appropriate template component.
+**Architecture**: Single dynamic route handles both news and events by looking the slug up in news first, then events. Detection happens server-side, then routes to appropriate template component.
 
 **Key Files**:
 - `/app/news-events/[slug]/page.tsx` - Main route with type detection
@@ -297,7 +283,7 @@ Include code snippets and line numbers for all findings.
 - Breadcrumb components exist but aren't consistently applied
 - CategoryBadge component needs refactoring for design system compliance
 - Sticky sidebar pattern well-implemented but needs navbar height verification
-- PortableTextContent is exemplary in design token usage
+- MarkdownContent is exemplary in design token usage
 
 **Pattern Recognition**: When new sections are added, check if existing components (like Breadcrumb) should be applied for consistency.
 
@@ -316,17 +302,12 @@ Include code snippets and line numbers for all findings.
 - Before committing changes
 - Security concerns (external links, user input)
 
-**When to escalate to sanity-cms-architect**:
-- Query parameter issues
-- Schema-related bugs
-- Content modeling concerns
-
 ---
 
 ## Remember
 
 - **Always read the file before testing** - Many issues can be caught in code review
 - **Check browser console first** - Runtime errors reveal implementation bugs quickly
-- **Test with real data** - Query Sanity for actual slugs/content before browser testing
+- **Test with real data** - Use actual slugs/content from `/content` before browser testing
 - **Document patterns** - Every validation reveals reusable patterns for future work
 - **Think mobile-first** - Start validation at smallest breakpoint and scale up

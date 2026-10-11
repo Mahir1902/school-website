@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { GalleryImage } from "@/types/newsEvents";
@@ -102,7 +101,7 @@ export default function Lightbox({
         >
           {/* Main Image */}
           <motion.div
-            key={currentImage._id}
+            key={currentImage.id}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -110,7 +109,7 @@ export default function Lightbox({
             className="relative max-w-6xl max-h-[80vh] w-full h-full"
           >
             <Image
-              src={urlFor(currentImage.image).url()}
+              src={currentImage.image}
               alt={currentImage.alt || currentImage.title}
               fill
               className="object-contain"

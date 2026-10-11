@@ -1,15 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-        pathname: "/images/**",
-      },
-    ],
+  // Pages that re-render via ISR read content/*.json at runtime; ship those files with them.
+  outputFileTracingIncludes: {
+    "/**": ["./content/**/*.json"],
   },
 };
 

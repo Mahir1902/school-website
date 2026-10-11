@@ -1,0 +1,10 @@
+{
+  "title": "Museum Tour",
+  "image": "/media/museum-tour.jpg",
+  "alt": "Museum tour",
+  "dateTaken": "2025-04-24",
+  "category": "study-tour",
+  "aspectRatio": "landscape",
+  "featured": false,
+  "order": 0
+}
