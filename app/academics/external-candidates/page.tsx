@@ -115,7 +115,7 @@ export default function ExternalCandidatesPage() {
           className="mt-8"
         />
 
-        <div className="mt-6 bg-amber-50 border-l-4 border-amber-500 rounded-lg p-6">
+        <div className="mt-6 bg-secondary/10 border border-secondary/40 rounded-lg p-6">
           <p className="text-foreground/80 font-proximaNova text-sm">
             <strong>Note:</strong> UK Examination Fees are set by Pearson
             Edexcel and collected through British Council. These fees vary by
@@ -154,7 +154,7 @@ export default function ExternalCandidatesPage() {
                       {doc.name}
                     </span>
                     {doc.required ? (
-                      <span className="text-xs bg-secondary/20 text-secondary px-2 py-0.5 rounded font-poppins font-semibold">
+                      <span className="text-xs bg-secondary/20 text-secondary-ink px-2 py-0.5 rounded font-poppins font-semibold">
                         REQUIRED
                       </span>
                     ) : (

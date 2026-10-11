@@ -136,7 +136,7 @@ All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `te
 - **News & Events Components**: Located in `/components/newsEvents/` - Feature-specific components
 
 **News & Events Components** (`/components/newsEvents/`):
-- `NewsCard.tsx` - News article cards with featured variant, metadata, excerpt
+- `NewsCard.tsx` - News article cards (shared by homepage and listings): image or crest placeholder, title, excerpt, date/category footer
 - `EventCard.tsx` - Event cards with date badges, time, location, registration button
 - `NoticeCard.tsx` - Notice cards with priority indicator, attachments, expand/collapse
 - `GalleryGrid.tsx` - Masonry layout using react-responsive-masonry

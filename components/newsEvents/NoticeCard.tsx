@@ -37,17 +37,17 @@ export default function NoticeCard({ notice }: NoticeCardProps) {
   const getPriorityStyles = (priority?: string) => {
     switch (priority?.toLowerCase()) {
       case "urgent":
-        return "border-l-4 border-l-red-500 bg-red-50/50 dark:bg-red-950/20";
+        return "border-destructive/40 bg-destructive/5";
       case "high":
-        return "border-l-4 border-l-orange-500 bg-orange-50/50 dark:bg-orange-950/20";
+        return "border-secondary/50 bg-secondary/5";
       default:
-        return "border-l-4 border-l-primary/30";
+        return "border-border bg-card";
     }
   };
 
   return (
     <div
-      className={`bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 ${getPriorityStyles(
+      className={`border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 ${getPriorityStyles(
         notice.priority
       )}`}
     >

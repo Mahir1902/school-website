@@ -28,7 +28,7 @@ const components: Components = {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-primary hover:text-secondary underline transition-colors"
+      className="text-primary underline decoration-secondary decoration-2 underline-offset-4 hover:text-primary/80 transition-colors"
     >
       {children}
     </a>

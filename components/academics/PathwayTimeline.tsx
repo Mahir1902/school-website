@@ -80,13 +80,13 @@ export default function PathwayTimeline({ steps, className }: PathwayTimelinePro
               style={{ transitionDelay: `${index * 150}ms`, zIndex: 1 }}
             >
               {/* Icon Container */}
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 border-4 border-white shadow-md">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 border-4 border-background shadow-md">
                 <Icon className="w-7 h-7 text-primary" />
               </div>
 
               {/* Content */}
               <div className="text-center max-w-[180px]">
-                <div className="text-xs font-poppins text-secondary font-semibold mb-1">
+                <div className="text-xs font-poppins text-secondary-ink font-semibold mb-1">
                   {step.age}
                 </div>
                 <h3 className="text-base font-inglobal text-primary mb-2">
@@ -120,7 +120,7 @@ export default function PathwayTimeline({ steps, className }: PathwayTimelinePro
               {/* Icon Column with Connecting Line */}
               <div className="flex flex-col items-center">
                 {/* Icon Container */}
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center border-4 border-white shadow-md flex-shrink-0">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center border-4 border-background shadow-md flex-shrink-0">
                   <Icon className="w-7 h-7 text-primary" />
                 </div>
 
@@ -132,7 +132,7 @@ export default function PathwayTimeline({ steps, className }: PathwayTimelinePro
 
               {/* Content Column */}
               <div className="flex-1 pb-6">
-                <div className="text-xs font-poppins text-secondary font-semibold mb-1">
+                <div className="text-xs font-poppins text-secondary-ink font-semibold mb-1">
                   {step.age}
                 </div>
                 <h3 className="text-lg font-inglobal text-primary mb-2">

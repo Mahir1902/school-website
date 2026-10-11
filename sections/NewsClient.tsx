@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { Calendar, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import NewsCard from "@/components/newsEvents/NewsCard";
 import type { News } from "@/types/newsEvents";
 
 type NewsItem = Pick<News, "id" | "title" | "slug" | "publishedDate" | "excerpt" | "featuredImage" | "featuredImageAlt" | "category">;
@@ -39,15 +39,6 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
     };
   }, []);
 
-  // Format date for display
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
   return (
     <section
       id="news"
@@ -77,7 +68,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
           {newsItems.map((item, index) => (
             <div
               key={item.id}
-              className={`bg-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${
+              className={`transition-all duration-700 ease-out ${
                 isVisible
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -86,46 +77,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
                 transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
               }}
             >
-              {/* Image */}
-              {item.featuredImage && (
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={item.featuredImage}
-                    alt={item.featuredImageAlt || item.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
-              )}
-
-              {/* Content */}
-              <div className="p-6">
-                {/* Date */}
-                <div className="flex items-center gap-2 text-secondary text-sm font-poppins mb-3">
-                  <Calendar className="w-4 h-4" />
-                  <span>{formatDate(item.publishedDate)}</span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-inglobal text-primary mb-3 group-hover:text-primary/80 transition-colors">
-                  {item.title}
-                </h3>
-
-                {/* Excerpt */}
-                <p className="text-foreground/70 font-proximaNova text-sm leading-relaxed mb-4">
-                  {item.excerpt}
-                </p>
-
-                {/* Read More Link */}
-                <Link
-                  href={`/news-events/${item.slug}`}
-                  className="inline-flex items-center gap-2 text-primary font-poppins text-sm font-semibold hover:gap-3 transition-all duration-300"
-                >
-                  Read More
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+              <NewsCard news={item} />
             </div>
           ))}
         </div>
@@ -134,7 +86,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
         <div className="text-center mt-12">
           <Link
             href="/news-events/news"
-            className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-md font-poppins font-medium hover:bg-primary/90 transition-colors duration-300 shadow-md hover:shadow-lg"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md font-poppins font-medium hover:bg-primary/90 transition-colors duration-300 shadow-md hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             View All News
             <ArrowRight className="w-5 h-5" />
