@@ -125,7 +125,7 @@ All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `te
   - Mobile: 375px
   - Tablet: 768px
   - Desktop: 1440px
-- **Animations must follow the IntersectionObserver pattern** — do not introduce alternate animation libraries without explicit approval.
+- **Animations:** scroll reveals use the IntersectionObserver pattern; JS-driven animations use GSAP imported from `lib/gsap.ts` (registers `useGSAP`, honours `prefers-reduced-motion`). Do not introduce other animation libraries without explicit approval.
 - **New components must use existing design tokens** — introduce new CSS variables to `globals.css` only if genuinely needed and they follow the established naming convention.
 
 ### Component Architecture
@@ -382,6 +382,9 @@ import { cn } from "@/lib/utils";
 **CMS:**
 - Pages CMS (external hosted app, no npm dependency) - edits `/content` via Git
 - react-markdown - renders Markdown rich-text bodies
+
+**Animation:**
+- gsap + @gsap/react - import `gsap`/`useGSAP` from `lib/gsap.ts`, not directly
 
 **Calendar & Media:**
 - @fullcalendar/react, @fullcalendar/daygrid, @fullcalendar/interaction - Event calendar
