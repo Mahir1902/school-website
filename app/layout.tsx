@@ -18,11 +18,6 @@ const poppins = Poppins({
 //   weight: ["400", "500", "600", "700"],
 // });
 
-// const quadraat = localFont({
-//   src: '../assets/fonts/FFQuadraatPro-Regular.ttf',
-//   variable: "--font-quadraat",
-// })
-
 // const lora = Lora({
 //   variable: "--font-lora",
 //   subsets: ["latin"],

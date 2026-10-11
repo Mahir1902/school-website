@@ -111,15 +111,15 @@ The application includes a dedicated `/news-events` route with the following str
 The project uses a custom font configuration with both Google Fonts and local fonts:
 
 **Local fonts** (stored in `/assets/fonts/`):
-- `orpheus` (OrpheusPro-Bold.ttf) - Used for headings via `font-orpheus` class
-- `orpheusNormal` (OrpheusW05-Regular.ttf) - Used via `font-orpheusNormal` class
+- `inglobal` (inglobal/*.ttf, regular/italic/bold) - Used for headings via `font-inglobal` class
+- `inglobalNormal` (inglobal/inglobal.ttf) - Used via `font-inglobalNormal` class
 - `proximaNova` (ProximaNovaA-Light.ttf) - Used for body text via `font-proximaNova` class
 - `le_beaune` (LeBeauneNew.otf) - Used for hero section via `font-le_beaune` class
 
 **Google Fonts**:
 - `poppins` - Available via `font-poppins` class
 
-All fonts are configured in `app/layout.tsx` and exposed as CSS variables in `app/globals.css`. Apply fonts using Tailwind utility classes (e.g., `className="font-orpheus"`).
+All fonts are configured in `app/layout.tsx` and exposed as CSS variables in `app/globals.css`. Apply fonts using Tailwind utility classes (e.g., `className="font-inglobal"`).
 
 ### Theming and Design System
 
@@ -233,7 +233,7 @@ Located in `.claude/agents/`, these agents are configured with specific expertis
 **When to use:** After creating/modifying UI components, validating design system compliance
 **Capabilities:**
 - Validates design system consistency
-- Tests responsive behavior using Playwright MCP
+- Tests responsive behavior in a browser
 - Verifies proper design token usage, animations, accessibility
 - Performs cross-viewport testing (mobile, tablet, desktop)
 
@@ -263,10 +263,10 @@ Each agent maintains persistent memory in `.claude/agents/{agent-name}/memory/`:
 
 | Step | Role | Agent / Action |
 |------|------|----------------|
-| 1 | **Planner** | `feature-planner` — breaks task into steps, checks `FEATURE_CHECKLIST.md` for context, updates checklist when done |
+| 1 | **Planner** | `feature-planner` — breaks task into steps, checks `docs/` for context, updates docs when done |
 | 2 | **Devil's Advocate** | Built into every agent: challenge assumptions, flag risks, surface edge cases before coding starts |
 | 3 | **Coder** | `coder-agent` — implements only after the plan is approved |
-| 4 | **UI Validator** | `ui-design-validator` — runs Playwright browser tests on every change, not just UI-focused tasks |
+| 4 | **UI Validator** | `ui-design-validator` — runs browser tests on every change, not just UI-focused tasks |
 | 5 | **Code Reviewer** | `code-reviewer` — final security and quality gate before anything is considered done |
 
 ### Non-Negotiable Rules
@@ -275,7 +275,7 @@ Each agent maintains persistent memory in `.claude/agents/{agent-name}/memory/`:
 - **Skills first** — every agent must search `/skills` before writing any new code. If no skill is found, invoke the `find-skills` skill before proceeding. Only after exhausting both should code be written from scratch.
 - **Tests must pass** — code is not "done" until it is confirmed passing. No marking tasks complete without evidence.
 - **UI consistency** — design tokens (OKLCH colors, fonts, spacing) must not drift between changes. `ui-design-validator` must confirm visual consistency before any change is marked complete.
-- **Checklist updates** — after completing any feature, update `FEATURE_CHECKLIST.md` immediately.
+- **Doc updates** — after completing any feature, update `docs/changes/changelog.md` immediately.
 
 ### Running Agents in Parallel
 
@@ -323,18 +323,7 @@ The project has access to Model Context Protocol (MCP) servers that provide spec
 
 **When to use:** sanity-cms-architect should use these tools for all Sanity operations instead of manual file editing when appropriate.
 
-#### 2. Playwright MCP Server
-**Purpose:** Browser automation and testing
-**Key Tools:**
-- `browser_navigate` - Navigate to URLs
-- `browser_snapshot` - Capture accessibility snapshot
-- `browser_take_screenshot` - Take screenshots
-- `browser_click`, `browser_type`, etc. - Interact with pages
-- `browser_resize` - Test different viewport sizes
-
-**When to use:** ui-design-validator should use these tools to test responsive behavior and visual consistency across viewports.
-
-#### 3. IDE MCP Server
+#### 2. IDE MCP Server
 **Purpose:** Code diagnostics and execution
 **Key Tools:**
 - `getDiagnostics` - Get TypeScript/ESLint diagnostics
@@ -376,7 +365,7 @@ Apply opacity and transform transitions based on `isVisible` state.
 
 - Images are stored in `/assets/` directory
 - Hero images: `hero-1.jpg` through `hero-6.jpg`
-- Logos: `sis-logo.jpg`, `sis-logo-white.png`, `sis-logo-2.png`
+- Logos: `sis-logo.jpg`, `sis-logo-white.png`, `sis-logo-removebg-preview.png`
 - Use Next.js `<Image>` component with imports for type safety
 
 ### Path Aliases
@@ -450,11 +439,10 @@ import { cn } from "@/lib/utils";
 
 ### Resuming Work
 
-**When starting a new session, always read `FEATURE_CHECKLIST.md` first** to orient on current progress before making any changes. This is the source of truth for what is done, in-progress, and planned. Update it after completing any feature or phase.
+**When starting a new session, read `docs/changes/changelog.md` and `docs/plans/implementation-log.md` first** to orient on current progress before making any changes. Update them after completing any feature or phase.
 
 **Current Branch:** `feature/news-events-section`
 - Major feature in progress: News & Events section with Sanity CMS integration
-- Implementation tracked in `FEATURE_DOCUMENT.md` (15 phases, 200+ tasks)
 
 **Code Standards:**
 - All section components use `"use client"` directive for client-side interactivity
@@ -466,7 +454,7 @@ import { cn } from "@/lib/utils";
 **Agent Coordination:**
 - Main agent should delegate to specialized agents (see Agent System section)
 - Agents should check `/skills` folder before implementing new patterns
-- Agents should use MCP tools when appropriate (Sanity, Playwright, IDE)
+- Agents should use MCP tools when appropriate (Sanity, IDE)
 - Each agent maintains persistent memory in `.claude/agents/{agent-name}/memory/`
 
 **Navigation Data:**
@@ -474,6 +462,5 @@ import { cn } from "@/lib/utils";
 - Future sections should follow this pattern for dropdown menus
 
 **Feature Implementation:**
-- Track progress in `FEATURE_DOCUMENT.md`
-- Currently in Phase 1-3 (Schema, Routes, Components creation)
+- Track progress in `docs/plans/implementation-log.md`
 - ISR configured on overview page (60-second revalidation)
