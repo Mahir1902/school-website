@@ -1,197 +1,63 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
-// Shape of content/testimonials.json
-type Testimonial = {
-  name: string;
-  role: string;
-  quote: string;
-  initials: string;
-};
+type Testimonial = { name: string; role: string; quote: string; initials: string };
 
-interface TestimonialsClientProps {
-  testimonials: Testimonial[];
-}
+// A deck of cards: the front card slides off to the left and moves to the back.
+export default function TestimonialsClient({ items }: { items: Testimonial[] }) {
+  const [order, setOrder] = useState(items.map((_, i) => i));
+  const [leaving, setLeaving] = useState(false);
 
-export default function TestimonialsClient({ testimonials }: TestimonialsClientProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = sectionRef.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isPaused && testimonials.length > 0) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      }, 6000);
-
-      return () => clearInterval(interval);
-    }
-  }, [isPaused, testimonials.length]);
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const next = () => {
+    if (leaving) return;
+    setLeaving(true);
+    setTimeout(() => {
+      setOrder((o) => [...o.slice(1), o[0]]);
+      setLeaving(false);
+    }, 450);
   };
-
-  const goToPrev = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  // If no testimonials, show a placeholder
-  if (testimonials.length === 0) {
-    return (
-      <section className="bg-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
-            What Our Community Says
-          </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-          <p className="text-foreground/70 text-lg font-proximaNova">
-            No testimonials available at the moment.
-          </p>
-        </div>
-      </section>
-    );
-  }
+  const prev = () => !leaving && setOrder((o) => [o[o.length - 1], ...o.slice(0, -1)]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
-    >
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
-            What Our Community Says
-          </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-          <p className="text-foreground/70 text-lg md:text-xl font-proximaNova max-w-3xl mx-auto">
-            Hear from our students and parents about their SIS experience
-          </p>
-        </div>
-
-        {/* Testimonial Carousel */}
-        <div
-          className="relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div className="overflow-hidden py-10">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+    <div className="mx-auto w-full max-w-2xl">
+      <div className="relative grid" aria-live="polite">
+        {order.map((idx, depth) => {
+          const t = items[idx];
+          const front = depth === 0;
+          return (
+            <figure
+              key={idx}
+              aria-hidden={!front}
+              className={`h-stack-card col-start-1 row-start-1 rounded-2xl border border-border bg-card p-8 shadow-lg md:p-10 ${front && leaving ? "h-stack-out" : ""}`}
+              style={{
+                transform: `translateY(${depth * 14}px) scale(${1 - depth * 0.04}) rotate(${depth === 0 ? 0 : depth % 2 ? 2 : -2}deg)`,
+                zIndex: items.length - depth,
+                opacity: depth > 2 ? 0 : 1,
+              }}
             >
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.name}
-                  className="w-full flex-shrink-0 px-4 md:px-8"
-                >
-                  <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-lg">
-                    {/* Quote Icon */}
-                    <div className="flex justify-center mb-6">
-                      <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Quote className="w-8 h-8 text-primary" />
-                      </div>
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote className="text-center mb-8">
-                      <p className="text-lg md:text-xl text-foreground/80 font-proximaNova leading-relaxed italic">
-                        &ldquo;{testimonial.quote}&rdquo;
-                      </p>
-                    </blockquote>
-
-                    {/* Author */}
-                    <div className="flex flex-col items-center">
-                      <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-3">
-                        <span className="text-primary font-inglobal font-bold text-lg">
-                          {testimonial.initials}
-                        </span>
-                      </div>
-                      <p className="text-primary font-inglobal text-xl font-semibold">
-                        {testimonial.name}
-                      </p>
-                      <p className="text-foreground/60 font-proximaNova text-sm">
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={goToPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white border border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white border border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-primary w-8"
-                    : "bg-border hover:bg-primary/50"
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+              <Quote className="h-8 w-8 text-secondary" aria-hidden="true" />
+              <blockquote className="mt-4 font-proximaNova text-lg leading-relaxed text-foreground/85 md:text-xl">“{t.quote}”</blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary font-poppins text-sm font-semibold text-primary-foreground">{t.initials}</span>
+                <span className="min-w-0">
+                  <span className="block font-poppins font-semibold text-foreground">{t.name}</span>
+                  <span className="block font-proximaNova text-sm text-foreground/70">{t.role}</span>
+                </span>
+              </figcaption>
+            </figure>
+          );
+        })}
       </div>
-    </section>
+      <div className="mt-12 flex items-center justify-center gap-4">
+        <button type="button" onClick={prev} aria-label="Previous testimonial" className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary text-primary transition-colors hover:bg-primary hover:text-primary-foreground">
+          <ChevronLeft className="h-5 w-5" />
+        </button>
+        <button type="button" onClick={next} aria-label="Next testimonial" className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground">
+          <ChevronRight className="h-5 w-5" />
+        </button>
+      </div>
+    </div>
   );
 }

@@ -1,158 +1,42 @@
-"use client";
-
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import type { CSSProperties } from "react";
 import awards from "@/assets/BC_Awards.jpg";
 import sports from "@/assets/sports.jpg";
-import arts from "@/assets/arts_and_creativity.jpg"
-import science from "@/assets/science_and_innovation.jpg"
-import extracurricular from "@/assets/extracurricular.jpg"
-import events from "@/assets/events_and_celebrations.jpg"
+import arts from "@/assets/arts_and_creativity.jpg";
+import science from "@/assets/science_and_innovation.jpg";
+import extracurricular from "@/assets/extracurricular.jpg";
+import events from "@/assets/events_and_celebrations.jpg";
+import Reveal from "@/components/heritage/Reveal";
+import SectionHead from "@/components/heritage/SectionHead";
 
-const campusActivities = [
-  {
-    image: awards,
-    title: "Academic Excellence",
-    category: "Learning",
-  },
-  {
-    image: sports,
-    title: "Sports & Athletics",
-    category: "Physical Education",
-  },
-  {
-    image: arts,
-    title: "Arts & Creativity",
-    category: "Cultural",
-  },
-  {
-    image: science,
-    title: "Science & Innovation",
-    category: "STEM",
-  },
-  {
-    image: extracurricular,
-    title: "Clubs & Societies",
-    category: "Extracurricular",
-  },
-  {
-    image: events,
-    title: "Events & Celebrations",
-    category: "Activities",
-  },
+const activities = [
+  { image: awards, title: "Academic Excellence", category: "Learning", tilt: "-3deg" },
+  { image: sports, title: "Sports & Athletics", category: "Physical Education", tilt: "2deg" },
+  { image: arts, title: "Arts & Creativity", category: "Cultural", tilt: "-1.5deg" },
+  { image: science, title: "Science & Innovation", category: "STEM", tilt: "2.5deg" },
+  { image: extracurricular, title: "Clubs & Societies", category: "Extracurricular", tilt: "-2deg" },
+  { image: events, title: "Events & Celebrations", category: "Activities", tilt: "1.5deg" },
 ];
 
 export default function CampusLife() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = sectionRef.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      id="campus"
-      ref={sectionRef}
-      className="bg-gradient-to-br from-primary/10 via-background to-primary/5 py-16 md:py-24 px-6 md:px-12 lg:px-24"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
-            Experience Campus Life
-          </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-          <p className="text-foreground/70 text-lg md:text-xl font-proximaNova max-w-3xl mx-auto">
-            A vibrant community where learning extends beyond the classroom
-          </p>
-        </div>
-
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {/* Large featured item - spans 2 columns on desktop */}
-          <div
-            className={`lg:col-span-2 lg:row-span-2 relative h-[300px] md:h-[400px] lg:h-full rounded-lg overflow-hidden group cursor-pointer transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-95"
-            }`}
-          >
-            <Image
-              src={campusActivities[0].image}
-              alt={campusActivities[0].title}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110 bg-black/50"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-300 group-hover:translate-y-0 translate-y-2">
-              <p className="text-sm font-poppins text-secondary font-semibold mb-1">
-                {campusActivities[0].category}
-              </p>
-              <h3 className="text-2xl md:text-3xl font-inglobal">
-                {campusActivities[0].title}
-              </h3>
-            </div>
-          </div>
-
-          {/* Smaller grid items */}
-          {campusActivities.slice(1).map((activity, index) => (
-            <div
-              key={index}
-              className={`relative h-[250px] md:h-[300px] lg:h-[195px] rounded-lg overflow-hidden group cursor-pointer transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-95"
-              }`}
-              style={{
-                transitionDelay: isVisible ? `${(index + 1) * 100}ms` : "0ms",
-              }}
-            >
-              <Image
-                src={activity.image}
-                alt={activity.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform transition-transform duration-300 group-hover:translate-y-0 translate-y-1">
-                <p className="text-xs font-poppins text-secondary font-semibold mb-1">
-                  {activity.category}
-                </p>
-                <h3 className="text-lg md:text-xl font-inglobal">
-                  {activity.title}
-                </h3>
+    <section id="campus" className="scroll-mt-24 px-4 py-16 md:px-8 md:py-24">
+      <SectionHead title="Experience Campus Life" sub="A vibrant community where learning extends beyond the classroom. From Victory Day to sports day, the year is full of celebrations." />
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
+        {activities.map((c, i) => (
+          <Reveal key={c.title} delay={(i % 3) * 120} className={i % 3 === 1 ? "lg:translate-y-10" : ""}>
+            <figure className="h-polaroid bg-card p-3 pb-5 shadow-lg ring-1 ring-border" style={{ "--h-rot": c.tilt } as CSSProperties}>
+              <div className="relative aspect-square overflow-hidden bg-muted">
+                <Image src={c.image} alt={c.title} fill sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 420px" className="object-cover" />
               </div>
-            </div>
-          ))}
-        </div>
+              <figcaption className="mt-4 px-1 text-center">
+                <span className="block font-inglobal text-xl text-primary">{c.title}</span>
+                <span className="mt-1 block font-proximaNova text-sm font-semibold text-secondary-ink">{c.category}</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
 }
-
