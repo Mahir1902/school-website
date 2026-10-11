@@ -46,8 +46,8 @@ export default function PrincipalsWelcome() {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            {/* Orange accent line */}
-            <div className="w-16 h-1 bg-orange-500" />
+            {/* Gold accent line */}
+            <div className="w-16 h-1 bg-secondary" />
 
             {/* Heading */}
             <h2 className="text-5xl md:text-6xl font-inglobal font-normal
@@ -59,7 +59,7 @@ export default function PrincipalsWelcome() {
 
 
             {/* Body Text */}
-            <p className="text-lg font-proximaNova font-bold text-gray-600 leading-relaxed flex flex-col gap-2">
+            <p className="text-lg font-proximaNova font-bold text-foreground/70 leading-relaxed flex flex-col gap-2">
             <span>
               Hello and welcome!
               On behalf of our entire team, I&apos;m delighted you&apos;ve found your way to Singapore International School Dhaka.

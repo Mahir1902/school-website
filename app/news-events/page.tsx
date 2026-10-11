@@ -6,7 +6,7 @@ import NewsCard from "@/components/newsEvents/NewsCard";
 import EventCard from "@/components/newsEvents/EventCard";
 import NoticeCard from "@/components/newsEvents/NoticeCard";
 import type { News, Event, Notice } from "@/types/newsEvents";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CalendarDays, Images, Video } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "News & Events",
@@ -44,7 +44,7 @@ export default function NewsEventsOverview() {
             </div>
             <Link
               href="/news-events/news"
-              className="hidden md:flex items-center gap-2 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors group"
+              className="hidden md:flex items-center gap-2 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline group"
             >
               <span>View All News</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -59,7 +59,7 @@ export default function NewsEventsOverview() {
 
           <Link
             href="/news-events/news"
-            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors"
+            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline"
           >
             <span>View All News</span>
             <ArrowRight className="w-5 h-5" />
@@ -81,7 +81,7 @@ export default function NewsEventsOverview() {
             </div>
             <Link
               href="/news-events/events/upcoming"
-              className="hidden md:flex items-center gap-2 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors group"
+              className="hidden md:flex items-center gap-2 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline group"
             >
               <span>View All Events</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -96,7 +96,7 @@ export default function NewsEventsOverview() {
 
           <Link
             href="/news-events/events/upcoming"
-            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors"
+            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline"
           >
             <span>View All Events</span>
             <ArrowRight className="w-5 h-5" />
@@ -118,7 +118,7 @@ export default function NewsEventsOverview() {
             </div>
             <Link
               href="/news-events/notices"
-              className="hidden md:flex items-center gap-2 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors group"
+              className="hidden md:flex items-center gap-2 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline group"
             >
               <span>View All Notices</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -133,7 +133,7 @@ export default function NewsEventsOverview() {
 
           <Link
             href="/news-events/notices"
-            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary hover:text-secondary font-proximaNova font-semibold transition-colors"
+            className="md:hidden flex items-center justify-center gap-2 mt-6 text-primary font-proximaNova font-semibold decoration-secondary decoration-2 underline-offset-4 hover:underline"
           >
             <span>View All Notices</span>
             <ArrowRight className="w-5 h-5" />
@@ -153,28 +153,30 @@ export default function NewsEventsOverview() {
               title: "Photo Gallery",
               description: "Browse our collection of school life moments",
               href: "/news-events/gallery",
-              icon: "📸"
+              icon: Images
             },
             {
               title: "Video Gallery",
               description: "Watch highlights and virtual tours",
               href: "/news-events/gallery/videos",
-              icon: "🎥"
+              icon: Video
             },
             {
               title: "Event Calendar",
               description: "View all events in calendar format",
               href: "/news-events/events/calendar",
-              icon: "📅"
+              icon: CalendarDays
             }
           ].map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group p-6 bg-card border border-border rounded-lg hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+              className="group p-6 bg-card border border-border rounded-xl hover:shadow-lg hover:border-primary/30 transition-all duration-300"
             >
-              <div className="text-4xl mb-4">{link.icon}</div>
-              <h3 className="font-inglobal font-bold text-xl text-primary mb-2 group-hover:text-secondary transition-colors">
+              <div className="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <link.icon aria-hidden="true" className="w-6 h-6" />
+              </div>
+              <h3 className="font-inglobal font-bold text-xl text-primary mb-2 decoration-secondary decoration-2 underline-offset-4 group-hover:underline">
                 {link.title}
               </h3>
               <p className="font-proximaNova text-sm text-foreground/70">

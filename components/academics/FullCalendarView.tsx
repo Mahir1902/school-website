@@ -146,8 +146,8 @@ export default function FullCalendarView({ events }: FullCalendarViewProps) {
         .fc .fc-toolbar-title {
           font-size: 1.75rem;
           font-weight: 700;
-          color: oklch(0.52 0.15 149.49);
-          font-family: "Orpheus Pro", serif;
+          color: var(--primary);
+          font-family: var(--font-inglobal), serif;
         }
 
         .fc-header-toolbar {

@@ -25,7 +25,7 @@ export default function InfoCard({
   const iconVariants = {
     default: "bg-primary/10 text-primary",
     primary: "bg-primary/20 text-primary",
-    secondary: "bg-secondary/20 text-secondary",
+    secondary: "bg-secondary/20 text-secondary-ink",
   };
 
   return (

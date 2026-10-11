@@ -53,7 +53,7 @@ export default function SubjectsPage() {
 
       {/* English Language Policy Callout */}
       <section>
-        <div className="bg-primary/5 border-l-4 border-primary rounded-lg p-8 md:p-12">
+        <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 md:p-12">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-8 h-8 text-primary" />
             <h2 className="text-2xl font-inglobal text-primary">

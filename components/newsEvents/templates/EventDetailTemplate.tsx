@@ -4,7 +4,7 @@ import { formatDateRange, formatEventTime, isEventPast } from "@/lib/dateUtils";
 import MarkdownContent from "@/components/newsEvents/MarkdownContent";
 import EventCard from "@/components/newsEvents/EventCard";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
-import { Calendar, Clock, MapPin, Users, ExternalLink } from "lucide-react";
+import { Calendar, Clock, MapPin, Users, ExternalLink, ArrowLeft, ArrowRight } from "lucide-react";
 import type { Event } from "@/types/newsEvents";
 
 interface EventDetailTemplateProps {
@@ -22,22 +22,20 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
   return (
     <div className="space-y-12">
       {/* Hero Section */}
-      <div className="relative h-[300px] md:h-[400px] lg:h-[500px] -mx-6 md:-mx-8 lg:-mx-10">
+      <div className="relative h-[320px] md:h-[420px] lg:h-[480px] overflow-hidden rounded-2xl bg-primary">
         {event.featuredImage ? (
           <>
             <Image
               src={event.featuredImage}
-              alt={event.title}
+              alt=""
               fill
               className="object-cover"
               priority
-              sizes="100vw"
+              sizes="(max-width: 1280px) 100vw, 1280px"
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
           </>
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-        )}
+        ) : null}
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
@@ -45,7 +43,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
             {event.status && <CategoryBadge category={event.status} />}
             {event.eventType && <CategoryBadge category={event.eventType} />}
           </div>
-          <h1 className="font-inglobal font-bold text-3xl md:text-5xl text-white mb-4 max-w-4xl">
+          <h1 className="font-inglobal font-bold text-3xl md:text-5xl text-white text-balance leading-tight mb-4 max-w-4xl">
             {event.title}
           </h1>
           <div className="flex flex-wrap items-center justify-center gap-4 text-white/90">
@@ -162,9 +160,10 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
           {/* Back to Events Link */}
           <Link
             href="/news-events/events/upcoming"
-            className="block text-center px-4 py-2 border border-border rounded-md font-proximaNova text-sm hover:bg-muted transition-colors"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 border border-border rounded-md font-proximaNova text-sm text-primary hover:bg-primary/5 hover:border-primary/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
-            ← Back to Events
+            <ArrowLeft aria-hidden="true" className="w-4 h-4" />
+            Back to Events
           </Link>
         </div>
       </div>
@@ -178,9 +177,10 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
             </h2>
             <Link
               href="/news-events/events/upcoming"
-              className="font-proximaNova text-sm text-primary hover:text-secondary transition-colors"
+              className="inline-flex items-center gap-1.5 font-proximaNova text-sm font-semibold text-primary underline-offset-4 hover:underline decoration-secondary decoration-2"
             >
-              View All Events →
+              View All Events
+              <ArrowRight aria-hidden="true" className="w-4 h-4" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

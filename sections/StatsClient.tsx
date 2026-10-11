@@ -139,7 +139,7 @@ function StatItem({
       }}
     >
       <div className="mb-4">
-        <span className="text-5xl md:text-6xl lg:text-7xl font-bold font-inglobal text-secondary">
+        <span className="text-5xl md:text-6xl lg:text-7xl font-bold font-inglobal text-primary-foreground">
           {count}
           {stat.suffix}
         </span>

@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- **News cards redesigned.** One shared `NewsCard` now drives the homepage, news listing, hub, achievements and related-articles grids: fixed 16:10 image crop, no badge over the photo, title + excerpt + a date/category footer, equal heights, whole-card link with a focus ring, and an SIS-crest placeholder when an article has no image. Dates render in UTC so they no longer shift a day west of UTC.
+- UI polish pass: news/event detail heroes align with the content column with a stronger scrim; category badges use contrast-safe tokens and capitalised labels; small gold text uses the new `--secondary-ink` token; stats numerals are white on green; side-stripe callouts and emoji icons replaced; site title/description set; themed selection, focus-visible outline and reduced-motion handling in `globals.css`.
+- Before/after screenshots in `docs/screenshots/`.
 - **CMS migrated from Sanity to Pages CMS.** Content is now JSON in `/content` (media in `public/media`), edited at app.pagescms.org and read at build time by `lib/content.ts`. Rich text is Markdown rendered with `react-markdown`. All published Sanity documents and images were exported into the repo (legacy `newsArticle` duplicates of `news` were not carried over).
 - `npm run lint` now runs `eslint .` (`next lint` was removed in Next.js 16); existing lint errors fixed
 

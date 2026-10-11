@@ -120,7 +120,7 @@ export default function AcademicsOverviewPage() {
                 <h3 className="text-2xl font-inglobal text-primary mb-1">
                   {programme.title}
                 </h3>
-                <p className="text-sm text-secondary font-poppins font-semibold">
+                <p className="text-sm text-secondary-ink font-poppins font-semibold">
                   {programme.subtitle}
                 </p>
               </div>
@@ -180,7 +180,7 @@ export default function AcademicsOverviewPage() {
                 <CTAButton
                   href="/#admissions"
                   size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-black border-0"
+                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground border-0"
                 >
                   Apply Now
                 </CTAButton>

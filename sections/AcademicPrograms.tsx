@@ -13,7 +13,6 @@ const programs = [
       "Social development",
       "Creative exploration",
     ],
-    color: "from-blue-500/20 to-blue-600/20",
   },
   {
     icon: BookOpen,
@@ -24,7 +23,6 @@ const programs = [
       "Core subjects mastery",
       "Interactive learning",
     ],
-    color: "from-green-500/20 to-green-600/20",
   },
   {
     icon: Microscope,
@@ -35,7 +33,6 @@ const programs = [
       "Critical thinking",
       "STEM focus",
     ],
-    color: "from-purple-500/20 to-purple-600/20",
   },
   {
     icon: Globe2,
@@ -46,7 +43,6 @@ const programs = [
       "Independent research",
       "University guidance",
     ],
-    color: "from-orange-500/20 to-orange-600/20",
   },
   {
     icon: GraduationCap,
@@ -57,7 +53,6 @@ const programs = [
       "University prep",
       "Global recognition",
     ],
-    color: "from-red-500/20 to-red-600/20",
   },
 ];
 
@@ -143,7 +138,7 @@ export default function AcademicPrograms() {
                         {program.title}
                       </h3>
 
-                      <p className="text-secondary font-poppins font-semibold text-sm mb-4">
+                      <p className="text-secondary-ink font-poppins font-semibold text-sm mb-4">
                         {program.ageRange}
                       </p>
 
@@ -184,7 +179,7 @@ export default function AcademicPrograms() {
                         {program.title}
                       </h3>
 
-                      <p className="text-secondary font-poppins font-semibold text-sm mb-4">
+                      <p className="text-secondary-ink font-poppins font-semibold text-sm mb-4">
                         {program.ageRange}
                       </p>
 

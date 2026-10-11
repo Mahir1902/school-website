@@ -1,95 +1,70 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, User, ArrowRight } from "lucide-react";
-import CategoryBadge from "./CategoryBadge";
+import { ArrowUpRight } from "lucide-react";
+import type { News } from "@/types/newsEvents";
+import crest from "@/assets/sis-logo-removebg-preview.png";
 
 interface NewsCardProps {
-  news: {
-    id: string;
-    title: string;
-    slug: string;
-    publishedDate: string;
-    excerpt?: string;
-    featuredImage?: string;
-    category?: string;
-    author?: string;
-    featured?: boolean;
-  };
-  featured?: boolean;
+  news: Pick<News, "title" | "slug" | "publishedDate" | "excerpt" | "featuredImage" | "featuredImageAlt" | "category">;
 }
 
-export default function NewsCard({ news, featured = false }: NewsCardProps) {
+export default function NewsCard({ news }: NewsCardProps) {
+  // Content dates are plain YYYY-MM-DD (parsed as UTC); format in UTC so the day never shifts.
   const formattedDate = new Date(news.publishedDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
-    day: "numeric"
+    day: "numeric",
+    timeZone: "UTC",
   });
 
   return (
     <Link
       href={`/news-events/${news.slug}`}
-      className={`group block bg-card border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${
-        featured ? "md:col-span-2 md:row-span-2" : ""
-      }`}
+      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-[box-shadow,border-color,translate] duration-300 ease-out hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
-      {/* Featured Image */}
-      {news.featuredImage && (
-        <div className={`relative overflow-hidden bg-muted ${featured ? "h-64 md:h-96" : "h-48"}`}>
+      <div className="relative aspect-[16/10] overflow-hidden bg-primary/5">
+        {news.featuredImage ? (
           <Image
             src={news.featuredImage}
-            alt={news.title}
+            alt={news.featuredImageAlt || ""}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-            sizes={featured ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
-          {news.category && (
-            <div className="absolute top-4 left-4">
-              <CategoryBadge category={news.category} />
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Content */}
-      <div className={`p-6 ${featured ? "md:p-8" : ""}`}>
-        {/* Meta Information */}
-        <div className="flex items-center gap-4 text-sm text-foreground/60 mb-3">
-          <div className="flex items-center gap-1.5">
-            <Calendar className="w-4 h-4" />
-            <span className="font-proximaNova">{formattedDate}</span>
+        ) : (
+          <div className="flex h-full items-center justify-center">
+            <Image src={crest} alt="" className="h-24 w-auto opacity-40" />
           </div>
-          {news.author && (
-            <div className="flex items-center gap-1.5">
-              <User className="w-4 h-4" />
-              <span className="font-proximaNova">{news.author}</span>
-            </div>
-          )}
-        </div>
+        )}
+      </div>
 
-        {/* Title */}
-        <h3
-          className={`font-inglobal font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2 ${
-            featured ? "text-2xl md:text-3xl" : "text-xl"
-          }`}
-        >
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-inglobal font-bold text-xl leading-snug text-primary text-balance line-clamp-2 decoration-secondary decoration-2 underline-offset-4 group-hover:underline">
           {news.title}
         </h3>
 
-        {/* Excerpt */}
         {news.excerpt && (
-          <p
-            className={`font-proximaNova text-foreground/70 mb-4 ${
-              featured ? "text-base line-clamp-3" : "text-sm line-clamp-2"
-            }`}
-          >
+          <p className="mt-3 font-proximaNova text-[0.95rem] leading-relaxed text-foreground/75 line-clamp-3">
             {news.excerpt}
           </p>
         )}
 
-        {/* Read More Link */}
-        <div className="flex items-center gap-2 text-primary font-proximaNova font-semibold text-sm group-hover:gap-3 transition-all">
-          <span>Read More</span>
-          <ArrowRight className="w-4 h-4" />
+        <div className="mt-auto pt-5">
+          <div className="flex items-center justify-between gap-4 border-t border-border pt-4 font-proximaNova text-sm">
+            <p className="flex min-w-0 items-center gap-2 text-foreground/70">
+              <time dateTime={news.publishedDate}>{formattedDate}</time>
+              {news.category && (
+                <>
+                  <span aria-hidden="true" className="h-1 w-1 shrink-0 rounded-full bg-secondary" />
+                  <span className="truncate font-semibold capitalize text-primary">{news.category}</span>
+                </>
+              )}
+            </p>
+            <ArrowUpRight
+              aria-hidden="true"
+              className="h-5 w-5 shrink-0 text-primary transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </div>
         </div>
       </div>
     </Link>

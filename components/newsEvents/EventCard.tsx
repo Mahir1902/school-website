@@ -43,15 +43,15 @@ export default function EventCard({ event }: EventCardProps) {
   const isSameDay = endDate && startDate.toDateString() === endDate.toDateString();
 
   return (
-    <div className="group bg-card border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+    <div className="group flex h-full flex-col bg-card border border-border rounded-xl overflow-hidden shadow-sm hover:shadow-lg hover:border-primary/25 transition-all duration-300 ease-out hover:-translate-y-1">
       {/* Featured Image */}
       {event.featuredImage && (
-        <div className="relative h-48 overflow-hidden bg-muted">
+        <div className="relative aspect-[16/10] overflow-hidden bg-primary/5">
           <Image
             src={event.featuredImage}
-            alt={event.title}
+            alt=""
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
           {event.status && (
@@ -68,9 +68,9 @@ export default function EventCard({ event }: EventCardProps) {
       )}
 
       {/* Content */}
-      <div className="p-6">
+      <div className="flex flex-1 flex-col p-6">
         {/* Title */}
-        <h3 className="font-inglobal font-bold text-xl text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
+        <h3 className="font-inglobal font-bold text-xl text-primary mb-3 decoration-secondary decoration-2 underline-offset-4 group-hover:underline line-clamp-2">
           {event.title}
         </h3>
 
@@ -121,11 +121,11 @@ export default function EventCard({ event }: EventCardProps) {
         )}
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="mt-auto flex items-center gap-3">
           {event.slug && (
             <Link
               href={`/news-events/${event.slug}`}
-              className="flex-1 text-center px-4 py-2 bg-primary/10 text-primary font-proximaNova font-semibold text-sm rounded-md hover:bg-primary hover:text-white transition-colors"
+              className="flex-1 text-center px-4 py-2 bg-primary/10 text-primary font-proximaNova font-semibold text-sm rounded-md hover:bg-primary hover:text-primary-foreground transition-colors"
             >
               View Details
             </Link>
@@ -135,7 +135,7 @@ export default function EventCard({ event }: EventCardProps) {
               href={event.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 bg-secondary text-primary font-proximaNova font-semibold text-sm rounded-md hover:bg-secondary/80 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 bg-secondary text-secondary-foreground font-proximaNova font-semibold text-sm rounded-md hover:bg-secondary/80 transition-colors"
             >
               <span>Register</span>
               <ExternalLink className="w-3.5 h-3.5" />

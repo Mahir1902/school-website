@@ -91,7 +91,7 @@ export default function VideoGalleryPage() {
 
                 {/* Content */}
                 <div className="p-4">
-                  <h3 className="font-inglobal font-bold text-lg text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+                  <h3 className="font-inglobal font-bold text-lg text-primary mb-2 decoration-secondary decoration-2 underline-offset-4 group-hover:underline line-clamp-2">
                     {video.title}
                   </h3>
 

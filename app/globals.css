@@ -16,6 +16,8 @@
   --primary-foreground: oklch(1.00 0 0);
   --secondary: oklch(0.75 0.17 62.22);
   --secondary-foreground: 	#1A1A1A;
+  /* Gold dark enough for small text on light surfaces (secondary itself is ~2.3:1 on white) */
+  --secondary-ink: oklch(0.54 0.13 58);
   --muted: oklch(0.97 0 0);
   --muted-foreground: 	#4F4F4F;
   --accent: oklch(0.75 0.17 62.22);
@@ -63,6 +65,7 @@
   --primary-foreground: oklch(0.21 0.01 285.88);
   --secondary: oklch(0.27 0.01 286.03);
   --secondary-foreground: oklch(0.98 0 0);
+  --secondary-ink: oklch(0.80 0.14 62);
   --muted: oklch(0.27 0.01 286.03);
   --muted-foreground: oklch(0.71 0.01 286.07);
   --accent: oklch(0.27 0.01 286.03);
@@ -110,6 +113,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-ink: var(--secondary-ink);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -136,10 +140,7 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
-  --font-montserrat: var(--font-montserrat);
   --font-poppins: var(--font-poppins);
-  --font-quadraat: var(--font-quadraat);
-  --font-lora: var(--font-lora);
   --font-inglobal: var(--font-inglobal);
   --font-inglobalNormal: var(--font-inglobalNormal);
   --font-proximaNova: var(--font-proximaNova);
@@ -166,6 +167,24 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::selection {
+    background-color: color-mix(in oklch, var(--secondary) 45%, transparent);
+    color: var(--foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

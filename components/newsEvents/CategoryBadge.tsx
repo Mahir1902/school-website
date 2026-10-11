@@ -23,40 +23,40 @@ export default function CategoryBadge({
 
     // News categories
     if (lowerCat.includes("announcement")) {
-      return "bg-accent/90 text-accent-foreground";
+      return "bg-accent text-accent-foreground";
     }
     if (lowerCat.includes("achievement")) {
-      return "bg-secondary/90 text-primary";
+      return "bg-secondary text-secondary-foreground";
     }
     if (lowerCat.includes("latest") || lowerCat.includes("news")) {
-      return "bg-primary/90 text-primary-foreground";
+      return "bg-primary text-primary-foreground";
     }
 
     // Notice priorities
     if (lowerCat.includes("urgent")) {
-      return "bg-destructive/90 text-destructive-foreground";
+      return "bg-destructive text-destructive-foreground";
     }
 
     // Event types
     if (lowerCat.includes("academic")) {
-      return "bg-blue-600/90 text-white dark:bg-blue-500/90";
+      return "bg-chart-3 text-primary-foreground";
     }
     if (lowerCat.includes("sports")) {
-      return "bg-green-600/90 text-white dark:bg-green-500/90";
+      return "bg-primary text-primary-foreground";
     }
     if (lowerCat.includes("cultural")) {
-      return "bg-purple-600/90 text-white dark:bg-purple-500/90";
+      return "bg-secondary text-secondary-foreground";
     }
     if (lowerCat.includes("community")) {
-      return "bg-orange-500/90 text-white dark:bg-orange-400/90";
+      return "bg-chart-2 text-foreground";
     }
 
     // Event status
     if (lowerCat.includes("upcoming")) {
-      return "bg-emerald-500/90 text-white";
+      return "bg-background/95 text-primary ring-1 ring-inset ring-primary/30";
     }
     if (lowerCat.includes("ongoing")) {
-      return "bg-amber-500/90 text-white";
+      return "bg-secondary text-secondary-foreground";
     }
     if (lowerCat.includes("past")) {
       return "bg-muted/90 text-muted-foreground";
@@ -64,7 +64,7 @@ export default function CategoryBadge({
 
     // Generic event fallback
     if (lowerCat.includes("event")) {
-      return "bg-accent/90 text-accent-foreground";
+      return "bg-accent text-accent-foreground";
     }
 
     // Default
@@ -74,7 +74,7 @@ export default function CategoryBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center font-proximaNova font-semibold rounded-full backdrop-blur-sm",
+        "inline-flex items-center font-proximaNova font-semibold capitalize rounded-full",
         sizeClasses[size],
         getCategoryColor(category),
         className
