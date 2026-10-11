@@ -14,7 +14,7 @@ interface StatsClientProps {
   stats: Statistic[];
 }
 
-function Counter({ end, suffix, duration = 2000 }: { end: number; suffix: string; duration?: number }) {
+function Counter({ end, duration = 2000 }: { end: number; suffix: string; duration?: number }) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
 

@@ -131,7 +131,7 @@ export default function PreSchoolPage() {
             Our pre-school features age-appropriate facilities including
             air-conditioned classrooms, dedicated play areas, and specialized
             resources for early childhood development. Every aspect of our
-            environment is designed to support your child's growth and learning.
+            environment is designed to support your child&apos;s growth and learning.
           </p>
         </div>
       </section>

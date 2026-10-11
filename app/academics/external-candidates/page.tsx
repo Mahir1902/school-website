@@ -205,7 +205,7 @@ export default function ExternalCandidatesPage() {
                 </p>
                 <div className="bg-primary/5 rounded-lg p-4">
                   <p className="text-sm text-foreground/70 font-proximaNova">
-                    <strong>Note:</strong> It's recommended to call ahead and schedule
+                    <strong>Note:</strong> It&apos;s recommended to call ahead and schedule
                     an appointment to ensure prompt service.
                   </p>
                 </div>

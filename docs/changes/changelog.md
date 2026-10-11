@@ -9,6 +9,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - N/A
 
+### Removed
+- Playwright MCP tooling (`mcp.json`, `.playwright-mcp/`, playwright skills and permissions)
+- Stale one-off docs (`RESTRUCTURE_COMPLETE.md`, `FEATURE_CHECKLIST.md`, `FEATURE_DOCUMENT.md`), unused assets, unloaded fonts, starter SVGs in `public/`, and `components/academics/AcademicsNav.tsx`
+
+### Changed
+- `npm run lint` now runs `eslint .` (`next lint` was removed in Next.js 16); existing lint errors fixed
+
 ## [2026-01-21] - Sanity CMS Integration COMPLETE (Phases 0-7)
 
 ### Added (Phases 6-7 - Component Refactoring & Content Migration)

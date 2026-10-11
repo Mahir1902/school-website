@@ -170,7 +170,7 @@ export default function AcademicsOverviewPage() {
           <div className="relative h-full flex items-center justify-center text-center px-6">
             <div className="max-w-3xl">
               <h2 className="text-3xl md:text-4xl font-inglobal text-white mb-4">
-                Ready to Begin Your Child's Academic Journey?
+                Ready to Begin Your Child&apos;s Academic Journey?
               </h2>
               <p className="text-white font-proximaNova text-lg mb-8">
                 Discover how our comprehensive academic programs can prepare your child

@@ -86,7 +86,7 @@ You are an elite Feature Planning Architect specializing in breaking down comple
 
 - **Section Components**: New sections go in `/sections/*.tsx`, imported in `app/page.tsx`
 - **UI Components**: Use shadcn/ui components from `/components/ui/`
-- **Fonts**: Apply via `font-orpheus`, `font-proximaNova`, `font-le_beaune`, `font-poppins` classes
+- **Fonts**: Apply via `font-inglobal`, `font-proximaNova`, `font-le_beaune`, `font-poppins` classes
 - **Colors**: Use semantic tokens (`bg-primary`, `text-secondary`) from design system
 - **Animations**: Follow IntersectionObserver pattern with `isVisible` state
 - **Images**: Store in `/assets/`, import for type safety with Next.js Image component

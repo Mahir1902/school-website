@@ -3,7 +3,6 @@ import Image from "next/image";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
 import DataTable from "@/components/academics/DataTable";
-import InfoCard from "@/components/academics/InfoCard";
 import CTAButton from "@/components/academics/CTAButton";
 import {
   iPrimaryProgram,
