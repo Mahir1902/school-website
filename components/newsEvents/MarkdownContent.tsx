@@ -45,13 +45,18 @@ const components: Components = {
   img: ({ src, alt }) =>
     typeof src === 'string' && src ? (
       <span className="block relative w-full h-[400px] my-6 rounded-lg overflow-hidden">
-        <Image
-          src={src}
-          alt={alt || 'Content image'}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, 800px"
-        />
+        {src.startsWith('/media/') ? (
+          <Image
+            src={src}
+            alt={alt || 'Content image'}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={src} alt={alt || 'Content image'} className="absolute inset-0 w-full h-full object-cover" />
+        )}
       </span>
     ) : null,
 };

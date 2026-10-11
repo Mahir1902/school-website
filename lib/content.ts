@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { News, Event, Notice, GalleryImage, VideoGallery } from "@/types/newsEvents";
 import type { CalendarEvent } from "@/types/academics";
+import { dhakaTime as time, isEventPast as isPast } from "@/lib/dateUtils";
 
 // Content is edited in Pages CMS (see .pages.yml) and committed as JSON under /content.
 // Server-only: read at build time (and on ISR re-render; content/** is traced in next.config.ts).
@@ -20,9 +21,6 @@ function readList<T>(file: string): T[] {
   return JSON.parse(fs.readFileSync(path.join(root, file), "utf8"));
 }
 
-const time = (d?: string) => (d ? new Date(d).getTime() : 0);
-const isPast = (e: Event) => time(e.startDate) < Date.now();
-
 export const getAllNews = () =>
   readCollection<News>("news").sort((a, b) => time(b.publishedDate) - time(a.publishedDate));
 
@@ -39,7 +37,7 @@ export const getEventBySlug = (slug: string) => getAllEvents().find((e) => e.slu
 
 export const getActiveNotices = () =>
   readCollection<Notice>("notices")
-    .filter((n) => !n.expiryDate || time(n.expiryDate) > Date.now())
+    .filter((n) => !n.expiryDate || time(`${n.expiryDate.slice(0, 10)}T23:59:59.999`) > Date.now())
     .sort((a, b) => Number(!!b.pinned) - Number(!!a.pinned) || time(b.publishedDate) - time(a.publishedDate));
 
 export const getGalleryImages = () =>

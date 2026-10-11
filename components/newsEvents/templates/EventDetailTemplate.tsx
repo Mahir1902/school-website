@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatDateRange, formatEventTime, getEventStatus } from "@/lib/dateUtils";
+import { formatDateRange, formatEventTime, isEventPast } from "@/lib/dateUtils";
 import MarkdownContent from "@/components/newsEvents/MarkdownContent";
 import EventCard from "@/components/newsEvents/EventCard";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
@@ -17,8 +17,7 @@ interface EventDetailTemplateProps {
  * Reusable template for rendering event detail pages
  */
 export default function EventDetailTemplate({ event, relatedEvents }: EventDetailTemplateProps) {
-  const status = getEventStatus(event.startDate, event.endDate);
-  const isPastEvent = status === 'past';
+  const isPastEvent = isEventPast(event);
 
   return (
     <div className="space-y-12">
