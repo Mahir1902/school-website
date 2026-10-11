@@ -1,7 +1,9 @@
-# Glossary — Navigation
+# Glossary
 
-Living glossary built during the `/grill-with-docs` session. Terms are the shared
-vocabulary for the navigation rework.
+Living glossary built during `/grill-with-docs` sessions. Shared vocabulary,
+grouped by feature.
+
+# Navigation
 
 ## Nav source of truth
 The single definition of the navigation link tree (top-level items + dropdown
@@ -40,6 +42,67 @@ and affects desktop and mobile identically — the unified nav simply surfaces t
 same dead links on both. Building those page trees is separate from the nav rework.
 
 ## #contact anchor  {#contact-anchor}
-`#contact` / `/#contact` is linked from the Hero menu and many CTA buttons, but
-**no element with `id="contact"` exists** anywhere in the codebase. The link is
-dead on every page. Tracked as a separate bug from the nav rework.
+`#contact` / `/#contact` was linked from the Hero menu and CTA buttons. An
+`id="contact"` now exists on the Footer info block (`sections/Footer.tsx`), so the
+anchor scrolls to contact *info*. Per [[adr/0003-contact-form-ghl-lead-capture]]
+the nav "Contact" item moves to the real `/contact` page (form), not this anchor.
+
+# Contact form & CRM
+
+Vocabulary for the contact form → GoHighLevel lead capture.
+See [[adr/0003-contact-form-ghl-lead-capture]].
+
+## Contact form
+The form on the `/contact` page. Primary job is **admissions lead capture**;
+secondary job is general enquiries. Every submission becomes a GHL contact.
+
+## Reason selector
+The "what's this about?" field with two values: `Admissions enquiry` (primary,
+shows the lean admissions fields) and `General enquiry` (catch-all; "Other" folds
+in here). Careers is explicitly out. Maps to a GHL tag.
+
+## Lean field set
+The ≈6 admissions fields chosen for completion over exhaustiveness: First name,
+Last name, Email, Phone, Programme of interest, Message (+ consent). Child age and
+intake are gathered by the admissions team on follow-up, not on the form.
+
+## Name split  {#name-split}
+Name is captured as **two fields** (First / Last), not one "Full name", so it maps
+cleanly to GHL `firstName`/`lastName` and `{{first_name}}` greetings work.
+
+## GHL (GoHighLevel)
+The sales/marketing CRM that receives leads. Contacts are created via an inbound
+webhook, then nurtured with call/SMS/email automation.
+
+## Inbound webhook
+A GHL Workflow trigger that exposes a URL. The site POSTs JSON to it; a
+"Create/Update Contact" action inside the workflow maps JSON keys → contact
+fields/tags. **Field mapping lives in GHL, not the repo** — so no custom-field IDs
+are committed. URL is stored server-side as `GHL_WEBHOOK_URL`.
+
+## Contact API route
+`/api/contact` Next.js Route Handler. The trust boundary: validates fields, runs
+the honeypot + time-trap, reshapes to GHL keys, and forwards to the inbound
+webhook. Browser never sees the webhook URL.
+
+## Honeypot + time-trap
+Day-one spam protection: a hidden field bots fill (submission silently dropped) +
+rejecting submits faster than ~2s. No dependency, no user friction. CAPTCHA and
+rate-limiting are deferred (the latter is unreliable on serverless without an
+external store).
+
+## Payload contract  {#payload-contract}
+The clean JSON the route sends to GHL: `firstName`, `lastName`, `email`, `phone`,
+`reason`, `programme` (admissions only), `message`, `marketingConsent`, `source`.
+The honeypot field and timestamp are validated then **stripped** — never
+forwarded.
+
+## Marketing consent
+Optional opt-in checkbox ("Send me school news & updates"), separate from the
+required "contact me about my enquiry" consent. PDPA-clean; sets a GHL marketing
+tag so nurture campaigns only reach opt-ins.
+
+## PDPA
+Singapore's Personal Data Protection Act. Why consent is split into required
+(transactional contact) vs optional (marketing), and why the form links to
+`/privacy` (page not yet built).
