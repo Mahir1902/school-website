@@ -139,7 +139,7 @@ content:
           - name: status
             label: Status
             type: select
-            description: Optional label. Upcoming/past listing is worked out from the dates automatically.
+            description: Optional label. Events move to Past automatically once their start time passes; choose Past to move one early.
             options:
               values:
                 - { name: upcoming, label: Upcoming }
