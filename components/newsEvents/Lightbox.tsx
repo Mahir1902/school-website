@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { gsap, useGSAP } from "@/lib/gsap";
 import type { GalleryImage } from "@/types/newsEvents";
 
 interface LightboxProps {
@@ -22,6 +22,20 @@ export default function Lightbox({
   onPrevious
 }: LightboxProps) {
   const currentImage = images[currentIndex];
+  const rootRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const infoRef = useRef<HTMLDivElement>(null);
+
+  // Fade in on open (the parent unmounts the lightbox on close).
+  useGSAP(() => {
+    gsap.from(rootRef.current, { opacity: 0, duration: 0.3 });
+    gsap.from(infoRef.current, { opacity: 0, y: 20, duration: 0.3, delay: 0.2 });
+  });
+
+  // Each newly shown image scales in.
+  useGSAP(() => {
+    gsap.from(imageRef.current, { opacity: 0, scale: 0.9, duration: 0.3 });
+  }, { dependencies: [currentImage.id] });
 
   // Keyboard navigation
   useEffect(() => {
@@ -48,11 +62,8 @@ export default function Lightbox({
   }, []);
 
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+      <div
+        ref={rootRef}
         className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm"
         onClick={onClose}
         data-testid="lightbox"
@@ -100,12 +111,9 @@ export default function Lightbox({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Main Image */}
-          <motion.div
+          <div
             key={currentImage.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3 }}
+            ref={imageRef}
             className="relative max-w-6xl max-h-[80vh] w-full h-full"
           >
             <Image
@@ -116,13 +124,11 @@ export default function Lightbox({
               sizes="100vw"
               priority
             />
-          </motion.div>
+          </div>
 
           {/* Image Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <div
+            ref={infoRef}
             className="mt-6 text-center max-w-2xl px-4"
           >
             <h3 className="font-inglobal font-bold text-xl md:text-2xl text-white mb-2">
@@ -154,7 +160,7 @@ export default function Lightbox({
                 {currentIndex + 1} / {images.length}
               </span>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Keyboard Hints */}
@@ -162,7 +168,6 @@ export default function Lightbox({
           <span>← → Navigate</span>
           <span>ESC Close</span>
         </div>
-      </motion.div>
-    </AnimatePresence>
+      </div>
   );
 }
