@@ -1,4 +1,4 @@
-import { NavigationItem, NavigationSection } from "@/types/navigation";
+import { NavigationSection } from "@/types/navigation";
 
 export const aboutDropdownSections: NavigationSection[] = [
   {

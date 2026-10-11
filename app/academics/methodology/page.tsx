@@ -30,7 +30,7 @@ export default function MethodologyPage() {
       <section className="max-w-4xl mx-auto">
         <div className="relative">
           <div className="absolute top-0 left-0 text-8xl text-secondary/20 font-le_beaune leading-none">
-            "
+            &quot;
           </div>
           <blockquote className="pt-12 pb-4 px-8 text-center">
             <p className="text-2xl md:text-3xl font-inglobal text-primary italic mb-6">
@@ -38,7 +38,7 @@ export default function MethodologyPage() {
             </p>
           </blockquote>
           <div className="absolute bottom-0 right-0 text-8xl text-secondary/20 font-le_beaune leading-none transform rotate-180">
-            "
+            &quot;
           </div>
         </div>
 

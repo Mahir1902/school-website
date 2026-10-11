@@ -100,13 +100,14 @@ export default async function CalendarPage() {
           <p>
             <strong>For School Administrators:</strong> Calendar events can be
             easily managed through the Sanity Studio. Simply navigate to{" "}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Studio is a separate app; full page load is intended */}
             <a
               href="/studio"
               className="text-primary hover:underline font-semibold"
             >
               /studio
             </a>{" "}
-            and select "Calendar Event" from the sidebar.
+            and select &quot;Calendar Event&quot; from the sidebar.
           </p>
           <div className="bg-primary/5 rounded-lg p-6">
             <h4 className="font-semibold text-primary mb-3">
@@ -114,10 +115,10 @@ export default async function CalendarPage() {
             </h4>
             <ol className="space-y-2 list-decimal list-inside">
               <li>Go to the Sanity Studio at /studio</li>
-              <li>Click on "Calendar Event" in the sidebar</li>
-              <li>Click the "+" button to create a new event</li>
+              <li>Click on &quot;Calendar Event&quot; in the sidebar</li>
+              <li>Click the &quot;+&quot; button to create a new event</li>
               <li>Fill in the event details (title, date, type, description)</li>
-              <li>Click "Publish" to make it live on the calendar</li>
+              <li>Click &quot;Publish&quot; to make it live on the calendar</li>
             </ol>
           </div>
           <p className="text-sm">

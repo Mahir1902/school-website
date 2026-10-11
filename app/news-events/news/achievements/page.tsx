@@ -41,7 +41,7 @@ export default async function AchievementsPage() {
             No Achievements Yet
           </h3>
           <p className="font-proximaNova text-foreground/60">
-            Check back soon for news about our students' achievements
+            Check back soon for news about our students&apos; achievements
           </p>
         </div>
       )}

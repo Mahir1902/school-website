@@ -5,7 +5,6 @@ import SectionHeading from "@/components/academics/SectionHeading";
 import DataTable from "@/components/academics/DataTable";
 import SubjectAccordion from "@/components/academics/SubjectAccordion";
 import { SubjectCategoryData } from "@/components/academics/SubjectGrid";
-import InfoCard from "@/components/academics/InfoCard";
 import CTAButton from "@/components/academics/CTAButton";
 import {
   aLevelProgram,
@@ -374,7 +373,7 @@ export default function ALevelsPage() {
           Begin Your Journey to Top Universities
         </h2>
         <p className="text-foreground/70 font-proximaNova mb-6 max-w-2xl mx-auto">
-          Our A-Level programme opens doors to the world's best universities.
+          Our A-Level programme opens doors to the world&apos;s best universities.
           Start your path to academic and career success today.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -12,6 +12,7 @@ interface DataTableProps {
   // ponytail: callers pass interface-typed rows (ClassSchedule, Fee, ...) with no
   // index signature, so Record<string, ReactNode> would reject them. Cells render
   // row[key] straight into JSX, so any is the pragmatic row-bag type here.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: Record<string, any>[];
   caption?: string;
   striped?: boolean;

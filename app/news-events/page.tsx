@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import {
-  featuredItemsQuery,
   latestNewsQuery,
   upcomingEventsQuery,
   activeNoticesQuery
