@@ -46,7 +46,7 @@ You are working on a Next.js 15 website with React 19, TypeScript, and Tailwind 
 - Follow the established component architecture: UI components in `/components/ui/`, section components in `/sections/`
 - Use the `@/*` path alias for imports
 - Implement client-side interactivity with `"use client"` directive when needed
-- Follow the established font system using `font-orpheus`, `font-proximaNova`, etc.
+- Follow the established font system using `font-inglobal`, `font-proximaNova`, etc.
 - Use the design token system from `globals.css` for colors, shadows, and spacing
 - Apply the IntersectionObserver pattern for scroll-triggered animations in sections
 - Use Next.js `<Image>` component for all images with proper imports
