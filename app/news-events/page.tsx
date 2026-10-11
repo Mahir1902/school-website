@@ -1,11 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { client } from "@/sanity/lib/client";
-import {
-  latestNewsQuery,
-  upcomingEventsQuery,
-  activeNoticesQuery
-} from "@/sanity/lib/queries";
+import { getAllNews, getUpcomingEvents, getActiveNotices } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import NewsCard from "@/components/newsEvents/NewsCard";
 import EventCard from "@/components/newsEvents/EventCard";
@@ -21,17 +16,10 @@ export const metadata: Metadata = {
 // Revalidate every 60 seconds (ISR)
 export const revalidate = 60;
 
-export default async function NewsEventsOverview() {
-  // Fetch all data in parallel
-  const [latestNews, upcomingEvents, activeNotices] = await Promise.all([
-    client.fetch(latestNewsQuery, { start: 0, end: 3 }),
-    client.fetch(upcomingEventsQuery),
-    client.fetch(activeNoticesQuery)
-  ]);
-
-  // Limit upcoming events and notices for overview
-  const featuredEvents = upcomingEvents.slice(0, 3);
-  const featuredNotices = activeNotices.slice(0, 3);
+export default function NewsEventsOverview() {
+  const latestNews = getAllNews().slice(0, 3);
+  const featuredEvents = getUpcomingEvents().slice(0, 3);
+  const featuredNotices = getActiveNotices().slice(0, 3);
 
   return (
     <div className="space-y-16">
@@ -65,7 +53,7 @@ export default async function NewsEventsOverview() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {latestNews.map((news: News) => (
-              <NewsCard key={news._id} news={news} />
+              <NewsCard key={news.id} news={news} />
             ))}
           </div>
 
@@ -102,7 +90,7 @@ export default async function NewsEventsOverview() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredEvents.map((event: Event) => (
-              <EventCard key={event._id} event={event} />
+              <EventCard key={event.id} event={event} />
             ))}
           </div>
 
@@ -139,7 +127,7 @@ export default async function NewsEventsOverview() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredNotices.map((notice: Notice) => (
-              <NoticeCard key={notice._id} notice={notice} />
+              <NoticeCard key={notice.id} notice={notice} />
             ))}
           </div>
 

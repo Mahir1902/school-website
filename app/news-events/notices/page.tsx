@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { activeNoticesQuery } from "@/sanity/lib/queries";
+import { getActiveNotices } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import NoticeCard from "@/components/newsEvents/NoticeCard";
 import type { Notice } from "@/types/newsEvents";
@@ -14,8 +13,8 @@ export const metadata: Metadata = {
 // Revalidate every 60 seconds
 export const revalidate = 60;
 
-export default async function NoticesPage() {
-  const notices = await client.fetch(activeNoticesQuery);
+export default function NoticesPage() {
+  const notices = getActiveNotices();
 
   return (
     <div className="space-y-8">
@@ -37,7 +36,7 @@ export default async function NoticesPage() {
       {notices.length > 0 ? (
         <div className="space-y-4">
           {notices.map((notice: Notice) => (
-            <NoticeCard key={notice._id} notice={notice} />
+            <NoticeCard key={notice.id} notice={notice} />
           ))}
         </div>
       ) : (

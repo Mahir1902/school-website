@@ -1,11 +1,6 @@
-import { client } from '@/sanity/lib/client'
-import { testimonialsQuery } from '@/sanity/lib/queries'
+import { getTestimonials } from '@/lib/content'
 import TestimonialsClient from './TestimonialsClient'
 
-export default async function Testimonials() {
-  const testimonials = await client.fetch(testimonialsQuery, {}, {
-    next: { revalidate: 86400 } // ISR: revalidate every 24 hours
-  })
-
-  return <TestimonialsClient testimonials={testimonials} />
+export default function Testimonials() {
+  return <TestimonialsClient testimonials={getTestimonials()} />
 }

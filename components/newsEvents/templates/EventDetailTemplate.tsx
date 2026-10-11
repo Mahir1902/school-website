@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { urlFor } from "@/sanity/lib/image";
-import { formatDateRange, formatEventTime, getEventStatus } from "@/lib/dateUtils";
-import PortableTextContent from "@/components/newsEvents/PortableTextContent";
+import { formatDateRange, formatEventTime, isEventPast } from "@/lib/dateUtils";
+import MarkdownContent from "@/components/newsEvents/MarkdownContent";
 import EventCard from "@/components/newsEvents/EventCard";
 import CategoryBadge from "@/components/newsEvents/CategoryBadge";
 import { Calendar, Clock, MapPin, Users, ExternalLink } from "lucide-react";
@@ -18,8 +17,7 @@ interface EventDetailTemplateProps {
  * Reusable template for rendering event detail pages
  */
 export default function EventDetailTemplate({ event, relatedEvents }: EventDetailTemplateProps) {
-  const status = getEventStatus(event.startDate, event.endDate);
-  const isPastEvent = status === 'past';
+  const isPastEvent = isEventPast(event);
 
   return (
     <div className="space-y-12">
@@ -28,7 +26,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
         {event.featuredImage ? (
           <>
             <Image
-              src={urlFor(event.featuredImage).url()}
+              src={event.featuredImage}
               alt={event.title}
               fill
               className="object-cover"
@@ -73,8 +71,8 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
             </p>
           )}
 
-          {event.content && event.content.length > 0 && (
-            <PortableTextContent content={event.content} />
+          {event.body && (
+            <MarkdownContent content={event.body} />
           )}
 
           {event.tags && event.tags.length > 0 && (
@@ -187,7 +185,7 @@ export default function EventDetailTemplate({ event, relatedEvents }: EventDetai
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {relatedEvents.map((relatedEvent: Event) => (
-              <EventCard key={relatedEvent._id} event={relatedEvent} />
+              <EventCard key={relatedEvent.id} event={relatedEvent} />
             ))}
           </div>
         </div>

@@ -1,13 +1,15 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { client } from "@/sanity/lib/client";
-import { contentBySlugQuery, relatedNewsQuery, relatedEventsQuery } from "@/sanity/lib/queries";
-import { urlFor } from "@/sanity/lib/image";
+import { getAllNews, getAllEvents, getNewsBySlug, getEventBySlug, getUpcomingEvents } from "@/lib/content";
 import NewsDetailTemplate from "@/components/newsEvents/templates/NewsDetailTemplate";
 import EventDetailTemplate from "@/components/newsEvents/templates/EventDetailTemplate";
-import type { News, Event, ContentItem } from "@/types/newsEvents";
 
+// Re-render periodically so past-event detection stays current between deploys
 export const revalidate = 60;
+
+export function generateStaticParams() {
+  return [...getAllNews(), ...getAllEvents()].map(({ slug }) => ({ slug }));
+}
 
 /**
  * Generate dynamic metadata for SEO and social sharing
@@ -15,18 +17,12 @@ export const revalidate = 60;
  */
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const content: ContentItem | null = await client.fetch(contentBySlugQuery, { slug });
+  const article = getNewsBySlug(slug);
+  const event = article ? undefined : getEventBySlug(slug);
 
-  if (!content) {
-    return { title: "Content Not Found" };
-  }
+  const imageUrl = (article ?? event)?.featuredImage;
 
-  const imageUrl = content.featuredImage
-    ? urlFor(content.featuredImage).width(1200).height(630).url()
-    : undefined;
-
-  if (content._type === "news") {
-    const article = content as News;
+  if (article) {
     return {
       title: `${article.title} | News | Singapore International School`,
       description: article.excerpt || article.title,
@@ -44,8 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         images: imageUrl ? [imageUrl] : [],
       },
     };
-  } else {
-    const event = content as Event;
+  } else if (event) {
     return {
       title: `${event.title} | Events | Singapore International School`,
       description: event.excerpt || `Join us for ${event.title}`,
@@ -64,6 +59,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     };
   }
+
+  return { title: "Content Not Found" };
 }
 
 /**
@@ -72,28 +69,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
  */
 export default async function UnifiedDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const content: ContentItem | null = await client.fetch(contentBySlugQuery, { slug });
+  const article = getNewsBySlug(slug);
 
-  if (!content) {
+  // Route to appropriate template based on content type
+  if (article) {
+    const relatedArticles = getAllNews()
+      .filter((n) => n.category === article.category && n.slug !== slug)
+      .slice(0, 3);
+
+    return <NewsDetailTemplate article={article} relatedArticles={relatedArticles} />;
+  }
+
+  const event = getEventBySlug(slug);
+  if (!event) {
     notFound();
   }
 
-  // Route to appropriate template based on content type
-  if (content._type === "news") {
-    const article = content as News;
-    const relatedArticles = await client.fetch(relatedNewsQuery, {
-      category: article.category,
-      slug
-    });
+  const relatedEvents = getUpcomingEvents()
+    .filter((e) => e.eventType === event.eventType && e.slug !== slug)
+    .slice(0, 3);
 
-    return <NewsDetailTemplate article={article} relatedArticles={relatedArticles} />;
-  } else {
-    const event = content as Event;
-    const relatedEvents = await client.fetch(relatedEventsQuery, {
-      eventType: event.eventType,
-      slug
-    });
-
-    return <EventDetailTemplate event={event} relatedEvents={relatedEvents} />;
-  }
+  return <EventDetailTemplate event={event} relatedEvents={relatedEvents} />;
 }

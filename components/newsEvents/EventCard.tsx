@@ -1,20 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import { Calendar, MapPin, Clock, Users, ExternalLink } from "lucide-react";
-import type { SanityImageSource } from "@sanity/image-url";
 import CategoryBadge from "./CategoryBadge";
 
 interface EventCardProps {
   event: {
-    _id: string;
+    id: string;
     title: string;
-    slug?: { current: string };
+    slug?: string;
     startDate: string;
     endDate?: string;
     location?: string;
     excerpt?: string;
-    featuredImage?: SanityImageSource;
+    featuredImage?: string;
     eventType?: string;
     status?: string;
     capacity?: number;
@@ -50,7 +48,7 @@ export default function EventCard({ event }: EventCardProps) {
       {event.featuredImage && (
         <div className="relative h-48 overflow-hidden bg-muted">
           <Image
-            src={urlFor(event.featuredImage).url()}
+            src={event.featuredImage}
             alt={event.title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -126,7 +124,7 @@ export default function EventCard({ event }: EventCardProps) {
         <div className="flex items-center gap-3">
           {event.slug && (
             <Link
-              href={`/news-events/${event.slug.current}`}
+              href={`/news-events/${event.slug}`}
               className="flex-1 text-center px-4 py-2 bg-primary/10 text-primary font-proximaNova font-semibold text-sm rounded-md hover:bg-primary hover:text-white transition-colors"
             >
               View Details

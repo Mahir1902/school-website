@@ -1,0 +1,508 @@
+# Pages CMS configuration (https://pagescms.org/docs/configuration/).
+# Editors sign in at https://app.pagescms.org; see docs/editing-content.md.
+# The site reads these files at build time via lib/content.ts. Keep field names in sync with types/newsEvents.ts.
+
+media:
+  input: public/media
+  output: /media
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, pdf, doc, docx, xls, xlsx]
+
+content:
+  - name: news-events
+    label: News & Events
+    type: group
+    items:
+      - name: news
+        label: News
+        type: collection
+        path: content/news
+        format: json
+        filename: "{fields.slug}.json"
+        operations:
+          rename: false # the file name is the article's web address
+        view:
+          fields: [title, publishedDate, category]
+          primary: title
+          sort: [publishedDate, title]
+          search: [title, excerpt]
+          default: { sort: publishedDate, order: desc }
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: slug
+            label: Web address
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+              message: Lowercase letters, numbers and hyphens only, e.g. sports-day-2025
+            description: The article's web address (/news-events/<this>). Lowercase words joined by hyphens. Must not match any event's web address. Don't change it after publishing.
+          - name: publishedDate
+            label: Published date
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: category
+            label: Category
+            type: select
+            required: true
+            default: latest
+            options:
+              values:
+                - { name: latest, label: Latest }
+                - { name: achievements, label: Achievements }
+          - name: excerpt
+            label: Summary
+            type: text
+            description: One or two sentences shown on news cards.
+          - name: featuredImage
+            label: Featured image
+            type: image
+          - name: featuredImageAlt
+            label: Image description
+            type: string
+            description: Describe the image for visitors using screen readers.
+          - name: body
+            label: Article
+            type: rich-text
+          - name: author
+            label: Author
+            type: string
+          - name: tags
+            label: Tags
+            type: string
+            list: true
+          - name: featured
+            label: Featured
+            type: boolean
+            default: false
+
+      - name: events
+        label: Events
+        type: collection
+        path: content/events
+        format: json
+        filename: "{fields.slug}.json"
+        operations:
+          rename: false # the file name is the event's web address
+        view:
+          fields: [title, startDate, eventType]
+          primary: title
+          sort: [startDate, title]
+          search: [title, excerpt, location]
+          default: { sort: startDate, order: desc }
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: slug
+            label: Web address
+            type: string
+            required: true
+            pattern:
+              regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
+              message: Lowercase letters, numbers and hyphens only, e.g. science-fair-2026
+            description: The event's web address (/news-events/<this>). Lowercase words joined by hyphens. Must not match any news article's web address. Don't change it after publishing.
+          - name: startDate
+            label: Starts
+            type: date
+            required: true
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm
+          - name: endDate
+            label: Ends
+            type: date
+            default: ""
+            description: Leave empty for single-day events.
+            options:
+              time: true
+              format: yyyy-MM-dd'T'HH:mm
+          - name: location
+            label: Location
+            type: string
+          - name: eventType
+            label: Event type
+            type: select
+            required: true
+            options:
+              values:
+                - { name: academic, label: Academic }
+                - { name: sports, label: Sports }
+                - { name: cultural, label: Cultural }
+                - { name: community, label: Community }
+          - name: status
+            label: Status
+            type: select
+            description: Optional label. Events move to Past automatically once their start time passes; choose Past to move one early.
+            options:
+              values:
+                - { name: upcoming, label: Upcoming }
+                - { name: ongoing, label: Ongoing }
+                - { name: past, label: Past }
+          - name: excerpt
+            label: Summary
+            type: text
+            description: One or two sentences shown on event cards.
+          - name: featuredImage
+            label: Featured image
+            type: image
+          - name: body
+            label: Details
+            type: rich-text
+          - name: registrationLink
+            label: Registration link
+            type: string
+            pattern:
+              regex: "^https?://"
+              message: Must be a full web address starting with https://
+          - name: capacity
+            label: Capacity
+            type: number
+            description: Maximum number of participants.
+            options:
+              min: 1
+          - name: tags
+            label: Tags
+            type: string
+            list: true
+          - name: featured
+            label: Featured
+            type: boolean
+            default: false
+
+      - name: notices
+        label: Notices
+        type: collection
+        path: content/notices
+        format: json
+        exclude: [.gitkeep]
+        filename: "{year}-{month}-{day}-{primary}.json"
+        view:
+          fields: [title, publishedDate, priority, pinned]
+          primary: title
+          sort: [publishedDate, title]
+          default: { sort: publishedDate, order: desc }
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: publishedDate
+            label: Published date
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: expiryDate
+            label: Expiry date
+            type: date
+            default: ""
+            description: The notice disappears from the site after this date. Leave empty to keep it up.
+            options:
+              format: yyyy-MM-dd
+          - name: content
+            label: Notice text
+            type: text
+            required: true
+          - name: priority
+            label: Priority
+            type: select
+            required: true
+            default: normal
+            options:
+              values:
+                - { name: urgent, label: Urgent }
+                - { name: high, label: High }
+                - { name: normal, label: Normal }
+                - { name: low, label: Low }
+          - name: category
+            label: Category
+            type: select
+            required: true
+            options:
+              values:
+                - { name: academic, label: Academic }
+                - { name: administrative, label: Administrative }
+                - { name: event, label: Event }
+                - { name: general, label: General }
+          - name: targetAudience
+            label: For
+            type: select
+            options:
+              multiple: true
+              values:
+                - { name: students, label: Students }
+                - { name: parents, label: Parents }
+                - { name: staff, label: Staff }
+                - { name: all, label: All }
+          - name: attachments
+            label: Attachments
+            type: object
+            list: true
+            fields:
+              - name: file
+                label: File
+                type: file
+                required: true
+              - name: description
+                label: Description
+                type: string
+          - name: pinned
+            label: Pin to top
+            type: boolean
+            default: false
+
+  - name: gallery-group
+    label: Gallery
+    type: group
+    items:
+      - name: gallery
+        label: Photos
+        type: collection
+        path: content/gallery
+        format: json
+        filename: "{primary}.json"
+        view:
+          fields: [title, category, dateTaken]
+          primary: title
+          sort: [order, dateTaken, title]
+          default: { sort: dateTaken, order: desc }
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: image
+            label: Photo
+            type: image
+            required: true
+          - name: alt
+            label: Photo description
+            type: string
+            description: Describe the photo for visitors using screen readers.
+          - name: caption
+            label: Caption
+            type: text
+          - name: photographer
+            label: Photographer
+            type: string
+          - name: dateTaken
+            label: Date taken
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
+          - name: category
+            label: Category
+            type: select
+            required: true
+            options:
+              values:
+                - { name: programs, label: Programs }
+                - { name: study-tour, label: Study Tour }
+                - { name: sports, label: Sports }
+                - { name: celebrations, label: Celebrations }
+                - { name: classroom, label: Classroom }
+                - { name: facilities, label: Facilities }
+                - { name: others, label: Others }
+          - name: aspectRatio
+            label: Shape
+            type: select
+            options:
+              values:
+                - { name: portrait, label: Portrait }
+                - { name: landscape, label: Landscape }
+                - { name: square, label: Square }
+          - name: order
+            label: Order
+            type: number
+            default: 0
+            description: Lower numbers appear first. Photos with the same number show newest first.
+          - name: tags
+            label: Tags
+            type: string
+            list: true
+          - name: featured
+            label: Featured
+            type: boolean
+            default: false
+
+      - name: videos
+        label: Videos
+        type: collection
+        path: content/videos
+        format: json
+        exclude: [.gitkeep]
+        filename: "{primary}.json"
+        view:
+          fields: [title, uploadDate, category]
+          primary: title
+          sort: [uploadDate, title]
+          default: { sort: uploadDate, order: desc }
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: videoUrl
+            label: Video link
+            type: string
+            required: true
+            description: YouTube or Vimeo link.
+            pattern:
+              regex: "^https?://"
+              message: Must be a full web address starting with https://
+          - name: description
+            label: Description
+            type: text
+          - name: thumbnail
+            label: Thumbnail
+            type: image
+          - name: duration
+            label: Duration
+            type: string
+            description: e.g. 5:30 or 1:23:45
+          - name: uploadDate
+            label: Date
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: category
+            label: Category
+            type: select
+            options:
+              values:
+                - { name: events, label: Events }
+                - { name: campus-tour, label: Campus Tour }
+                - { name: testimonials, label: Testimonials }
+                - { name: academics, label: Academics }
+                - { name: sports, label: Sports }
+                - { name: others, label: Others }
+          - name: tags
+            label: Tags
+            type: string
+            list: true
+          - name: featured
+            label: Featured
+            type: boolean
+            default: false
+
+  - name: calendar
+    label: Academic calendar
+    type: collection
+    path: content/calendar
+    format: json
+    filename: "{fields.startDate}-{primary}.json"
+    view:
+      fields: [title, startDate, eventType]
+      primary: title
+      sort: [startDate, title]
+      default: { sort: startDate, order: desc }
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: eventType
+        label: Type
+        type: select
+        required: true
+        options:
+          values:
+            - { name: holiday, label: Holiday }
+            - { name: results_day, label: Results Day }
+            - { name: exam, label: Examination }
+            - { name: event, label: School Event }
+      - name: startDate
+        label: Start date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: endDate
+        label: End date
+        type: date
+        default: ""
+        description: Only for events lasting more than one day.
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: Description
+        type: text
+      - name: category
+        label: Category
+        type: select
+        options:
+          values:
+            - { name: academic, label: Academic }
+            - { name: administrative, label: Administrative }
+            - { name: co-curricular, label: Co-Curricular }
+            - { name: examination, label: Examination }
+
+  - name: homepage
+    label: Homepage
+    type: group
+    items:
+      - name: stats
+        label: Statistics
+        type: file
+        path: content/stats.json
+        format: json
+        list: true
+        operations:
+          delete: false
+        fields:
+          - name: value
+            label: Number
+            type: number
+            required: true
+          - name: suffix
+            label: Suffix
+            type: string
+            default: ""
+            description: Shown after the number, e.g. + or %
+          - name: label
+            label: Label
+            type: string
+            required: true
+
+      - name: testimonials
+        label: Testimonials
+        type: file
+        path: content/testimonials.json
+        format: json
+        list: true
+        operations:
+          delete: false
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: role
+            label: Role
+            type: string
+            required: true
+            description: e.g. Parent of Year 10 Student
+          - name: quote
+            label: Quote
+            type: text
+            required: true
+          - name: initials
+            label: Initials
+            type: string
+            required: true
+            description: Shown in the avatar circle, e.g. ST
+            options:
+              maxlength: 3
+          - name: active
+            label: Show on website
+            type: boolean
+            default: true

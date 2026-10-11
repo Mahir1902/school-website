@@ -3,7 +3,7 @@ import CategoryBadge from "./CategoryBadge";
 
 interface NoticeCardProps {
   notice: {
-    _id: string;
+    id: string;
     title: string;
     publishedDate: string;
     expiryDate?: string;
@@ -12,10 +12,7 @@ interface NoticeCardProps {
     category?: string;
     pinned?: boolean;
     attachments?: Array<{
-      asset: {
-        url: string;
-        originalFilename?: string;
-      };
+      file: string;
       description?: string;
     }>;
     targetAudience?: string[];
@@ -123,12 +120,12 @@ export default function NoticeCard({ notice }: NoticeCardProps) {
             {notice.attachments.map((attachment, index) => (
               <a
                 key={index}
-                href={attachment.asset.url}
+                href={attachment.file}
                 download
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-3 py-1.5 bg-secondary/20 text-primary hover:bg-secondary hover:text-primary font-proximaNova font-semibold text-xs rounded-md transition-colors"
-                title={attachment.description || attachment.asset.originalFilename}
+                title={attachment.description || attachment.file.split("/").pop()}
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Attachment {index + 1}</span>

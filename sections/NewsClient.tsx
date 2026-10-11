@@ -4,24 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
+import type { News } from "@/types/newsEvents";
 
-// Type definition for news items from Sanity
-type NewsItem = {
-  _id: string;
-  title: string;
-  slug: {
-    current: string;
-  };
-  publishedDate: string;
-  excerpt: string;
-  featuredImage?: {
-    asset?: {
-      url: string;
-    };
-    alt?: string;
-  };
-  category: string;
-};
+type NewsItem = Pick<News, "id" | "title" | "slug" | "publishedDate" | "excerpt" | "featuredImage" | "featuredImageAlt" | "category">;
 
 interface NewsClientProps {
   newsItems: NewsItem[];
@@ -91,7 +76,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {newsItems.map((item, index) => (
             <div
-              key={item._id}
+              key={item.id}
               className={`bg-card rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${
                 isVisible
                   ? "opacity-100 translate-y-0"
@@ -102,11 +87,11 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
               }}
             >
               {/* Image */}
-              {item.featuredImage?.asset?.url && (
+              {item.featuredImage && (
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src={item.featuredImage.asset.url}
-                    alt={item.featuredImage.alt || item.title}
+                    src={item.featuredImage}
+                    alt={item.featuredImageAlt || item.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
@@ -134,7 +119,7 @@ export default function NewsClient({ newsItems }: NewsClientProps) {
 
                 {/* Read More Link */}
                 <Link
-                  href={`/news-events/${item.slug.current}`}
+                  href={`/news-events/${item.slug}`}
                   className="inline-flex items-center gap-2 text-primary font-poppins text-sm font-semibold hover:gap-3 transition-all duration-300"
                 >
                   Read More

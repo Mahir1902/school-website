@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 16 website for Singapore International School (SIS), built with React 19, TypeScript, and Tailwind CSS 4. The site features a homepage with multiple sections showcasing the school's programs, facilities, and admissions process, plus a comprehensive News & Events section with dynamic content managed through Sanity CMS.
+This is a Next.js 16 website for Singapore International School (SIS), built with React 19, TypeScript, and Tailwind CSS 4. The site features a homepage with multiple sections showcasing the school's programs, facilities, and admissions process, plus a comprehensive News & Events section with dynamic content managed through Pages CMS (Git-backed, content stored as files in this repo).
 
 ## Development Commands
 
@@ -22,41 +22,20 @@ npm start
 npm run lint
 ```
 
-`npm run build` needs `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET` and `NEXT_PUBLIC_SANITY_API_VERSION` set (e.g. in `.env.local`); without them page-data collection fails with "Configuration must contain `projectId`". `npm run lint` runs `eslint .` directly (`next lint` was removed in Next.js 16).
+`npm run build` needs no environment variables. `npm run lint` runs `eslint .` directly (`next lint` was removed in Next.js 16).
 
 ## Architecture
 
-### Sanity CMS Integration
+### Content (Pages CMS)
 
-The project uses Sanity CMS for managing dynamic content in the News & Events section.
+Content is edited in [Pages CMS](https://pagescms.org) (hosted at app.pagescms.org), which commits JSON files to this repo; every save triggers a rebuild. There is no CMS backend, API key, or admin route in the site itself. Editor guide: `docs/editing-content.md`.
 
-**Configuration:**
-- Project ID: `m7t9w5hz`
-- Dataset: `production`
-- Studio Tool: Configured with structureTool plugin
-- Config file: `sanity.config.ts`
-
-**Content Schemas** (located in `/sanity/schemas/documents/`):
-1. **news.ts** - News articles with title, slug, publishedDate, excerpt, featuredImage, content (Portable Text), category (Latest/Achievements), featured flag, tags, author
-2. **event.ts** - Events with startDate, endDate, location, excerpt, featuredImage, content, status (Upcoming/Ongoing/Past), eventType (Academic/Sports/Cultural/Community), registrationLink, capacity, featured flag
-3. **notice.ts** - Notices with publishedDate, expiryDate, content, priority (Urgent/High/Normal/Low), category (Academic/Administrative/Event/General), attachments, targetAudience, pinned flag
-4. **galleryImage.ts** - Gallery images with title, image (hotspot enabled), caption, photographer, dateTaken, category, aspectRatio, tags, featured, order
-5. **videoGallery.ts** - Video gallery entries
-
-All schemas are aggregated in `sanity/schemas/index.ts`.
-
-**GROQ Queries** (located in `/sanity/lib/queries.ts`):
-- `featuredItemsQuery` - Featured news & events for carousel
-- `latestNewsQuery` - Paginated news articles
-- `newsByCategoryQuery` - News filtered by category
-- `upcomingEventsQuery` - Future events
-- `pastEventsQuery` - Historical events with pagination
-- `allEventsQuery` - All events for calendar view
-- `activeNoticesQuery` - Current active notices
-
-**Image Handling:**
-- Sanity images use `sanity/lib/image.ts` with `@sanity/image-url` builder
-- Supports hotspot/crop, responsive sizing, and WebP format
+- **Schema:** `.pages.yml` at the repo root defines every collection and field. Field `name`s are the stored JSON keys and must match `types/newsEvents.ts` / `types/academics.ts`; Pages CMS removes undeclared keys on save.
+- **Content files:** `content/news/`, `content/events/`, `content/notices/`, `content/gallery/`, `content/videos/`, `content/calendar/` (one JSON file per entry; news/event file name = URL slug), plus single-list files `content/stats.json` and `content/testimonials.json` (array order = display order).
+- **Media:** uploads go to `public/media/`, referenced in content as `/media/<file>`.
+- **Loading:** `lib/content.ts` reads the folders with `node:fs` (server-only) and does all sorting/filtering (upcoming vs past, active notices, categories). Pages are statically generated; date-sensitive pages keep `revalidate = 60` and `next.config.ts` traces `content/**` so ISR re-renders can read it.
+- **Rich text:** `body` fields are Markdown, rendered by `components/newsEvents/MarkdownContent.tsx` (react-markdown, raw HTML disabled).
+- **Adding a field:** update `.pages.yml`, the JSON files, the TS type, and the consumer together.
 
 ### Page Structure
 
@@ -93,12 +72,12 @@ The application includes a dedicated `/news-events` route with the following str
 - `/news-events/gallery` - Photo gallery with masonry layout
 - `/news-events/gallery/videos` - Video gallery
 
-**Content Managed via Sanity CMS** - All content is fetched from Sanity using GROQ queries with ISR (60-second revalidation on overview page).
+**Content Managed via Pages CMS** - All content is read from `/content` via `lib/content.ts` at build time (date-sensitive pages re-render every 60 seconds).
 
 **Detail Page Features** (Event & News detail pages):
 - Hero section with featured image overlay and metadata
 - Two-column responsive layout: content (2/3) + sticky sidebar (1/3)
-- Portable Text content rendering with custom styling using `@portabletext/react`
+- Markdown body rendering with custom styling using `react-markdown`
 - Event metadata sidebar: date, time, location, capacity, registration CTA
 - News metadata sidebar: published date, category, author
 - Related content section (3 items, filtered by category/eventType)
@@ -167,7 +146,7 @@ All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `te
 - `Breadcrumb.tsx` - Dynamic breadcrumb navigation with `bg-primary/5` green-tinted background
 - `CategoryBadge.tsx` - Category pill badges with color mapping
 - `PageHero.tsx` - Section hero header
-- `PortableTextContent.tsx` - Portable Text renderer with custom block/mark serializers for styled content rendering
+- `MarkdownContent.tsx` - Markdown renderer with custom element styling for rich-text bodies
 
 **Academics Components** (`/components/academics/`):
 - `Breadcrumb.tsx` - Dynamic breadcrumb navigation with matching `bg-primary/5` green-tinted background (standardized design)
@@ -210,18 +189,7 @@ Located in `.claude/agents/`, these agents are configured with specific expertis
 
 **Delegation example:** "Implement user profile component" → Delegate to coder-agent
 
-#### 3. sanity-cms-architect (Sonnet, PURPLE)
-**When to use:** Any Sanity CMS-related work
-**Capabilities:**
-- Creates and modifies Sanity schemas
-- Configures Sanity Studio structure
-- Writes optimized GROQ queries
-- Uses Sanity MCP tools for schema deployment and document operations
-- Ensures best practices for content modeling
-
-**Delegation example:** "Add testimonials schema to Sanity" → Delegate to sanity-cms-architect
-
-#### 4. code-reviewer (Opus, YELLOW)
+#### 3. code-reviewer (Opus, YELLOW)
 **When to use:** After implementing features, before committing code
 **Capabilities:**
 - Conducts security-conscious code reviews
@@ -231,7 +199,7 @@ Located in `.claude/agents/`, these agents are configured with specific expertis
 
 **Delegation example:** "Review the new payment integration" → Delegate to code-reviewer
 
-#### 5. ui-design-validator (Sonnet, BLUE)
+#### 4. ui-design-validator (Sonnet, BLUE)
 **When to use:** After creating/modifying UI components, validating design system compliance
 **Capabilities:**
 - Validates design system consistency
@@ -245,12 +213,12 @@ Located in `.claude/agents/`, these agents are configured with specific expertis
 
 **Recommended workflow for new features:**
 1. **Planning**: feature-planner creates implementation roadmap
-2. **CMS Setup** (if needed): sanity-cms-architect creates schemas and queries
+2. **CMS Setup** (if needed): add fields/collections to `.pages.yml` and `/content`
 3. **Implementation**: coder-agent builds components and features
 4. **Code Review**: code-reviewer checks code quality and security
 5. **Design Validation**: ui-design-validator ensures design system compliance
 
-**Agents should be delegated to in parallel when possible** to maximize efficiency (e.g., sanity-cms-architect and coder-agent working simultaneously on backend and frontend).
+**Agents should be delegated to in parallel when possible** to maximize efficiency (e.g., code-reviewer and ui-design-validator checking the same change simultaneously).
 
 ### Agent Memory System
 
@@ -313,19 +281,7 @@ The project has access to Model Context Protocol (MCP) servers that provide spec
 
 ### Available MCP Servers
 
-#### 1. Sanity MCP Server
-**Purpose:** Direct interaction with Sanity CMS
-**Key Tools:**
-- `get_schema` - Retrieve Sanity schemas
-- `query_documents` - Execute GROQ queries
-- `create_documents_from_json` - Create content
-- `patch_document_from_json` - Update content
-- `publish_documents` - Publish drafts
-- `deploy_schema` - Deploy schemas to cloud
-
-**When to use:** sanity-cms-architect should use these tools for all Sanity operations instead of manual file editing when appropriate.
-
-#### 2. IDE MCP Server
+#### 1. IDE MCP Server
 **Purpose:** Code diagnostics and execution
 **Key Tools:**
 - `getDiagnostics` - Get TypeScript/ESLint diagnostics
@@ -335,7 +291,7 @@ The project has access to Model Context Protocol (MCP) servers that provide spec
 
 ### MCP Tool Usage Guidelines
 
-- **Prefer MCP tools over manual operations** when available (e.g., use Sanity MCP for schema deployment rather than CLI commands)
+- **Prefer MCP tools over manual operations** when available (e.g., IDE diagnostics rather than ad-hoc type checks)
 - **Agents must request appropriate permissions** before using MCP tools
 - **Check tool availability** before attempting operations
 - **MCP tools are configured in** `.claude/settings.local.json` with granular permissions
@@ -402,11 +358,11 @@ import { cn } from "@/lib/utils";
 
 ## Configuration Files
 
-- `next.config.ts`: Default Next.js configuration (currently empty)
+- `next.config.ts`: Next.js configuration (traces `content/**` into ISR functions)
 - `tailwind.config.ts`: Not present - Tailwind CSS 4 uses `@tailwindcss/postcss` with inline configuration in `globals.css`
 - `components.json`: shadcn/ui configuration for component generation
 - `tsconfig.json`: TypeScript configuration with `@/*` path alias
-- `sanity.config.ts`: Sanity Studio configuration with project ID, dataset, plugins, and schema
+- `.pages.yml`: Pages CMS configuration (collections, fields, media folder)
 - `.claude/settings.local.json`: Agent permissions and MCP server configuration
 - `.claude/agents/*.md`: Individual agent configuration files
 
@@ -424,10 +380,8 @@ import { cn } from "@/lib/utils";
 - clsx + tailwind-merge (via `cn()` utility)
 
 **CMS:**
-- @sanity/client - Sanity API client
-- @sanity/image-url - Image URL builder
-- next-sanity - Next.js integration
-- @portabletext/react - Official Sanity library for rendering Portable Text content
+- Pages CMS (external hosted app, no npm dependency) - edits `/content` via Git
+- react-markdown - renders Markdown rich-text bodies
 
 **Calendar & Media:**
 - @fullcalendar/react, @fullcalendar/daygrid, @fullcalendar/interaction - Event calendar
@@ -444,7 +398,7 @@ import { cn } from "@/lib/utils";
 **When starting a new session, read `docs/changes/changelog.md` and `docs/plans/implementation-log.md` first** to orient on current progress before making any changes. Update them after completing any feature or phase.
 
 **Current Branch:** `feature/news-events-section`
-- Major feature in progress: News & Events section with Sanity CMS integration
+- Major feature in progress: News & Events section (content via Pages CMS)
 
 **Code Standards:**
 - All section components use `"use client"` directive for client-side interactivity
@@ -456,7 +410,7 @@ import { cn } from "@/lib/utils";
 **Agent Coordination:**
 - Main agent should delegate to specialized agents (see Agent System section)
 - Agents should check `/skills` folder before implementing new patterns
-- Agents should use MCP tools when appropriate (Sanity, IDE)
+- Agents should use MCP tools when appropriate (IDE)
 - Each agent maintains persistent memory in `.claude/agents/{agent-name}/memory/`
 
 **Navigation Data:**

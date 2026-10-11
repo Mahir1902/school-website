@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Sarah Thompson",
+    "role": "Parent of Year 10 Student",
+    "quote": "SIS has provided an exceptional learning environment for my daughter. The teachers are dedicated, and the international curriculum has prepared her wonderfully for her future.",
+    "initials": "ST",
+    "active": true
+  },
+  {
+    "name": "Ahmed Hassan",
+    "role": "A-Level Student",
+    "quote": "The variety of extracurricular activities and the emphasis on holistic development has helped me discover my passions beyond academics. I feel truly prepared for university.",
+    "initials": "AH",
+    "active": true
+  },
+  {
+    "name": "Maria Rodriguez",
+    "role": "Parent of Primary Student",
+    "quote": "As an expatriate family, we were looking for a school that celebrates diversity. SIS exceeded our expectations with its inclusive community and global perspective.",
+    "initials": "MR",
+    "active": true
+  },
+  {
+    "name": "David Chen",
+    "role": "Parent of Middle School Student",
+    "quote": "The facilities are world-class, and the teaching methodology encourages critical thinking and creativity. My son has grown tremendously both academically and personally.",
+    "initials": "DC",
+    "active": true
+  }
+]

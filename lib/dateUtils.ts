@@ -44,17 +44,20 @@ export function formatDateRange(startDate: string, endDate?: string): string {
 }
 
 /**
- * Determine event status based on start and end dates
- * @returns 'upcoming' | 'ongoing' | 'past'
+ * Parse a CMS date as an epoch timestamp. Pages CMS stores naive local times,
+ * so strings without an offset are read as Asia/Dhaka (+06:00).
  */
-export function getEventStatus(startDate: string, endDate?: string): 'upcoming' | 'ongoing' | 'past' {
-  const now = new Date();
-  const start = new Date(startDate);
-  const end = endDate ? new Date(endDate) : start;
+export function dhakaTime(date?: string): number {
+  if (!date) return 0;
+  const iso = date.includes("T") ? date : `${date}T00:00`;
+  return new Date(/(Z|[+-]\d\d:?\d\d)$/.test(iso) ? iso : `${iso}+06:00`).getTime();
+}
 
-  if (now < start) return 'upcoming';
-  if (now > end) return 'past';
-  return 'ongoing';
+/**
+ * An event is past once its start time has passed, or when an editor marks it past.
+ */
+export function isEventPast(event: { startDate: string; status?: string }): boolean {
+  return event.status === "past" || dhakaTime(event.startDate) < Date.now();
 }
 
 /**

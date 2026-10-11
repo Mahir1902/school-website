@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Type definition for statistics from Sanity
+// Shape of content/stats.json
 type Statistic = {
-  _id: string;
   value: number;
   suffix: string;
   label: string;
@@ -14,7 +13,7 @@ interface StatsClientProps {
   stats: Statistic[];
 }
 
-function Counter({ end, duration = 2000 }: { end: number; suffix: string; duration?: number }) {
+function Counter({ end, duration = 2000 }: { end: number; duration?: number }) {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
 
@@ -99,7 +98,7 @@ export default function StatsClient({ stats }: StatsClientProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
             <StatItem
-              key={stat._id}
+              key={stat.label}
               stat={stat}
               index={index}
               isVisible={isVisible}
@@ -122,7 +121,6 @@ function StatItem({
 }) {
   const { count, setHasStarted } = Counter({
     end: stat.value,
-    suffix: stat.suffix,
   });
 
   useEffect(() => {

@@ -94,9 +94,9 @@ export interface TimelineStep {
 // Calendar event types
 export type CalendarEventType = "holiday" | "results_day" | "exam" | "event";
 
-// Calendar event structure (for Sanity integration)
+// Calendar event structure (content/calendar/*.json, edited via Pages CMS)
 export interface CalendarEvent {
-  _id: string;
+  id: string;
   title: string;
   eventType: CalendarEventType;
   startDate: string; // ISO date string

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { urlFor } from "@/sanity/lib/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { motion } from "framer-motion";
 import type { GalleryImage } from "@/types/newsEvents";
@@ -62,7 +61,7 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
         <Masonry gutter="1rem">
           {images.map((image, index) => (
             <motion.div
-              key={image._id}
+              key={image.id}
               variants={itemVariants}
               className="group cursor-pointer relative overflow-hidden rounded-lg shadow-sm hover:shadow-xl transition-all duration-300"
               onClick={() => onImageClick(index)}
@@ -71,7 +70,7 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
               {/* Image */}
               <div className="relative w-full">
                 <Image
-                  src={urlFor(image.image).url()}
+                  src={image.image}
                   alt={image.alt || image.title}
                   width={800}
                   height={600}

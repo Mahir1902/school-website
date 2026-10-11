@@ -27,9 +27,9 @@ export default function FullCalendarView({ events }: FullCalendarViewProps) {
     setIsClient(true);
   }, []);
 
-  // Transform Sanity events to FullCalendar format
+  // Transform calendar events to FullCalendar format
   const calendarEvents: EventInput[] = events.map((event) => ({
-    id: event._id,
+    id: event.id,
     title: event.title,
     start: event.startDate,
     end: event.endDate

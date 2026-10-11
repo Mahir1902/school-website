@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import { client } from "@/sanity/lib/client";
-import { newsByCategoryQuery } from "@/sanity/lib/queries";
+import { getAllNews } from "@/lib/content";
 import PageHero from "@/components/newsEvents/PageHero";
 import NewsCard from "@/components/newsEvents/NewsCard";
 import type { News } from "@/types/newsEvents";
@@ -11,14 +10,8 @@ export const metadata: Metadata = {
   description: "Celebrate student and school achievements at Singapore International School"
 };
 
-export const revalidate = 60;
-
-export default async function AchievementsPage() {
-  const achievements = await client.fetch(newsByCategoryQuery, {
-    category: "achievements",
-    start: 0,
-    end: 50 // Show all achievements (no pagination)
-  });
+export default function AchievementsPage() {
+  const achievements = getAllNews().filter((n) => n.category === "achievements");
 
   return (
     <div className="space-y-8">
@@ -31,7 +24,7 @@ export default async function AchievementsPage() {
       {achievements.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievements.map((news: News) => (
-            <NewsCard key={news._id} news={news} />
+            <NewsCard key={news.id} news={news} />
           ))}
         </div>
       ) : (

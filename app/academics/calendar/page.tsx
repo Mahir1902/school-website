@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/academics/PageHero";
 import SectionHeading from "@/components/academics/SectionHeading";
 import FullCalendarView from "@/components/academics/FullCalendarView";
-import { client } from "@/sanity/lib/client";
-import { calendarEventsQuery } from "@/sanity/lib/queries";
-import { CalendarEvent } from "@/types/academics";
+import { getCalendarEvents } from "@/lib/content";
 import hero1 from "@/assets/hero-1.jpg";
 
 export const metadata: Metadata = {
@@ -13,12 +11,8 @@ export const metadata: Metadata = {
     "View important dates, holidays, examinations, and events for the academic year at Singapore International School.",
 };
 
-// Revalidate every 60 seconds to fetch new events from Sanity
-export const revalidate = 60;
-
-export default async function CalendarPage() {
-  // Fetch calendar events from Sanity
-  const events: CalendarEvent[] = await client.fetch(calendarEventsQuery);
+export default function CalendarPage() {
+  const events = getCalendarEvents();
 
   return (
     <div className="space-y-16">
@@ -99,32 +93,32 @@ export default async function CalendarPage() {
         <div className="max-w-3xl mx-auto space-y-4 text-foreground/70 font-proximaNova">
           <p>
             <strong>For School Administrators:</strong> Calendar events can be
-            easily managed through the Sanity Studio. Simply navigate to{" "}
-            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Studio is a separate app; full page load is intended */}
+            easily managed through Pages CMS. Sign in at{" "}
             <a
-              href="/studio"
+              href="https://app.pagescms.org"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-primary hover:underline font-semibold"
             >
-              /studio
+              app.pagescms.org
             </a>{" "}
-            and select &quot;Calendar Event&quot; from the sidebar.
+            and select &quot;Academic calendar&quot; from the sidebar.
           </p>
           <div className="bg-primary/5 rounded-lg p-6">
             <h4 className="font-semibold text-primary mb-3">
               Adding a New Event:
             </h4>
             <ol className="space-y-2 list-decimal list-inside">
-              <li>Go to the Sanity Studio at /studio</li>
-              <li>Click on &quot;Calendar Event&quot; in the sidebar</li>
-              <li>Click the &quot;+&quot; button to create a new event</li>
+              <li>Sign in to Pages CMS at app.pagescms.org</li>
+              <li>Click on &quot;Academic calendar&quot; in the sidebar</li>
+              <li>Create a new entry</li>
               <li>Fill in the event details (title, date, type, description)</li>
-              <li>Click &quot;Publish&quot; to make it live on the calendar</li>
+              <li>Click &quot;Save&quot; to publish it to the calendar</li>
             </ol>
           </div>
           <p className="text-sm">
-            <strong>Note:</strong> Changes may take up to an hour to appear on
-            the live site due to caching. Clear your browser cache to see updates
-            immediately.
+            <strong>Note:</strong> Changes appear on the live site once the
+            site has rebuilt, usually within a few minutes of saving.
           </p>
         </div>
       </section>

@@ -3,9 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Type definition for testimonials from Sanity
+// Shape of content/testimonials.json
 type Testimonial = {
-  _id: string;
   name: string;
   role: string;
   quote: string;
@@ -122,7 +121,7 @@ export default function TestimonialsClient({ testimonials }: TestimonialsClientP
             >
               {testimonials.map((testimonial) => (
                 <div
-                  key={testimonial._id}
+                  key={testimonial.name}
                   className="w-full flex-shrink-0 px-4 md:px-8"
                 >
                   <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-lg">
