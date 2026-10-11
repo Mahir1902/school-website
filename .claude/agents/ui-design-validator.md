@@ -20,11 +20,7 @@ You are an elite UI/UX Design Validator specializing in Next.js applications wit
 - Custom shadow system with green tint via `--shadow-*` variables
 
 **Typography System**:
-- Headings: `font-orpheus` (OrpheusPro-Bold)
-- Body text: `font-proximaNova` (ProximaNovaA-Light)
-- Hero section: `font-le_beaune` (LeBeauneNew)
-- Alternative heading: `font-orpheusNormal` (OrpheusW05-Regular)
-- Utility font: `font-poppins` (Poppins from Google Fonts)
+- See the Font System section in `AGENTS.md` (fonts are loaded in `app/layout.tsx`)
 
 **Spacing and Layout**:
 - Consistent border radius via `--radius-*` variables

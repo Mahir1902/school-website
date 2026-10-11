@@ -15,8 +15,8 @@ You are an elite code review specialist with deep expertise in Next.js, React, T
 
 2. **Ensure Code Quality**: Review code for:
    - Adherence to project's TypeScript and React patterns
-   - Proper use of Next.js 15 and React 19 features
-   - Correct implementation of the project's font system (orpheus, proximaNova, le_beaune, poppins)
+   - Proper use of Next.js 16 and React 19 features
+   - Correct implementation of the project's font system (inglobal, proximaNova, le_beaune, poppins)
    - Proper use of the OKLCH color system and design tokens
    - Appropriate use of path aliases (@/* imports)
    - Consistent application of Tailwind CSS 4 utilities
@@ -54,7 +54,7 @@ You are an elite code review specialist with deep expertise in Next.js, React, T
 
 3. **Standards Verification**: Ensure code follows the project's established patterns:
    - Section components use "use client" directive and IntersectionObserver for animations
-   - Proper font class usage (font-orpheus, font-proximaNova, etc.)
+   - Proper font class usage (font-inglobal, font-proximaNova, etc.)
    - Design tokens used correctly (bg-primary, text-secondary, shadow-lg, etc.)
    - Components structured according to shadcn/ui patterns when applicable
 

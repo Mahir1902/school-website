@@ -413,7 +413,7 @@ import { cn } from "@/lib/utils";
 ## Key Dependencies
 
 **Framework & Core:**
-- Next.js 15 with App Router
+- Next.js 16 with App Router
 - React 19
 - TypeScript
 - Tailwind CSS 4
