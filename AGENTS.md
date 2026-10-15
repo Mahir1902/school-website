@@ -39,20 +39,7 @@ Content is edited in [Pages CMS](https://pagescms.org) (hosted at app.pagescms.o
 
 ### Page Structure
 
-The application uses Next.js App Router with a single homepage (`app/page.tsx`) that composes multiple section components in a specific order:
-
-1. Hero (image carousel with overlay)
-2. Welcome
-3. WhyChooseSIS
-4. AcademicPrograms
-5. CampusLife
-6. Stats
-7. Testimonials
-8. News
-9. ApplicationProcess
-10. Footer
-
-All sections are located in `/sections/*.tsx` and imported into the homepage.
+The homepage (`app/page.tsx`) composes full-width section components from `/sections/*.tsx`; that file is the source of truth for section order. Everything below the Hero is wrapped in `.heritage` and styled in the "Heritage" direction, with shared pieces (`Reveal`, `SectionHead`, `Ornament`, `JourneyLine`, `heritage.css`) in `components/heritage/`.
 
 ### News & Events Multi-Page Section
 
@@ -136,7 +123,7 @@ All design tokens are accessible via Tailwind utilities (e.g., `bg-primary`, `te
 - **News & Events Components**: Located in `/components/newsEvents/` - Feature-specific components
 
 **News & Events Components** (`/components/newsEvents/`):
-- `NewsCard.tsx` - News article cards (shared by homepage and listings): image or crest placeholder, title, excerpt, date/category footer
+- `NewsCard.tsx` - News article cards (shared by News & Events listings; the homepage uses its own postcard cards in `sections/News.tsx`): image or crest placeholder, title, excerpt, date/category footer
 - `EventCard.tsx` - Event cards with date badges, time, location, registration button
 - `NoticeCard.tsx` - Notice cards with priority indicator, attachments, expand/collapse
 - `GalleryGrid.tsx` - Masonry layout using react-responsive-masonry

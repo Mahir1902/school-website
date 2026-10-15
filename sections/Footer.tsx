@@ -1,180 +1,69 @@
 import Image from "next/image";
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
-import logo from "@/assets/sis-logo.jpg";
+import crestWhite from "@/assets/sis-logo-white.png";
 
-const quickLinks = [
-  { title: "About Us", href: "#" },
-  { title: "Academic Programs", href: "#" },
-  { title: "Admissions", href: "#" },
-  { title: "Campus Life", href: "#" },
-  { title: "News & Events", href: "#" },
-  { title: "Contact", href: "#" },
-];
-
-const resources = [
-  { title: "Student Portal", href: "#" },
-  { title: "Parent Portal", href: "#" },
-  { title: "Staff Portal", href: "#" },
-  { title: "Virtual Tour", href: "#" },
-  { title: "Careers", href: "#" },
-  { title: "Alumni", href: "#" },
-];
-
-const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+const blurb = "Empowering students to become global citizens through world-class education, innovation, and character development since 2000.";
+const quickLinks = ["About Us", "Academic Programs", "Admissions", "Campus Life", "News & Events", "Contact"];
+const resources = ["Student Portal", "Parent Portal", "Staff Portal", "Virtual Tour", "Careers", "Alumni"];
+const socials = [
+  { icon: Facebook, label: "Facebook" },
+  { icon: Instagram, label: "Instagram" },
+  { icon: Twitter, label: "Twitter" },
+  { icon: Linkedin, label: "LinkedIn" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* About Section */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <Image
-                src={logo}
-                alt="Singapore International School"
-                width={60}
-                height={60}
-                className="rounded-full"
-              />
-              <div>
-                <h3 className="font-inglobal text-xl text-white">SIS</h3>
-                <p className="text-white/70 text-xs font-proximaNova font-semibold">
-                  Excellence in Education
-                </p>
-              </div>
-            </div>
-            <p className="text-white/80 font-proximaNova leading-relaxed text-sm font-semibold">
-              Empowering students to become global citizens through world-class
-              education, innovation, and character development since 2000.
-            </p>
-            {/* Social Links */}
-            <div className="flex gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors duration-300"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+    <footer id="contact" className="scroll-mt-24 bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
+        <div className="flex flex-col items-center text-center">
+          <Image src={crestWhite} alt="" width={72} height={72} className="h-16 w-16" />
+          <p className="mt-4 font-inglobal text-2xl">Singapore International School</p>
+          <p className="mt-1 font-proximaNova text-sm font-semibold text-primary-foreground/80">Dhaka, Bangladesh</p>
+          <p className="mt-6 max-w-xl font-proximaNova text-sm font-semibold leading-relaxed text-primary-foreground/80">{blurb}</p>
+          <div className="mt-6 flex gap-3">
+            {socials.map(({ icon: Icon, label }) => (
+              <a key={label} href="#" aria-label={label} className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 transition-colors hover:bg-secondary hover:text-secondary-foreground">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </a>
+            ))}
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-inglobal text-lg mb-6 text-white">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.title}>
-                  <a
-                    href={link.href}
-                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block font-semibold"
-                  >
-                    {link.title}
-                  </a>
-                </li>
+        </div>
+        <div className="mt-12 grid grid-cols-1 gap-10 border-t border-primary-foreground/15 pt-10 text-center sm:grid-cols-3 sm:text-left">
+          <div className="min-w-0">
+            <h3 className="font-inglobal text-lg text-primary-foreground">Quick Links</h3>
+            <ul className="mt-4 space-y-2">
+              {quickLinks.map((l) => (
+                <li key={l}><a href="#" className="font-proximaNova text-sm font-semibold text-primary-foreground/80 underline-offset-4 hover:text-primary-foreground hover:underline">{l}</a></li>
               ))}
             </ul>
           </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-inglobal text-lg mb-6 text-white">Resources</h4>
-            <ul className="space-y-3">
-              {resources.map((link) => (
-                <li key={link.title}>
-                  <a
-                    href={link.href}
-                    className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 hover:translate-x-1 inline-block font-semibold"
-                  >
-                    {link.title}
-                  </a>
-                </li>
+          <div className="min-w-0">
+            <h3 className="font-inglobal text-lg text-primary-foreground">Resources</h3>
+            <ul className="mt-4 space-y-2">
+              {resources.map((l) => (
+                <li key={l}><a href="#" className="font-proximaNova text-sm font-semibold text-primary-foreground/80 underline-offset-4 hover:text-primary-foreground hover:underline">{l}</a></li>
               ))}
             </ul>
           </div>
-
-          {/* Contact Info */}
-          <div id="contact" className="scroll-mt-24">
-            <h4 className="font-inglobal text-lg mb-6 text-white">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-white/80 font-proximaNova text-sm leading-relaxed font-semibold">
-                    123 Education Avenue
-                    <br />
-                    Singapore 123456
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a
-                  href="tel:+6512345678"
-                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 font-semibold"
-                >
-                  +65 1234 5678
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
-                <a
-                  href="mailto:info@sis.edu"
-                  className="text-white/80 hover:text-secondary font-proximaNova text-sm transition-colors duration-300 font-semibold"
-                >
-                  info@sis.edu
-                </a>
-              </li>
+          <div className="min-w-0">
+            <h3 className="font-inglobal text-lg text-primary-foreground">Contact Us</h3>
+            <ul className="mt-4 space-y-3 font-proximaNova text-sm font-semibold text-primary-foreground/80">
+              <li className="flex items-start justify-center gap-2 sm:justify-start"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-secondary" aria-hidden="true" /><span>123 Education Avenue<br />Singapore 123456</span></li>
+              <li className="flex items-center justify-center gap-2 sm:justify-start"><Phone className="h-4 w-4 shrink-0 text-secondary" aria-hidden="true" /><a href="tel:+6512345678" className="text-primary-foreground underline-offset-4 hover:underline">+65 1234 5678</a></li>
+              <li className="flex items-center justify-center gap-2 sm:justify-start"><Mail className="h-4 w-4 shrink-0 text-secondary" aria-hidden="true" /><a href="mailto:info@sis.edu" className="text-primary-foreground underline-offset-4 hover:underline">info@sis.edu</a></li>
             </ul>
           </div>
         </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p className="text-white/70 font-proximaNova text-center md:text-left">
-              © {new Date().getFullYear()} Singapore International School. All
-              rights reserved.
-            </p>
-            <div className="flex gap-6 text-white/70 font-proximaNova">
-              <a
-                href="#"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="hover:text-secondary transition-colors duration-300"
-              >
-                Accessibility
-              </a>
-            </div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-6 font-proximaNova text-xs text-primary-foreground/70 md:flex-row">
+          <p>© {new Date().getFullYear()} Singapore International School. All rights reserved.</p>
+          <div className="flex gap-5">
+            <a href="#" className="underline-offset-4 hover:text-primary-foreground hover:underline">Privacy Policy</a>
+            <a href="#" className="underline-offset-4 hover:text-primary-foreground hover:underline">Terms of Service</a>
+            <a href="#" className="underline-offset-4 hover:text-primary-foreground hover:underline">Accessibility</a>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
-
-
-

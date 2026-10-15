@@ -1,238 +1,43 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { BookOpen, Puzzle, Microscope, Globe2, GraduationCap } from "lucide-react";
+import JourneyLine from "@/components/heritage/JourneyLine";
+import Reveal from "@/components/heritage/Reveal";
+import SectionHead from "@/components/heritage/SectionHead";
 
 const programs = [
-  {
-    icon: Puzzle,
-    title: "Playgroup & Pre-Primary",
-    ageRange: "Ages 2-5",
-    highlights: [
-      "Play-based learning",
-      "Social development",
-      "Creative exploration",
-    ],
-  },
-  {
-    icon: BookOpen,
-    title: "Primary School",
-    ageRange: "Ages 6-11",
-    highlights: [
-      "Strong foundation",
-      "Core subjects mastery",
-      "Interactive learning",
-    ],
-  },
-  {
-    icon: Microscope,
-    title: "Middle School",
-    ageRange: "Ages 11-14",
-    highlights: [
-      "Subject specialization",
-      "Critical thinking",
-      "STEM focus",
-    ],
-  },
-  {
-    icon: Globe2,
-    title: "Secondary School",
-    ageRange: "Ages 14-16",
-    highlights: [
-      "IGCSE preparation",
-      "Independent research",
-      "University guidance",
-    ],
-  },
-  {
-    icon: GraduationCap,
-    title: "A-Levels",
-    ageRange: "Ages 16-18",
-    highlights: [
-      "Advanced subjects",
-      "University prep",
-      "Global recognition",
-    ],
-  },
+  { title: "Playgroup & Pre-Primary", ageRange: "Ages 2-5", highlights: ["Play-based learning", "Social development", "Creative exploration"] },
+  { title: "Primary School", ageRange: "Ages 6-11", highlights: ["Strong foundation", "Core subjects mastery", "Interactive learning"] },
+  { title: "Middle School", ageRange: "Ages 11-14", highlights: ["Subject specialization", "Critical thinking", "STEM focus"] },
+  { title: "Secondary School", ageRange: "Ages 14-16", highlights: ["IGCSE preparation", "Independent research", "University guidance"] },
+  { title: "A-Levels", ageRange: "Ages 16-18", highlights: ["Advanced subjects", "University prep", "Global recognition"] },
 ];
 
 export default function AcademicPrograms() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = sectionRef.current;
-
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      id="programs"
-      ref={sectionRef}
-      className="bg-background py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-1000 ${
-            isVisible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-10"
-          }`}
-        >
-          <h2 className="text-primary text-3xl md:text-4xl lg:text-5xl font-inglobal mb-4">
-            Our Academic Journey
-          </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto mb-6"></div>
-          <p className="text-foreground/70 text-lg md:text-xl font-proximaNova max-w-3xl mx-auto">
-            A comprehensive educational pathway from early years to university
-            preparation
-          </p>
-        </div>
-
-        {/* Scrollable Cards Container */}
-        <div className="relative overflow-hidden py-4">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
-
-          <div className="scroll-container">
-            <div className="flex gap-6 animate-scroll">
-              {/* First set of programs */}
-              {programs.map((program, index) => (
-                <div
-                  key={`original-${program.title}-${index}`}
-                  className={`flex-shrink-0 w-[300px] md:w-[320px] transition-opacity duration-1000 ${
-                    isVisible ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <div className="bg-card border border-border rounded-lg p-6 h-full hover:shadow-xl transition-shadow duration-300 relative overflow-hidden">
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-colors duration-300">
-                        <program.icon className="w-7 h-7 text-primary" />
-                      </div>
-
-                      <h3 className="text-xl font-inglobal text-primary mb-2">
-                        {program.title}
-                      </h3>
-
-                      <p className="text-secondary-ink font-poppins font-semibold text-sm mb-4">
-                        {program.ageRange}
-                      </p>
-
-                      <ul className="space-y-2">
-                        {program.highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className="text-foreground/70 font-proximaNova text-sm flex items-start"
-                          >
-                            <span className="text-primary mr-2">•</span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* Duplicate set for seamless infinite scroll */}
-              {programs.map((program, index) => (
-                <div
-                  key={`duplicate-${program.title}-${index}`}
-                  className={`flex-shrink-0 w-[300px] md:w-[320px] transition-opacity duration-1000 ${
-                    isVisible ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    transitionDelay: `${index * 150}ms`,
-                  }}
-                >
-                  <div className="bg-card border border-border rounded-lg p-6 h-full hover:shadow-xl transition-shadow duration-300 relative overflow-hidden">
-                    {/* Content */}
-                    <div className="relative z-10">
-                      <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 transition-colors duration-300">
-                        <program.icon className="w-7 h-7 text-primary" />
-                      </div>
-
-                      <h3 className="text-xl font-inglobal text-primary mb-2">
-                        {program.title}
-                      </h3>
-
-                      <p className="text-secondary-ink font-poppins font-semibold text-sm mb-4">
-                        {program.ageRange}
-                      </p>
-
-                      <ul className="space-y-2">
-                        {program.highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className="text-foreground/70 font-proximaNova text-sm flex items-start"
-                          >
-                            <span className="text-primary mr-2">•</span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <section id="programs" className="scroll-mt-24 px-4 py-16 md:px-8 md:py-24">
+      <SectionHead title="Our Academic Journey" sub="A comprehensive educational pathway from early years to university preparation" />
+      <div className="relative mx-auto max-w-5xl">
+        <JourneyLine />
+        <ol className="relative flex flex-col gap-10 md:gap-0">
+          {programs.map((p, i) => {
+            const right = i % 2 === 1;
+            return (
+              <li key={p.title} className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-4 md:min-h-[12rem] md:grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)] md:gap-6">
+                <Reveal className={`relative z-0 order-2 min-w-0 rounded-2xl border border-border bg-card p-6 shadow-md md:order-none md:row-start-1 ${right ? "md:col-start-3" : "md:col-start-1 md:text-right"}`} from={right ? "right" : "left"}>
+                  <h3 className="font-inglobal text-2xl text-primary">{p.title}</h3>
+                  <p className="mt-1 font-poppins text-sm font-semibold text-secondary-ink">{p.ageRange}</p>
+                  <ul className={`mt-3 flex flex-wrap gap-2 ${right ? "" : "md:justify-end"}`}>
+                    {p.highlights.map((h) => (
+                      <li key={h} className="rounded-full bg-primary/10 px-3 py-1 font-proximaNova text-sm font-semibold text-primary">{h}</li>
+                    ))}
+                  </ul>
+                </Reveal>
+                <span data-node className="relative z-20 order-1 flex h-14 w-14 items-center justify-center rounded-full bg-primary font-inglobal text-xl text-primary-foreground shadow-lg ring-4 ring-background md:order-none md:col-start-2 md:row-start-1 md:mx-auto md:h-16 md:w-16">
+                  {i + 1}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-1 * (320px + 1.5rem) * 5));
-          }
-        }
-
-        @media (max-width: 768px) {
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(calc(-1 * (300px + 1.5rem) * 5));
-            }
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
-        }
-
-        .scroll-container:hover .animate-scroll {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 }
-
