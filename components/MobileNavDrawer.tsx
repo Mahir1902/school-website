@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { gsap, useGSAP } from "@/lib/gsap";
 import { X, ChevronDown } from "lucide-react";
 import logo from "@/assets/sis-logo-removebg-preview.png";
 import { navItems } from "@/data/navigation";
@@ -18,6 +18,36 @@ interface MobileNavDrawerProps {
 // two surfaces can never drift apart. See docs/adr/0002.
 export default function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Drawer stays mounted (starts hidden via classes) so it can slide out too.
+  useGSAP(() => {
+    const panel = panelRef.current;
+    gsap.to(backdropRef.current, { autoAlpha: isOpen ? 1 : 0, duration: 0.3 });
+    if (isOpen) gsap.set(panel, { visibility: "visible" });
+    gsap.to(panel, {
+      xPercent: isOpen ? 0 : 100,
+      duration: 0.5,
+      ease: "power3.out",
+      onComplete: isOpen ? undefined : () => gsap.set(panel, { visibility: "hidden" }),
+    });
+  }, { dependencies: [isOpen] });
+
+  // Accordion sections stay mounted; animate height between 0 and auto.
+  useGSAP(() => {
+    gsap.utils.toArray<HTMLElement>("[data-section]").forEach((el) => {
+      const open = el.dataset.section === expanded;
+      gsap.to(el, {
+        height: open ? "auto" : 0,
+        autoAlpha: open ? 1 : 0,
+        duration: 0.25,
+        // GSAP tweens to the measured px height; restore "auto" so it reflows.
+        onComplete: open ? () => gsap.set(el, { height: "auto" }) : undefined,
+      });
+    });
+  }, { dependencies: [expanded], scope: rootRef });
 
   // Lock body scroll while the drawer is open.
   useEffect(() => {
@@ -28,26 +58,18 @@ export default function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProp
   }, [isOpen]);
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <>
+        <div ref={rootRef}>
           {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/60 z-[60]"
+          <div
+            ref={backdropRef}
+            className="invisible opacity-0 fixed inset-0 bg-black/60 z-[60]"
             onClick={onClose}
           />
 
           {/* Panel */}
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl overflow-y-auto"
+          <div
+            ref={panelRef}
+            className="invisible fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl overflow-y-auto"
           >
             <div className="p-8">
               {/* Close */}
@@ -100,14 +122,10 @@ export default function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProp
                         </div>
 
                         {/* Accordion content */}
-                        <AnimatePresence initial={false}>
-                          {hasSections && isExpanded && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.25 }}
-                              className="overflow-hidden"
+                          {hasSections && (
+                            <div
+                              data-section={item.title}
+                              className="invisible opacity-0 h-0 overflow-hidden"
                             >
                               <div className="pb-4 pl-3 space-y-4">
                                 {item.sections!.map((section) => (
@@ -131,9 +149,8 @@ export default function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProp
                                   </div>
                                 ))}
                               </div>
-                            </motion.div>
+                            </div>
                           )}
-                        </AnimatePresence>
                       </li>
                     );
                   })}
@@ -147,9 +164,7 @@ export default function MobileNavDrawer({ isOpen, onClose }: MobileNavDrawerProp
                 <p className="text-sm font-proximaNova text-foreground">info@sis.edu</p>
               </div>
             </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
+          </div>
+        </div>
   );
 }

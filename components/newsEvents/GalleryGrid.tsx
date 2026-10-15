@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { motion } from "framer-motion";
+import { useRef, type ReactNode } from "react";
+import { gsap, useGSAP } from "@/lib/gsap";
 import type { GalleryImage } from "@/types/newsEvents";
 
 interface GalleryGridProps {
@@ -11,29 +12,6 @@ interface GalleryGridProps {
 }
 
 export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) {
-  // Animation variants for staggered appearance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
   if (images.length === 0) {
     return (
       <div className="text-center py-12">
@@ -45,11 +23,7 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
   }
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <div>
       <ResponsiveMasonry
         columnsCountBreakpoints={{
           350: 1,
@@ -60,12 +34,10 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
       >
         <Masonry gutter="1rem">
           {images.map((image, index) => (
-            <motion.div
+            <GalleryItem
               key={image.id}
-              variants={itemVariants}
-              className="group cursor-pointer relative overflow-hidden rounded-lg shadow-sm hover:shadow-xl transition-all duration-300"
+              index={index}
               onClick={() => onImageClick(index)}
-              data-testid="gallery-image"
             >
               {/* Image */}
               <div className="relative w-full">
@@ -107,10 +79,41 @@ export default function GalleryGrid({ images, onImageClick }: GalleryGridProps) 
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </GalleryItem>
           ))}
         </Masonry>
       </ResponsiveMasonry>
-    </motion.div>
+    </div>
+  );
+}
+
+// Each item fades up on its own mount: Masonry remounts items when it
+// re-lays out columns (after hydration, on breakpoint changes).
+function GalleryItem({
+  index,
+  onClick,
+  children
+}: {
+  index: number;
+  onClick: () => void;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(ref.current,
+      { y: 20 },
+      { opacity: 1, y: 0, duration: 0.4, ease: "power1.out", delay: index * 0.05 });
+  });
+
+  return (
+    <div
+      ref={ref}
+      className="opacity-0 group cursor-pointer relative overflow-hidden rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300"
+      onClick={onClick}
+      data-testid="gallery-image"
+    >
+      {children}
+    </div>
   );
 }

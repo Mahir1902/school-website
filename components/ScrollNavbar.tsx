@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import logo from "@/assets/sis-logo-removebg-preview.png";
 import { Menu, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { gsap, useGSAP } from "@/lib/gsap";
 import { navItems } from "@/data/navigation";
 import MobileNavDrawer from "@/components/MobileNavDrawer";
 
@@ -17,6 +17,30 @@ export default function ScrollNavbar() {
   const [isVisible, setIsVisible] = useState(!isHomePage); // Always visible on non-home pages
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  // Home page: slide the navbar in/out. It starts hidden via classes so the
+  // server render matches; elsewhere it is always shown with no animation.
+  useGSAP(() => {
+    if (!isHomePage) {
+      gsap.set(navRef.current, { clearProps: "transform,opacity,visibility" });
+      return;
+    }
+    gsap.to(navRef.current, {
+      y: isVisible ? 0 : -100,
+      autoAlpha: isVisible ? 1 : 0,
+      duration: 0.3,
+      ease: "power1.inOut",
+    });
+  }, { dependencies: [isVisible, isHomePage] });
+
+  // Dropdowns stay mounted (hidden) so they can fade out as well as in.
+  useGSAP(() => {
+    gsap.utils.toArray<HTMLElement>("[data-dropdown]").forEach((el) => {
+      const open = el.dataset.dropdown === openDropdown;
+      gsap.to(el, { autoAlpha: open ? 1 : 0, y: open ? 0 : 10, duration: 0.2 });
+    });
+  }, { dependencies: [openDropdown], scope: navRef });
 
   useEffect(() => {
     // On non-home pages, always show navbar
@@ -52,14 +76,11 @@ export default function ScrollNavbar() {
 
   return (
     <>
-    <AnimatePresence>
-      {isVisible && (
-        <motion.nav
-          initial={isHomePage ? { y: -100, opacity: 0 } : false}
-          animate={{ y: 0, opacity: 1 }}
-          exit={isHomePage ? { y: -100, opacity: 0 } : undefined}
-          transition={isHomePage ? { duration: 0.3, ease: "easeInOut" } : { duration: 0 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md shadow-[0_4px_6px_-1px_rgb(156,163,175,0.5)] "
+        <nav
+          ref={navRef}
+          className={`fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md shadow-[0_4px_6px_-1px_rgb(156,163,175,0.5)] ${
+            isHomePage ? "invisible opacity-0" : ""
+          }`}
         >
           <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 lg:py-2">
             <div className="flex items-center justify-between h-16 md:h-20">
@@ -111,44 +132,37 @@ export default function ScrollNavbar() {
                           </Link>
 
                           {/* Dropdown Menu */}
-                          <AnimatePresence>
-                            {openDropdown === link.title && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: 10 }}
-                                transition={{ duration: 0.2 }}
-                                className={`absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-border p-6 w-[600px] z-50 ${
-                                  link.dropdownAlign === "right" ? "right-0" : "left-0"
-                                }`}
-                              >
-                                <div className="grid grid-cols-3 gap-6">
-                                  {dropdownSections.map((section) => (
-                                    <div key={section.title}>
-                                      <h3 className="text-xs font-inglobal font-semibold text-primary uppercase mb-3">
-                                        {section.title}
-                                      </h3>
-                                      <ul className="space-y-2">
-                                        {section.items.map((item) => (
-                                          <li key={item.href}>
-                                            <Link
-                                              href={item.href}
-                                              className="block text-sm font-proximaNova text-foreground/70 hover:text-primary transition-colors"
-                                            >
-                                              <div className="font-semibold">{item.title}</div>
-                                              <div className="text-xs text-foreground/50">
-                                                {item.description}
-                                              </div>
-                                            </Link>
-                                          </li>
-                                        ))}
-                                      </ul>
-                                    </div>
-                                  ))}
+                          <div
+                            data-dropdown={link.title}
+                            className={`invisible opacity-0 absolute top-full mt-2 bg-white rounded-lg shadow-lg border border-border p-6 w-[600px] z-50 ${
+                              link.dropdownAlign === "right" ? "right-0" : "left-0"
+                            }`}
+                          >
+                            <div className="grid grid-cols-3 gap-6">
+                              {dropdownSections.map((section) => (
+                                <div key={section.title}>
+                                  <h3 className="text-xs font-inglobal font-semibold text-primary uppercase mb-3">
+                                    {section.title}
+                                  </h3>
+                                  <ul className="space-y-2">
+                                    {section.items.map((item) => (
+                                      <li key={item.href}>
+                                        <Link
+                                          href={item.href}
+                                          className="block text-sm font-proximaNova text-foreground/70 hover:text-primary transition-colors"
+                                        >
+                                          <div className="font-semibold">{item.title}</div>
+                                          <div className="text-xs text-foreground/50">
+                                            {item.description}
+                                          </div>
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
                                 </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
+                              ))}
+                            </div>
+                          </div>
                         </>
                       ) : link.href.startsWith("/") ? (
                         <Link
@@ -183,11 +197,9 @@ export default function ScrollNavbar() {
               </button>
             </div>
           </div>
-        </motion.nav>
-      )}
-    </AnimatePresence>
+        </nav>
 
-    {/* Shared mobile drawer — rendered outside motion.nav so its fixed
+    {/* Shared mobile drawer — rendered outside the nav so its fixed
         positioning resolves against the viewport, not the transformed nav. */}
     <MobileNavDrawer isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
     </>

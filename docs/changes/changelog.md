@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- **Motion replaced with GSAP.** `ScrollNavbar`, `MobileNavDrawer`, `SubjectAccordion`, `GalleryGrid` and `Lightbox` animate with `gsap` + `@gsap/react` (`useGSAP`) via the shared `lib/gsap.ts`, which also makes GSAP honour `prefers-reduced-motion`. Hover/tap scaling (`FilterBar`, accordion headers) and the accordion chevron are now CSS transitions. The GreenSock agent skills (`gsap-*`) are installed in `.agents/skills`.
 - **News cards redesigned.** One shared `NewsCard` now drives the homepage, news listing, hub, achievements and related-articles grids: fixed 16:10 image crop, no badge over the photo, title + excerpt + a date/category footer, equal heights, whole-card link with a focus ring, and an SIS-crest placeholder when an article has no image. Dates render in UTC so they no longer shift a day west of UTC.
 - UI polish pass: news/event detail heroes align with the content column with a stronger scrim; category badges use contrast-safe tokens and capitalised labels; small gold text uses the new `--secondary-ink` token; stats numerals are white on green; side-stripe callouts and emoji icons replaced; site title/description set; themed selection, focus-visible outline and reduced-motion handling in `globals.css`.
 - Before/after screenshots in `docs/screenshots/`.
@@ -14,6 +15,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `npm run lint` now runs `eslint .` (`next lint` was removed in Next.js 16); existing lint errors fixed
 
 ### Removed
+- `motion` (and its transitive `framer-motion`) and the vendored `motion` agent skill.
 - Sanity schemas/client/queries, `/studio` route, `sanity`, `next-sanity`, `@sanity/*`, `@portabletext/react`, `styled-components`, and the Sanity agent skills.
 - Playwright MCP tooling (`mcp.json`, `.playwright-mcp/`, playwright skills and permissions)
 - Stale one-off docs (`RESTRUCTURE_COMPLETE.md`, `FEATURE_CHECKLIST.md`, `FEATURE_DOCUMENT.md`), unused assets, unloaded fonts, starter SVGs in `public/`, and `components/academics/AcademicsNav.tsx`
